@@ -38,6 +38,9 @@ class AtomicVariable:
         bytestring = buffer.read(self.bytesize)
         return self.unpack(bytestring)
 
+    def __str__(self):
+        return self.name
+
 
 class Bitfield(AtomicVariable):
 
@@ -45,6 +48,9 @@ class Bitfield(AtomicVariable):
         name = "X" + str(bytesize)
         struct_format = str(bytesize) + "s"
         AtomicVariable.__init__(self, name, bytesize, struct_format)
+
+    def __str__(self):
+        return "Bitfield({})".format(self.bytesize)
 
 
 U1 = AtomicVariable("U1", 1, "B")
@@ -71,6 +77,14 @@ class Field:
         self.name = name
         self.description = description
 
+    def __str__(self):
+        description_string = str(self.description)
+        if "\n" in description_string:
+            description_string = description_string.replace("\n", "\n  ")
+            return "{}:\n  {}".format(self.name, description_string)
+        else:
+            return "{}: {}".format(self.name, description_string)
+
 
 class Fields:
     def __init__(self, *fields):
@@ -83,6 +97,11 @@ class Fields:
             data[field.name] = field.parse(buffer, subcontext)
         return data
 
+    def __str__(self):
+        return "Fields {\n  " +\
+               ",\n  ".join([str(field) for field in self.fields]) +\
+               "\n}"
+
 
 class List:
     def __init__(self, descriptions):
@@ -94,6 +113,11 @@ class List:
         for description in self.descriptions:
             data.append(description.parse(buffer, subcontext))
         return data
+
+    def __str__(self):
+        return "[\n  " +\
+               ",\n  ".join([str(d) for d in self.descriptions]) +\
+               "\n]"
 
 
 class Loop:
@@ -109,3 +133,6 @@ class Loop:
             data.append(self.description.parse(buffer, subcontext))
         return data
 
+    def __str__(self):
+        return "Loop(key=\"{}\"):\n| ".format(self.key) +\
+               str(self.description).replace("\n", "\n| ")
