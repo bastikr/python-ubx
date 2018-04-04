@@ -1,6 +1,7 @@
 import struct
 import checksum
 
+
 class RawMessage:
     length_struct = struct.Struct("<H")
 
@@ -19,8 +20,11 @@ class RawMessage:
                     len(self.payload)
                     )
 
+    def __len__(self):
+        return len(self.payload)
+
     def lengthbytes(self):
-        self.length_struct.pack(len(self.payload))
+        return self.length_struct.pack(len(self))
 
     def checksum(self):
         return checksum.calculate(
