@@ -1,3 +1,5 @@
+from rawmessage import RawMessage
+
 from payload import AtomicVariable, Bitfield,\
     U1, U2, U4, U8,\
     I1, I2, I4, I8,\
