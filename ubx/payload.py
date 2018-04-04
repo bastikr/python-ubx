@@ -99,12 +99,13 @@ class Fields:
 
     def __str__(self):
         return "Fields {\n  " +\
-               ",\n  ".join([str(field) for field in self.fields]) +\
+               ",\n  ".join([str(field).replace("\n", "\n  ")
+                            for field in self.fields]) +\
                "\n}"
 
 
 class List:
-    def __init__(self, descriptions):
+    def __init__(self, *descriptions):
         self.descriptions = descriptions
 
     def parse(self, buffer, context=None):
@@ -116,7 +117,8 @@ class List:
 
     def __str__(self):
         return "[\n  " +\
-               ",\n  ".join([str(d) for d in self.descriptions]) +\
+               ",\n  ".join([str(d).replace("\n", "\n  ")
+                            for d in self.descriptions]) +\
                "\n]"
 
 
