@@ -52,5 +52,6 @@ class Message:
     def serialize(self):
         return self.description.serialize(self.content)
 
-
-# def parse(description, strea)
+    def __str__(self):
+        template = "Message(name=\"{}\")"
+        return template.format(self.description.name)
