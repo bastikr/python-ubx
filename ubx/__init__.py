@@ -6,3 +6,8 @@ from payload import AtomicVariable, Bitfield,\
     R4, R8,\
     X1, X2, X4, X8,\
     Field, Fields, List, Loop
+
+import descriptions
+import parser
+
+default_parser = parser.Parser(*descriptions.default)
