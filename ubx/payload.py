@@ -77,6 +77,9 @@ class Field:
         self.name = name
         self.description = description
 
+    def parse(self, buffer, context=None):
+        return self.description.parse(buffer, context)
+
     def __str__(self):
         description_string = str(self.description)
         if "\n" in description_string:
