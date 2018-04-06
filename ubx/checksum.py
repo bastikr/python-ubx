@@ -27,6 +27,5 @@ def calculate(*args):
     c = Checksum()
     for arg in args:
         for byte in arg:
-            print(type(byte))
             c.update(byte)
     return c
