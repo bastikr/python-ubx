@@ -1,7 +1,7 @@
 import struct
 
-import rawmessage
-import checksum
+from . import rawmessage
+from . import checksum
 
 
 class UBXReaderException(Exception):

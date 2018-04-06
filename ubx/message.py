@@ -1,5 +1,5 @@
 import struct
-import checksum
+from . import checksum
 
 syncchar1 = b"\xb5"
 syncchar2 = b"\x62"

@@ -1,5 +1,5 @@
 import struct
-import checksum
+from . import checksum
 
 
 class RawMessage:
