@@ -1,24 +1,24 @@
 from ..payload import *
 from ..message import *
 
-payload_description = Fields(
-    Field("pinSel", X4),
-    Field("pinBank", X4),
-    Field("pinDir", X4),
-    Field("pinVal", X4),
-    Field("noisePerMS", U2),
-    Field("agcCnt", U2),
-    Field("aStatus", U1),
-    Field("aPower", U1),
-    Field("flags", X1),
-    Field("reserved1", U1),
-    Field("usedMask", X4),
-    Field("VP", List(17*[U1])),
-    Field("jamInd", U1),
-    Field("reserved2", U2),
-    Field("pinIrq", X4),
-    Field("pullH", X4),
-    Field("pullL", X4)
+payload_description = Fields((
+    ("pinSel", X4),
+    ("pinBank", X4),
+    ("pinDir", X4),
+    ("pinVal", X4),
+    ("noisePerMS", U2),
+    ("agcCnt", U2),
+    ("aStatus", U1),
+    ("aPower", U1),
+    ("flags", X1),
+    ("reserved1", U1),
+    ("usedMask", X4),
+    ("VP", List(17*[U1])),
+    ("jamInd", U1),
+    ("reserved2", U2),
+    ("pinIrq", X4),
+    ("pullH", X4),
+    ("pullL", X4))
 )
 
 description = MessageDescription(

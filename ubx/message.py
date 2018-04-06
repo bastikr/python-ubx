@@ -30,6 +30,8 @@ class MessageDescription:
                        "payload" : str(self.payload_description).replace("\n", "\n"+" "*8)
                    })
 
+    def parse(self, buffer):
+        return Message(self, self.payload_description.parse(buffer))
 
     def serialize(self, content):
         payload = self.payload_description.serialize(content)

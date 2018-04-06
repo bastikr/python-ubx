@@ -13,7 +13,7 @@ class Parser:
     def parse(self, rawmsg):
         key = rawmsg.message_class + rawmsg.message_id
         if key not in self.descriptions:
-            raise ValueError("No description for " + str(rawmsg))
+            raise KeyError("No description for " + str(rawmsg))
         else:
             buffer = payload.Buffer(rawmsg.payload, index=0)
             return self.descriptions[key].parse(buffer)

@@ -72,43 +72,28 @@ X4 = Bitfield(4)
 X8 = Bitfield(8)
 
 
-class Field:
-    def __init__(self, name, description):
-        self.name = name
-        self.description = description
-
-    def parse(self, buffer, context=None):
-        return self.description.parse(buffer, context)
-
-    def __str__(self):
-        description_string = str(self.description)
-        if "\n" in description_string:
-            description_string = description_string.replace("\n", "\n  ")
-            return "{}:\n  {}".format(self.name, description_string)
-        else:
-            return "{}: {}".format(self.name, description_string)
-
-
-class Fields:
-    def __init__(self, *fields):
-        self.fields = fields
-
+class Fields(OrderedDict):
     def parse(self, buffer, context=None):
         data = OrderedDict()
         subcontext = Context.child(context, data)
-        for field in self.fields:
-            data[field.name] = field.parse(buffer, subcontext)
+        for name, description in self.items():
+            data[name] = description.parse(buffer, subcontext)
         return data
 
     def __str__(self):
-        return "Fields {\n  " +\
-               ",\n  ".join([str(field).replace("\n", "\n  ")
-                            for field in self.fields]) +\
-               "\n}"
+        description_strings = []
+        for name, description in self.items():
+            description_string = str(description)
+            if "\n" in description_string:
+                description_string = description_string.replace("\n", "\n    ")
+                description_strings.append("{}:\n    {}".format(name, description_string))
+            else:
+                description_strings.append("{}: {}".format(name, description_string))
+        return "Fields {\n  " + ",\n  ".join(description_strings) + "\n}"
 
 
 class List:
-    def __init__(self, *descriptions):
+    def __init__(self, descriptions):
         self.descriptions = descriptions
 
     def parse(self, buffer, context=None):
