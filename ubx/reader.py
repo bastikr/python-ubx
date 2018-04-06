@@ -1,5 +1,9 @@
 import struct
 
+import rawmessage
+import checksum
+
+
 class UBXReaderException(Exception):
     '''Ublox error class'''
     def __init__(self, msg):
@@ -7,9 +11,8 @@ class UBXReaderException(Exception):
         self.message = msg
 
 class UBXReader:
-    def __init__(self, stream, parser):
+    def __init__(self, stream):
         self.read = stream.read
-        self.parser = parser
 
     def read_checked(self, n):
         buffer = self.read(n)
@@ -80,11 +83,11 @@ class UBXReader:
             print("Hex byte_a: ", byte_a.encode("hex"))
             raise e
         int_b = struct.unpack("<B", byte_b)[0]
-        checksum_received = Checksum(int_a, int_b)
-        checksum_calculated = checksum(byte_message_class, byte_message_id, byte_length, byte_payload)
+        checksum_received = checksum.Checksum(int_a, int_b)
+        checksum_calculated = checksum.calculate(byte_message_class, byte_message_id, byte_length, byte_payload)
         if checksum_received != checksum_calculated:
             raise UBXReaderException("Checksums don't match:\n"
                                      "    received   = {}\n"
                                      "    calculated = {}".format(
                                         checksum_received, checksum_calculated))
-        return RawMessage(byte_message_class, byte_message_id, byte_payload)
+        return rawmessage.RawMessage(byte_message_class, byte_message_id, byte_payload)
