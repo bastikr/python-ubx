@@ -75,6 +75,14 @@ X8 = Bitfield(8)
 class Fields(OrderedDict):
     def __init__(self, *fields):
         OrderedDict.__init__(self, fields)
+        bytesize = 0
+        for _, description in fields:
+            if description.bytesize is None:
+                bytesize = None
+                break
+            else:
+                bytesize += description.bytesize
+        self.bytesize = bytesize
 
     def parse(self, buffer, context=None):
         data = OrderedDict()
@@ -92,12 +100,24 @@ class Fields(OrderedDict):
                 description_strings.append("{}:\n    {}".format(name, description_string))
             else:
                 description_strings.append("{}: {}".format(name, description_string))
-        return "Fields {\n  " + ",\n  ".join(description_strings) + "\n}"
+        if self.bytesize is None:
+            sizestring = "?"
+        else:
+            sizestring = str(self.bytesize)
+        return "Fields (length=" + sizestring + ") {\n  " + ",\n  ".join(description_strings) + "\n}"
 
 
 class List:
     def __init__(self, descriptions):
         self.descriptions = descriptions
+        bytesize = 0
+        for description in descriptions:
+            if description.bytesize is None:
+                bytesize = None
+                break
+            else:
+                bytesize += description.bytesize
+        self.bytesize = bytesize
 
     def parse(self, buffer, context=None):
         data = []
@@ -117,6 +137,7 @@ class Loop:
     def __init__(self, key, description):
         self.key = key
         self.description = description
+        self.bytesize = None
 
     def parse(self, buffer, context):
         n = context.data[self.key]
