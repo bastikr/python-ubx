@@ -1,7 +1,7 @@
 from ..payload import *
 from ..message import *
 
-payload_description = Fields((
+payload_description = Fields(
     ("pinSel", X4),
     ("pinBank", X4),
     ("pinDir", X4),
@@ -18,7 +18,7 @@ payload_description = Fields((
     ("reserved2", U2),
     ("pinIrq", X4),
     ("pullH", X4),
-    ("pullL", X4))
+    ("pullL", X4)
 )
 
 description = MessageDescription(

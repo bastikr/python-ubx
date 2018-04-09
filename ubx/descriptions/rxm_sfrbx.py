@@ -3,10 +3,10 @@ from ..message import *
 
 
 words_fields = Fields(
-    [("dwrd", U4)]
+    ("dwrd", U4)
 )
 
-payload_description = Fields((
+payload_description = Fields(
     ("gnssId", U1),
     ("svId", U1),
     ("reserved1", U1),
@@ -16,7 +16,7 @@ payload_description = Fields((
     ("version", U1),
     ("reserved3", U1),
     ("meas", Loop(key = "numWords", description = words_fields))
-))
+)
 
 description = MessageDescription(
     name = "RXM-SFRBX",

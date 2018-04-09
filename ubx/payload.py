@@ -73,6 +73,9 @@ X8 = Bitfield(8)
 
 
 class Fields(OrderedDict):
+    def __init__(self, *fields):
+        OrderedDict.__init__(self, fields)
+
     def parse(self, buffer, context=None):
         data = OrderedDict()
         subcontext = Context.child(context, data)

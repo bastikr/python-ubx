@@ -1,7 +1,7 @@
 from ..payload import *
 from ..message import *
 
-meas_fields = Fields((
+meas_fields = Fields(
     ("prMes", R8),
     ("cpMes", R8),
     ("doMes", R4),
@@ -15,9 +15,9 @@ meas_fields = Fields((
     ("doStdev", X1),
     ("trkStat", X1),
     ("reserved3", U1)
-))
+)
 
-payload_description = Fields((
+payload_description = Fields(
     ("rcvTow", R8),
     ("week", U2),
     ("leapS", I1),
@@ -27,7 +27,7 @@ payload_description = Fields((
     ("reserved1b", U1),
     ("reserved1c", U1),
     ("meas", Loop(key = "numMeas", description = meas_fields))
-))
+)
 
 description = MessageDescription(
     name = "RXM-RAWX",

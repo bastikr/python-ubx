@@ -2,7 +2,7 @@ from ..payload import *
 from ..message import *
 
 
-svs_fields = Fields((
+svs_fields = Fields(
     ("gnssId", U1),
     ("svId", U1),
     ("cno", U1),
@@ -10,15 +10,15 @@ svs_fields = Fields((
     ("azim", I2),
     ("prRes", I2),
     ("flags", X4),
-))
+)
 
-payload_description = Fields((
+payload_description = Fields(
     ("iTOW", U4),
     ("version", U1),
     ("numSvs", U1),
     ("reserved1", List([U1, U1])),
     ("meas", Loop(key = "numSvs", description = svs_fields))
-))
+)
 
 description = MessageDescription(
     name = "RXM-SFRBX",
