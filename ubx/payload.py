@@ -15,6 +15,10 @@ class Buffer:
     def __init__(self, data, index):
         self.data = data
         self.index = index
+
+    @property
+    def remaining_bytesize(self):
+        return len(self.data) - self.index
     
     def read(self, n):
         selection = self.data[self.index:self.index+n]
@@ -35,6 +39,11 @@ class AtomicVariable:
         return self.struct.unpack(bytestring)[0]
 
     def parse(self, buffer, context=None):
+        if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
+            raise ValueError("Not enough remaining bytes ({}) to parse {} of size {}".format(
+                                    buffer.remaining_bytesize,
+                                    self.name, self.bytesize)
+                            )
         bytestring = buffer.read(self.bytesize)
         return self.unpack(bytestring)
 
@@ -85,6 +94,11 @@ class Fields(OrderedDict):
         self.bytesize = bytesize
 
     def parse(self, buffer, context=None):
+        if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
+            raise ValueError("Not enough remaining bytes ({}) to parse fields of size {}".format(
+                                    buffer.remaining_bytesize,
+                                    self.bytesize)
+                            )
         data = OrderedDict()
         subcontext = Context.child(context, data)
         for name, description in self.items():
@@ -120,6 +134,11 @@ class List:
         self.bytesize = bytesize
 
     def parse(self, buffer, context=None):
+        if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
+            raise ValueError("Not enough remaining bytes ({}) to parse list of size {}".format(
+                                    buffer.remaining_bytesize,
+                                    self.bytesize)
+                            )
         data = []
         subcontext = Context.child(context, data)
         for description in self.descriptions:
