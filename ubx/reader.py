@@ -1,4 +1,5 @@
 import struct
+import codecs
 
 from . import rawmessage
 from . import checksum
@@ -35,10 +36,10 @@ class UBXReader:
     def check_syncchars(self):
         byte = self.read_checked(1)
         if byte != b"\xb5":
-            raise UBXReaderException("First syncchar is '{}' instead of 'b5'".format(byte.encode("hex")))
+            raise UBXReaderException("First syncchar is '{}' instead of 'b5'".format(codecs.encode(byte, "hex")))
         byte = self.read_checked(1)
         if byte != b"\x62":
-            raise UBXReaderException("Second syncchar is '{}' instead of '62'".format(byte.encode("hex")))
+            raise UBXReaderException("Second syncchar is '{}' instead of '62'".format(codecs.encode(byte, "hex")))
 
     def read_message_class(self):
         byte = self.read_checked(1)
@@ -80,7 +81,7 @@ class UBXReader:
             int_a = struct.unpack("<B", byte_a)[0]
         except Exception as e:
             print("Length of byte_a: ", len(byte_a))
-            print("Hex byte_a: ", byte_a.encode("hex"))
+            print("Hex byte_a: ", codecs.encode(byte_a, "hex"))
             raise e
         int_b = struct.unpack("<B", byte_b)[0]
         checksum_received = checksum.Checksum(int_a, int_b)

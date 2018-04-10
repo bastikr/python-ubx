@@ -1,4 +1,6 @@
 import struct
+import codecs
+
 from . import checksum
 
 
@@ -19,8 +21,8 @@ class RawMessage:
     def __str__(self):
         template = "RawMessage(class=0x{}, id=0x{}, length={})"
         return template.format(
-                    self.message_class.encode("hex"),
-                    self.message_id.encode("hex"),
+                    codecs.encode(self.message_class, "hex"),
+                    codecs.encode(self.message_id, "hex"),
                     len(self.payload)
                     )
 
