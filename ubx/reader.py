@@ -23,7 +23,7 @@ class UBXReader:
     def seek_syncchars(self):
         matched_syncchar1 = False
         while True:
-            byte = self.read(1)
+            byte = self.read_checked(1)
             if matched_syncchar1:
                 if byte == b"\x62":
                     return True
