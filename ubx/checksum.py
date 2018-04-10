@@ -3,7 +3,13 @@ UBX Checksum.
 
 Uses the 8-Bit Fletcher Algorithm.
 """
+
+import struct
+
+
 class Checksum:
+    checksum_struct = struct.Struct("<B")
+
     def __init__(self, a=0, b=0):
         assert isinstance(a, int)
         assert isinstance(b, int)
@@ -24,7 +30,8 @@ class Checksum:
         return not (self == other)
 
     def bytes(self):
-        raise NotImplementedError()
+        return self.checksum_struct.pack(self.a)\
+             + self.checksum_struct.pack(self.b)
 
 
 def calculate(*args):
