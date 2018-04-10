@@ -2,6 +2,10 @@ import struct
 from . import checksum
 
 
+syncchar1 = b"\xb5"
+syncchar2 = b"\x62"
+
+
 class RawMessage:
     length_struct = struct.Struct("<H")
 
@@ -23,6 +27,7 @@ class RawMessage:
     def __len__(self):
         return len(self.payload)
 
+    @property
     def lengthbytes(self):
         return self.length_struct.pack(len(self))
 
@@ -30,6 +35,18 @@ class RawMessage:
         return checksum.calculate(
                     self.message_class,
                     self.message_id,
-                    self.lengthbytes(),
-                    self.payload()
+                    self.lengthbytes,
+                    self.payload
                     )
+
+    def serialize(self):
+        data = [
+            syncchar1,
+            syncchar2,
+            self.message_class,
+            self.message_id,
+            self.lengthbytes,
+            self.payload,
+            *self.checksum().bytes()
+        ]
+        return "".join(data)

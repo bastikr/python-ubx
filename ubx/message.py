@@ -1,8 +1,6 @@
 import struct
-from . import checksum
+from . import rawmessage
 
-syncchar1 = b"\xb5"
-syncchar2 = b"\x62"
 
 length_struct = struct.Struct("<H")
 
@@ -33,17 +31,12 @@ class MessageDescription:
     def parse(self, buffer):
         return Message(self, self.payload_description.parse(buffer))
 
+    def rawmessage(self, content):
+        return rawmessage.RawMessage(self.message_class, self.message_id,
+                                     self.payload_description.serialize(content))
+
     def serialize(self, content):
-        payload = self.payload_description.serialize(content)
-        data = [
-            syncchar1,
-            syncchar2,
-            self.message_class,
-            self.message_id,
-            lengthbytes(payload),
-            payload,
-        ]
-        return syncchar1 + syncchar2 + self.message_class + self.message_id
+        return self.rawmessage(content).serialize()
 
 
 class Message:

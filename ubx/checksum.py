@@ -23,6 +23,10 @@ class Checksum:
     def __ne__(self, other):
         return not (self == other)
 
+    def bytes(self):
+        raise NotImplementedError()
+
+
 def calculate(*args):
     c = Checksum()
     for arg in args:
