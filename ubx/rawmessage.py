@@ -34,7 +34,7 @@ class RawMessage:
         return self.length_struct.pack(len(self))
 
     def checksum(self):
-        return checksum.calculate(
+        return checksum.Checksum.from_bytestrings(
                     self.message_class,
                     self.message_id,
                     self.lengthbytes,

@@ -85,7 +85,7 @@ class UBXReader:
             raise e
         int_b = struct.unpack("<B", byte_b)[0]
         checksum_received = checksum.Checksum(int_a, int_b)
-        checksum_calculated = checksum.calculate(byte_message_class, byte_message_id, byte_length, byte_payload)
+        checksum_calculated = checksum.Checksum.from_bytestrings(byte_message_class, byte_message_id, byte_length, byte_payload)
         if checksum_received != checksum_calculated:
             raise UBXReaderException("Checksums don't match:\n"
                                      "    received   = {}\n"

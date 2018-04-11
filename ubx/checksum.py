@@ -16,6 +16,16 @@ class Checksum:
         self.a = a
         self.b = b
 
+    @staticmethod
+    def from_bytestrings(*args):
+        a = 0
+        b = 0
+        for arg in args:
+            for byte in arg:
+                a += ord(byte)
+                b += a
+        return Checksum(a & 0xFF, b & 0xFF)
+
     def update(self, byte):
         self.a = (self.a + ord(byte)) & 0xFF
         self.b = (self.b + self.a) & 0xFF
@@ -32,11 +42,3 @@ class Checksum:
     def bytes(self):
         return self.checksum_struct.pack(self.a)\
              + self.checksum_struct.pack(self.b)
-
-
-def calculate(*args):
-    c = Checksum()
-    for arg in args:
-        for byte in arg:
-            c.update(byte)
-    return c
