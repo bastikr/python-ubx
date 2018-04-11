@@ -34,12 +34,12 @@ class AtomicVariable:
         self.struct = struct.Struct("<" + self.struct_format)
 
     def unpack(self, bytestring):
-        if self.bytesize is not None and self.bytesize!=len(bytestring):
+        if self.bytesize!=len(bytestring):
             raise ValueError("Given string doesn't match the expected size.")
         return self.struct.unpack(bytestring)[0]
 
     def parse(self, buffer, context=None):
-        if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
+        if buffer.remaining_bytesize < self.bytesize:
             raise ValueError("Not enough remaining bytes ({}) to parse {} of size {}".format(
                                     buffer.remaining_bytesize,
                                     self.name, self.bytesize)
