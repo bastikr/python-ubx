@@ -4,6 +4,7 @@ UBX Checksum.
 Uses the 8-Bit Fletcher Algorithm.
 """
 
+import sys
 import struct
 
 
@@ -16,15 +17,26 @@ class Checksum:
         self.a = a
         self.b = b
 
-    @staticmethod
-    def from_bytestrings(*args):
-        a = 0
-        b = 0
-        for arg in args:
-            for byte in arg:
-                a += ord(byte)
-                b += a
-        return Checksum(a & 0xFF, b & 0xFF)
+    if sys.version_info > (3,):
+        @staticmethod
+        def from_bytestrings(*args):
+            a = 0
+            b = 0
+            for arg in args:
+                for x in arg:
+                    a += x
+                    b += a
+            return Checksum(a & 0xFF, b & 0xFF)
+    else:
+        @staticmethod
+        def from_bytestrings(*args):
+            a = 0
+            b = 0
+            for arg in args:
+                for byte in arg:
+                    a += ord(byte)
+                    b += a
+            return Checksum(a & 0xFF, b & 0xFF)
 
     def update(self, byte):
         self.a = (self.a + ord(byte)) & 0xFF
