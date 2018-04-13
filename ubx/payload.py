@@ -118,7 +118,7 @@ class Fields(OrderedDict):
             sizestring = "?"
         else:
             sizestring = str(self.bytesize)
-        return "Fields (length=" + sizestring + ") {\n  " + ",\n  ".join(description_strings) + "\n}"
+        return "Fields(length=" + sizestring + ") {\n  " + ",\n  ".join(description_strings) + "\n}"
 
 
 class List:
