@@ -86,7 +86,7 @@ class Fields(OrderedDict):
         OrderedDict.__init__(self, fields)
         bytesize = 0
         for _, description in fields:
-            if description.bytesize is None:
+            if not hasattr(description, "bytesize") or description.bytesize is None:
                 bytesize = None
                 break
             else:
@@ -126,7 +126,7 @@ class List:
         self.descriptions = descriptions
         bytesize = 0
         for description in descriptions:
-            if description.bytesize is None:
+            if not hasattr(description, "bytesize") or description.bytesize is None:
                 bytesize = None
                 break
             else:
