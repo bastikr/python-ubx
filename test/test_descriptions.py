@@ -26,8 +26,8 @@ class TestPrinting(unittest.TestCase):
         self.assertEqual(str(ubx.R8), "R8")
 
     def test_List(self):
-        self.assertEqual(str(ubx.List("a", "b")), "[\n  a,\n  b\n]")
-        self.assertEqual(str(ubx.List("a", ubx.List("b"))),
+        self.assertEqual(str(ubx.List(["a", "b"])), "[\n  a,\n  b\n]")
+        self.assertEqual(str(ubx.List(["a", ubx.List("b")])),
                         "[\n"
                         "  a,\n"
                         "  [\n"
@@ -35,33 +35,21 @@ class TestPrinting(unittest.TestCase):
                         "  ]\n"
                         "]")
 
-    def test_Field(self):
-        field1 = ubx.Field("a", "value")
-        self.assertEqual(str(field1), "a: value")
-
-        field2 = ubx.Field("b", ubx.List(field1, "c"))
-        self.assertEqual(str(field2),
-                        "b:\n"
-                        "  [\n"
-                        "    a: value,\n"
-                        "    c\n"
-                        "  ]")
-
     def test_Fields(self):
-        field1 = ubx.Field("a", "va")
-        field2 = ubx.Field("b", "vb")
-        field3 = ubx.Field("c", "vc")
+        field1 = ("a", "va")
+        field2 = ("b", "vb")
+        field3 = ("c", "vc")
         fields1 = ubx.Fields(field1, field2)
         self.assertEqual(str(fields1),
-                        "Fields {\n"
+                        "Fields(length=?) {\n"
                         "  a: va,\n"
                         "  b: vb\n"
                         "}")
-        fields2 = ubx.Fields(ubx.Field("fields", fields1), field3)
+        fields2 = ubx.Fields(("fields", fields1), field3)
         self.assertEqual(str(fields2),
-                        "Fields {\n"
+                        "Fields(length=?) {\n"
                         "  fields:\n"
-                        "    Fields {\n"
+                        "    Fields(length=?) {\n"
                         "      a: va,\n"
                         "      b: vb\n"
                         "    },\n"
@@ -69,15 +57,15 @@ class TestPrinting(unittest.TestCase):
                         "}")
 
     def test_Loop(self):
-        field1 = ubx.Field("a", "va")
-        field2 = ubx.Field("b", "vb")
-        field3 = ubx.Field("c", "vc")
-        self.assertEqual(str(ubx.Loop("k", field1)),
+        field1 = ("a", "va")
+        field2 = ("b", "vb")
+        field3 = ("c", "vc")
+        self.assertEqual(str(ubx.Loop("k", "va")),
                         "Loop(key=\"k\"):\n"
-                        "| a: va")
-        self.assertEquals(str(ubx.Loop("k", ubx.Fields(field1, field2, field3))),
+                        "| va")
+        self.assertEqual(str(ubx.Loop("k", ubx.Fields(field1, field2, field3))),
                         "Loop(key=\"k\"):\n"
-                        "| Fields {\n"
+                        "| Fields(length=?) {\n"
                         "|   a: va,\n"
                         "|   b: vb,\n"
                         "|   c: vc\n"

@@ -16,6 +16,6 @@ class TestRawMessage(unittest.TestCase):
         msg_class = b"\x01"
         msg_id = b"\x02"
         msg = ubx.RawMessage(msg_class, msg_id, b"")
-        self.assertEqual(msg.lengthbytes(), b"\x00\x00")
+        self.assertEqual(msg.lengthbytes, b"\x00\x00")
         msg = ubx.RawMessage(msg_class, msg_id, b"\x02\xf1")
-        self.assertEqual(msg.lengthbytes(), b"\x02\x00")
+        self.assertEqual(msg.lengthbytes, b"\x02\x00")
