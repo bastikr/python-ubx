@@ -1,4 +1,6 @@
+from .checksum import Checksum
 from .rawmessage import RawMessage
+from .message import Message
 
 from .payload import AtomicVariable, Bitfield,\
     U1, U2, U4, U8,\
@@ -8,6 +10,8 @@ from .payload import AtomicVariable, Bitfield,\
     Fields, List, Loop
 
 from . import descriptions
-from . import parser
 
-default_parser = parser.Parser(*descriptions.default)
+from .reader import UBXReader
+from .parser import Parser
+
+default_parser = Parser(*descriptions.default)
