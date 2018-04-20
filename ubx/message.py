@@ -49,6 +49,18 @@ class Message:
     def serialize(self):
         return self.description.serialize(self.content)
 
+    @property
+    def message_class(self):
+        return self.description.message_class
+
+    @property
+    def message_id(self):
+        return self.description.message_id
+
+    @property
+    def key(self):
+        return self.message_class + self.message_id
+
     def __str__(self):
         template = "Message(name=\"{}\")"
         return template.format(self.description.name)
