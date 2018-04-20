@@ -1,4 +1,4 @@
-from .checksum import Checksum
+from .checksum import Checksum, ChecksumError
 from .rawmessage import RawMessage
 from .message import Message
 
@@ -13,5 +13,6 @@ from . import descriptions
 
 from .reader import UBXReader
 from .parser import Parser
+from .statistics import Statistics
 
 default_parser = Parser(*descriptions.default)
