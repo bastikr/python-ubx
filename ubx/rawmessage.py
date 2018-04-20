@@ -30,6 +30,10 @@ class RawMessage:
         return len(self.payload)
 
     @property
+    def key(self):
+        return self.message_class + self.message_id
+
+    @property
     def lengthbytes(self):
         return self.length_struct.pack(len(self))
 
