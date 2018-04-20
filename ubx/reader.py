@@ -12,8 +12,8 @@ class UBXReaderException(Exception):
         self.message = msg
 
 class UBXReader:
-    def __init__(self, stream):
-        self.read = stream.read
+    def __init__(self, read):
+        self.read = read
 
     def read_checked(self, n):
         buffer = self.read(n)
