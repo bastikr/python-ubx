@@ -1,6 +1,13 @@
 import struct
 from collections import OrderedDict
 
+
+class PayloadError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self)
+        self.msg = msg
+
+
 class Context:
     def __init__(self, data=None, parent=None):
         self.data = data
@@ -35,7 +42,7 @@ class AtomicVariable:
 
     def parse(self, buffer, context=None):
         if buffer.remaining_bytesize < self.bytesize:
-            raise ValueError("Not enough remaining bytes ({}) to parse {} of size {}".format(
+            raise PayloadError("Not enough remaining bytes ({}) to parse {} of size {}".format(
                                     buffer.remaining_bytesize,
                                     self.name, self.bytesize)
                             )
@@ -90,7 +97,7 @@ class Fields(OrderedDict):
 
     def parse(self, buffer, context=None):
         if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
-            raise ValueError("Not enough remaining bytes ({}) to parse fields of size {}".format(
+            raise PayloadError("Not enough remaining bytes ({}) to parse fields of size {}".format(
                                     buffer.remaining_bytesize,
                                     self.bytesize)
                             )
@@ -130,7 +137,7 @@ class List:
 
     def parse(self, buffer, context=None):
         if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
-            raise ValueError("Not enough remaining bytes ({}) to parse list of size {}".format(
+            raise PayloadError("Not enough remaining bytes ({}) to parse list of size {}".format(
                                     buffer.remaining_bytesize,
                                     self.bytesize)
                             )
