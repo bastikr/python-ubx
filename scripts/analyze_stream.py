@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
+import sys
 import os
 
 from ubx.reader import UBXReader as Reader
@@ -27,7 +28,7 @@ def read(n):
     stats.add_bytesread_try(n)
     result = read_raw(n)
     stats.add_bytesread_success(len(result))
-    print("Bytes read: {}\r".format(stats.bytes_read_success), end="")
+    sys.stdout.write("Bytes read: {}\r".format(stats.bytes_read_success))
     return result
 
 reader = Reader(read)
@@ -55,4 +56,5 @@ try:
 except (ValueError, KeyboardInterrupt):
     pass
 
+sys.stdout.write(" " * 50 + "\r")
 print(stats)
