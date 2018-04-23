@@ -4,8 +4,7 @@ template = """Statistics:
   Bytes read: {bytes_read_success}
   Unknown Messages: {unknown_messages}
   Known Messages: {known_messages}
-  Errors: {error}
-"""
+  Errors: {error}"""
 
 def keystring(key):
     assert len(key)==2
