@@ -29,6 +29,7 @@ def read(n):
     result = read_raw(n)
     stats.add_bytesread_success(len(result))
     sys.stdout.write("Bytes read: {}\r".format(stats.bytes_read_success))
+    sys.stdout.flush()
     return result
 
 reader = Reader(read)
@@ -57,4 +58,5 @@ except (ValueError, KeyboardInterrupt):
     pass
 
 sys.stdout.write(" " * 50 + "\r")
+sys.stdout.flush()
 print(stats)
