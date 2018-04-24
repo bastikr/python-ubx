@@ -39,22 +39,28 @@ def run():
     while True:
         try:
             rawmessage = reader.read_rawmessage()
-        except ubx.ChecksumError as e:
-            stats.add_error()
+        except ubx.ChecksumError:
+            stats.add_checksumerror()
             continue
-        except:
+        except EOFError:
             break
+        else:
+            stats.add_rawmessage(rawmessage)
 
         try:
             message = parser.parse(rawmessage)
         except KeyError:
             stats.add_unknownmessage(rawmessage)
             continue
-        stats.add_knownmessage(message)
+        except ubx.PayloadError:
+            stats.add_payloaderror(ubx.Message(parser.descriptions[rawmessage.key], None))
+            continue
+        else:
+            stats.add_message(message)
 
 try:
     run()
-except (ValueError, KeyboardInterrupt):
+except KeyboardInterrupt:
     pass
 
 sys.stdout.write(" " * 50 + "\r")

@@ -2,9 +2,11 @@ import binascii
 
 template = """Statistics:
   Bytes read: {bytes_read_success}
-  Unknown Messages: {unknown_messages}
-  Known Messages: {known_messages}
-  Errors: {error}"""
+  Checksum errors: {checksumerrors}
+  Raw Messages: {rawmessages}
+  Unknown Messages: {unknownmessages}
+  Known Messages: {messages}
+  Payload Errors: {payloaderrors}"""
 
 def keystring(key):
     assert len(key)==2
@@ -15,11 +17,45 @@ class MessageCounter:
     def __init__(self):
         self.data = {}
 
-    def add(self, key):
+    def add(self, message):
+        key = (message.key, message.description.name) 
         if key in self.data:
             self.data[key] += 1
         else:
             self.data[key] = 1
+
+    def __len__(self):
+        n = 0
+        for value in self.data.values():
+            n += value
+        return n
+
+    def __str__(self):
+        items = ["{"]
+        items += ["{} ({}): {}".format(
+                    key[1],
+                    keystring(key[0]),
+                    value) for key, value in self.data.items()]
+        items += ["}"]
+        return "\n".join(items)
+
+
+class RawMessageCounter:
+    def __init__(self):
+        self.data = {}
+
+    def add(self, rawmessage):
+        key = rawmessage.key
+        if key in self.data:
+            self.data[key] += 1
+        else:
+            self.data[key] = 1
+
+    def __len__(self):
+        n = 0
+        for value in self.data.values():
+            n += value
+        return n
 
     def __str__(self):
         items = ["{"]
@@ -30,26 +66,30 @@ class MessageCounter:
 
 class Statistics:
     def __init__(self):
-        self.success = 0
-        self.error = 0
-        self.unknown_messages = MessageCounter()
-        self.known_messages = MessageCounter()
+        self.checksumerrors = 0
+
+        self.rawmessages = RawMessageCounter()
+        self.unknownmessages = RawMessageCounter()
+        self.payloaderrors = MessageCounter()
+        self.messages = MessageCounter()
+
         self.bytes_read_try = 0
         self.bytes_read_success = 0
 
-    def add_error(self):
-        self.error += 1
+    def add_checksumerror(self):
+        self.checksumerrors += 1
 
-    def add_success(self):
-        self.success += 1
+    def add_rawmessage(self, rawmessage):
+        self.rawmessages.add(rawmessage)
 
-    def add_knownmessage(self, message):
-        self.add_success()
-        self.known_messages.add(message.key)
+    def add_payloaderror(self, message):
+        self.payloaderrors.add(message)
 
-    def add_unknownmessage(self, message):
-        self.add_success()
-        self.unknown_messages.add(message.key)
+    def add_message(self, message):
+        self.messages.add(message)
+
+    def add_unknownmessage(self, rawmessage):
+        self.unknownmessages.add(rawmessage)
 
     def add_bytesread_try(self, n):
         self.bytes_read_try += n
@@ -60,7 +100,9 @@ class Statistics:
     def __str__(self):
         return template.format(
             bytes_read_success = self.bytes_read_success,
-            error = self.error,
-            unknown_messages = str(self.unknown_messages).replace("\n", "\n    "),
-            known_messages = str(self.known_messages).replace("\n", "\n    "),
+            checksumerrors = self.checksumerrors,
+            rawmessages = str(len(self.rawmessages)),
+            unknownmessages = str(self.unknownmessages).replace("\n", "\n    "),
+            messages = str(self.messages).replace("\n", "\n    "),
+            payloaderrors = str(self.payloaderrors).replace("\n", "\n    "),
         )
