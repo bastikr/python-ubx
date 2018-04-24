@@ -21,7 +21,7 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name = "RXM-SFRBX",
+    name = "NAV-SAT",
     message_class = b"\x01",
     message_id = b"\x35",
     payload_description = payload_description
