@@ -171,3 +171,16 @@ class Loop:
     def __str__(self):
         return "Loop(key=\"{}\"):\n| ".format(self.key) +\
                str(self.description).replace("\n", "\n| ")
+
+
+class Options:
+    def __init__(self, *descriptions):
+        self.descriptions = descriptions
+
+    def parse(self, buffer, context=None):
+        for description in self.descriptions:
+            try:
+                return description.parse(buffer, context)
+            except PayloadError:
+                continue
+        raise PayloadError("All available description options failed.")
