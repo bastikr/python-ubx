@@ -25,6 +25,9 @@ description = MessageDescription(
     name = "MON-HW",
     message_class = b"\x0a",
     message_id = b"\x09",
-    payload_description = payload_description
+    payload_description = Options(
+        Fields(),
+        payload_description
+    )
 )
 

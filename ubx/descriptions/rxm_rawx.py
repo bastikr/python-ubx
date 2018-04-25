@@ -33,6 +33,9 @@ description = MessageDescription(
     name = "RXM-RAWX",
     message_class = b"\x02",
     message_id = b"\x15",
-    payload_description = payload_description
+    payload_description = Options(
+        Fields(),
+        payload_description,
+    )
 )
 
