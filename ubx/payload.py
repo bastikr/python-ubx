@@ -33,6 +33,15 @@ class Buffer:
         return selection
 
 
+class EmptyVariable:
+    bytesize = 0
+
+    def parse(self, buffer, context=None):
+        return None
+
+Empty = EmptyVariable()
+
+
 class AtomicVariable:
     def __init__(self, name, bytesize, struct_format):
         self.name = name

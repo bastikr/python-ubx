@@ -26,7 +26,7 @@ description = MessageDescription(
     message_class = b"\x0a",
     message_id = b"\x09",
     payload_description = Options(
-        Fields(),
+        Empty,
         payload_description
     )
 )

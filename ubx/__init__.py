@@ -2,7 +2,7 @@ from .checksum import Checksum, ChecksumError
 from .rawmessage import RawMessage
 from .message import Message
 
-from .payload import AtomicVariable, Bitfield,\
+from .payload import Empty, AtomicVariable, Bitfield,\
     U1, U2, U4, U8,\
     I1, I2, I4, I8,\
     R4, R8,\
