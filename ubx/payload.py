@@ -3,9 +3,11 @@ from collections import OrderedDict
 
 
 class PayloadError(Exception):
-    def __init__(self, msg):
-        Exception.__init__(self)
+    def __init__(self, msg, buffer, context):
+        Exception.__init__(self, msg)
         self.msg = msg
+        self.buffer = buffer
+        self.context = context
 
 
 class Context:
@@ -53,7 +55,8 @@ class AtomicVariable:
         if buffer.remaining_bytesize < self.bytesize:
             raise PayloadError("Not enough remaining bytes ({}) to parse {} of size {}".format(
                                     buffer.remaining_bytesize,
-                                    self.name, self.bytesize)
+                                    self.name, self.bytesize),
+                                buffer, context
                             )
         bytestring = buffer.read(self.bytesize)
         return self.struct.unpack(bytestring)[0]
@@ -108,7 +111,8 @@ class Fields(OrderedDict):
         if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
             raise PayloadError("Not enough remaining bytes ({}) to parse fields of size {}".format(
                                     buffer.remaining_bytesize,
-                                    self.bytesize)
+                                    self.bytesize),
+                                buffer, context
                             )
         data = OrderedDict()
         subcontext = Context.child(context, data)
@@ -148,7 +152,8 @@ class List:
         if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
             raise PayloadError("Not enough remaining bytes ({}) to parse list of size {}".format(
                                     buffer.remaining_bytesize,
-                                    self.bytesize)
+                                    self.bytesize),
+                                buffer, context
                             )
         data = []
         subcontext = Context.child(context, data)
@@ -192,4 +197,5 @@ class Options:
                 return description.parse(buffer, context)
             except PayloadError:
                 continue
-        raise PayloadError("All available description options failed.")
+        raise PayloadError("All available description options failed.",
+                            buffer, context)
