@@ -3,11 +3,12 @@ from collections import OrderedDict
 
 
 class PayloadError(Exception):
-    def __init__(self, msg, buffer, context):
+    def __init__(self, msg, buffer, context, suberror=None):
         Exception.__init__(self, msg)
         self.msg = msg
         self.buffer = buffer
         self.context = context
+        self.suberror = suberror
 
 
 class Context:
@@ -123,7 +124,11 @@ class Fields(OrderedDict):
         data = OrderedDict()
         subcontext = Context.child(context, data)
         for name, description in self.items():
-            data[name] = description.parse(buffer, subcontext)
+            try:
+                data[name] = description.parse(buffer, subcontext)
+            except PayloadError as e:
+                raise PayloadError("Fields: PayloadError while parsing the field {}.".format(name),
+                                    buffer, context, e)
         return data
 
     def __str__(self):
@@ -163,8 +168,12 @@ class List:
                             )
         data = []
         subcontext = Context.child(context, data)
-        for description in self.descriptions:
-            data.append(description.parse(buffer, subcontext))
+        for i, description in enumerate(self.descriptions):
+            try:
+                data.append(description.parse(buffer, subcontext))
+            except PayloadError as e:
+                raise PayloadError("List description: PayloadError while parsing entry number {}.".format(i),
+                                    buffer, context, e)
         return data
 
     def __str__(self):
@@ -184,8 +193,12 @@ class Loop:
         n = context.data[self.key]
         data = []
         subcontext = Context.child(context, data)
-        for _ in range(n):
-            data.append(self.description.parse(buffer, subcontext))
+        for i in range(n):
+            try:
+                data.append(self.description.parse(buffer, subcontext))
+            except PayloadError as e:
+                raise PayloadError("Loop description: Payload error in iteration {}.".format(i),
+                                    buffer, context, e)
         return data
 
     def __str__(self):
@@ -198,16 +211,18 @@ class Options:
         self.descriptions = descriptions
 
     def parse(self, buffer, context=None):
+        payload_errors = []
         for description in self.descriptions:
             if description.bytesize is not None and buffer.remaining_bytesize != description.bytesize:
                 continue
             try:
                 return description.parse(buffer, context)
-            except PayloadError:
+            except PayloadError as e:
+                payload_errors.append(e)
                 buffer.reset()
                 continue
         raise PayloadError("All available description options failed.",
-                            buffer, context)
+                            buffer, context, payload_errors)
 
     def __str__(self):
         options = ["  * " + str(d).replace("\n", "\n    ") for d in self.descriptions]
