@@ -12,7 +12,7 @@ from .payload import Empty, AtomicVariable, Bitfield,\
 
 from . import descriptions
 
-from .reader import UBXReader
+from .reader import Reader
 from .parser import Parser
 from .statistics import Statistics
 

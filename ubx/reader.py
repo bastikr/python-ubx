@@ -5,14 +5,14 @@ from . import rawmessage
 from . import checksum
 
 
-class UBXReaderException(Exception):
+class ReaderException(Exception):
     '''Ublox error class'''
     def __init__(self, msg):
         Exception.__init__(self, msg)
         self.message = msg
 
 
-class UBXReader:
+class Reader:
     def __init__(self, read):
         self.read = read
 
@@ -37,12 +37,12 @@ class UBXReader:
     def check_syncchars(self):
         byte = self.read_checked(1)
         if byte != b"\xb5":
-            raise UBXReaderException(
+            raise ReaderException(
                 "First syncchar is '{}' instead of 'b5'".format(
                     codecs.encode(byte, "hex").decode("utf-8")))
         byte = self.read_checked(1)
         if byte != b"\x62":
-            raise UBXReaderException(
+            raise ReaderException(
                 "Second syncchar is '{}' instead of '62'".format(
                     codecs.encode(byte, "hex").decode("utf-8")))
 

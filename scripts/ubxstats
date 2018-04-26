@@ -4,8 +4,6 @@ import argparse
 import sys
 import os
 
-from ubx.reader import UBXReader as Reader
-from ubx.reader import UBXReaderException
 import ubx
 
 
@@ -32,7 +30,7 @@ def read(n):
     sys.stdout.flush()
     return result
 
-reader = Reader(read)
+reader = ubx.Reader(read)
 parser = ubx.default_parser
 
 def run():
