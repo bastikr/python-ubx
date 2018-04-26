@@ -9,6 +9,7 @@ import ubx
 
 argparser = argparse.ArgumentParser(description="Analyze a UBX stream")
 argparser.add_argument("input", help="file or socket")
+argparser.add_argument("--progress", help="show progress", action="store_true")
 
 args = argparser.parse_args()
 
@@ -22,16 +23,21 @@ else:
 
 
 stats = ubx.Statistics()
+
+
 def read(n):
     stats.add_bytesread_try(n)
     result = read_raw(n)
     stats.add_bytesread_success(len(result))
-    sys.stdout.write("Bytes read: {}\r".format(stats.bytes_read_success))
-    sys.stdout.flush()
+    if args.progress:
+        sys.stdout.write("Bytes read: {}\r".format(stats.bytes_read_success))
+        sys.stdout.flush()
     return result
+
 
 reader = ubx.Reader(read)
 parser = ubx.default_parser
+
 
 def run():
     while True:
@@ -51,16 +57,20 @@ def run():
             stats.add_unknownmessage(rawmessage)
             continue
         except ubx.PayloadError:
-            stats.add_payloaderror(ubx.Message(parser.descriptions[rawmessage.key], None))
+            stats.add_payloaderror(
+                ubx.Message(parser.descriptions[rawmessage.key], None))
             continue
         else:
             stats.add_message(message)
+
 
 try:
     run()
 except KeyboardInterrupt:
     pass
 
-sys.stdout.write(" " * 50 + "\r")
-sys.stdout.flush()
+if args.progress:
+    sys.stdout.write(" " * 50 + "\r")
+    sys.stdout.flush()
+
 print(stats)
