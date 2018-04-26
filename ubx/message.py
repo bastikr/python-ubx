@@ -50,6 +50,10 @@ class Message:
         return self.description.serialize(self.content)
 
     @property
+    def name(self):
+        return self.description.name
+
+    @property
     def message_class(self):
         return self.description.message_class
 
@@ -63,4 +67,4 @@ class Message:
 
     def __str__(self):
         template = "Message(name=\"{}\")"
-        return template.format(self.description.name)
+        return template.format(self.name)

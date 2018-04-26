@@ -18,7 +18,7 @@ class MessageCounter:
         self.data = {}
 
     def add(self, message):
-        key = (message.key, message.description.name) 
+        key = (message.key, message.name)
         if key in self.data:
             self.data[key] += 1
         else:
