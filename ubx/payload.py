@@ -41,6 +41,9 @@ class EmptyVariable:
     def parse(self, buffer, context=None):
         return None
 
+    def __str__(self):
+        return "Empty"
+
 Empty = EmptyVariable()
 
 
