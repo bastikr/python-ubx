@@ -199,3 +199,7 @@ class Options:
                 continue
         raise PayloadError("All available description options failed.",
                             buffer, context)
+
+    def __str__(self):
+        options = ["  * " + str(d).replace("\n", "\n    ") for d in self.descriptions]
+        return "Options:\n" + "\n".join(options)
