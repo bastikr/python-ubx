@@ -4,6 +4,14 @@ from collections import OrderedDict
 
 class PayloadError(Exception):
     def __init__(self, msg, buffer, context, suberror=None):
+        if isinstance(suberror, Exception):
+            submessage = "\n- " + str(suberror)
+        elif isinstance(suberror, (tuple, list)):
+            submessage = "\n- " + "\n- ".join(map(str, suberror))
+        else:
+            submessage = ""
+        msg = msg + submessage.replace("\n", "\n  ")
+
         Exception.__init__(self, msg)
         self.msg = msg
         self.buffer = buffer
@@ -197,7 +205,7 @@ class Loop:
             try:
                 data.append(self.description.parse(buffer, subcontext))
             except PayloadError as e:
-                raise PayloadError("Loop description: Payload error in iteration {}.".format(i),
+                raise PayloadError("Loop description: Payload error in iteration {}/{}.".format(i+1, n),
                                     buffer, context, e)
         return data
 
@@ -214,6 +222,10 @@ class Options:
         payload_errors = []
         for description in self.descriptions:
             if description.bytesize is not None and buffer.remaining_bytesize != description.bytesize:
+                payload_errors.append(PayloadError(
+                    "Description bytesize ({}) doesn't match remaining bytesize ({})".format(
+                        description.bytesize, buffer.remaining_bytesize),
+                        buffer, context))
                 continue
             try:
                 return description.parse(buffer, context)
