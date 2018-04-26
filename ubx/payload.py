@@ -28,7 +28,10 @@ class Buffer:
     @property
     def remaining_bytesize(self):
         return len(self.data) - self.index
-    
+
+    def reset(self):
+        self.index = 0
+
     def read(self, n):
         selection = self.data[self.index:self.index+n]
         self.index += n
@@ -201,6 +204,7 @@ class Options:
             try:
                 return description.parse(buffer, context)
             except PayloadError:
+                buffer.reset()
                 continue
         raise PayloadError("All available description options failed.",
                             buffer, context)
