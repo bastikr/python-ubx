@@ -22,12 +22,11 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name = "MON-HW",
-    message_class = b"\x0a",
-    message_id = b"\x09",
-    payload_description = Options(
+    name="MON-HW",
+    message_class=b"\x0a",
+    message_id=b"\x09",
+    payload_description=Options(
         Empty,
         payload_description
     )
 )
-

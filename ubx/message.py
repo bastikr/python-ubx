@@ -6,6 +6,7 @@ from . import rawmessage
 
 length_struct = struct.Struct("<H")
 
+
 def lengthbytes(payload):
     length_struct.pack(len(payload))
 
@@ -24,11 +25,11 @@ class MessageDescription:
                    "    id = 0x{id}\n"\
                    "    payload = {payload}"
         return template.format(**{
-                       "name" : self.name,
-                       "class" : codecs.encode(self.message_class, "hex").decode("utf-8"),
-                       "id" : codecs.encode(self.message_id, "hex").decode("utf-8"),
-                       "payload" : str(self.payload_description).replace("\n", "\n"+" "*8)
-                   })
+            "name": self.name,
+            "class": codecs.encode(self.message_class, "hex").decode("utf-8"),
+            "id": codecs.encode(self.message_id, "hex").decode("utf-8"),
+            "payload": str(self.payload_description).replace("\n", "\n"+" "*8)
+            })
 
     def parse(self, buffer):
         return Message(self, self.payload_description.parse(buffer))

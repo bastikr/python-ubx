@@ -1,5 +1,6 @@
 from . import payload
 
+
 class Parser:
     def __init__(self, *descriptions):
         self.descriptions = {}

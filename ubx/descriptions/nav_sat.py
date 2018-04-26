@@ -21,10 +21,10 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name = "NAV-SAT",
-    message_class = b"\x01",
-    message_id = b"\x35",
-    payload_description = Options(
+    name="NAV-SAT",
+    message_class=b"\x01",
+    message_id=b"\x35",
+    payload_description=Options(
         Empty,
         payload_description
     )

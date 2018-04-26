@@ -11,13 +11,14 @@ class UBXReaderException(Exception):
         Exception.__init__(self, msg)
         self.message = msg
 
+
 class UBXReader:
     def __init__(self, read):
         self.read = read
 
     def read_checked(self, n):
         buffer = self.read(n)
-        if len(buffer)!=n:
+        if len(buffer) != n:
             raise EOFError("Reached end of stream")
         return buffer
 
@@ -36,12 +37,14 @@ class UBXReader:
     def check_syncchars(self):
         byte = self.read_checked(1)
         if byte != b"\xb5":
-            raise UBXReaderException("First syncchar is '{}' instead of 'b5'".format(
-                                        codecs.encode(byte, "hex").decode("utf-8")))
+            raise UBXReaderException(
+                "First syncchar is '{}' instead of 'b5'".format(
+                    codecs.encode(byte, "hex").decode("utf-8")))
         byte = self.read_checked(1)
         if byte != b"\x62":
-            raise UBXReaderException("Second syncchar is '{}' instead of '62'".format(
-                                        codecs.encode(byte, "hex").decode("utf-8")))
+            raise UBXReaderException(
+                "Second syncchar is '{}' instead of '62'".format(
+                    codecs.encode(byte, "hex").decode("utf-8")))
 
     def read_rawmessage(self, seek_syncchars=True):
         if seek_syncchars:
@@ -59,6 +62,7 @@ class UBXReader:
         bytes_checksum = self.read_checked(2)
         int_a, int_b = struct.unpack("<BB", bytes_checksum)
         checksum_received = checksum.Checksum(int_a, int_b)
-        checksum_calculated = checksum.Checksum.from_bytestrings(byte_message_class, byte_message_id, byte_length, bytes_payload)
+        checksum_calculated = checksum.Checksum.from_bytestrings(
+            byte_message_class, byte_message_id, byte_length, bytes_payload)
         checksum_received.check_equal(checksum_calculated)
         return rawmessage.RawMessage(byte_message_class, byte_message_id, bytes_payload)

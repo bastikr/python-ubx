@@ -8,10 +8,12 @@ template = """Statistics:
   Known Messages: {messages}
   Payload Errors: {payloaderrors}"""
 
+
 def keystring(key):
-    assert len(key)==2
+    assert len(key) == 2
     return "0x{} 0x{}".format(binascii.hexlify(key[0:1]).decode("utf-8"),
                               binascii.hexlify(key[1:2]).decode("utf-8"))
+
 
 class MessageCounter:
     def __init__(self):
@@ -33,9 +35,9 @@ class MessageCounter:
     def __str__(self):
         items = ["{"]
         items += ["{} ({}): {}".format(
-                    key[1],
-                    keystring(key[0]),
-                    value) for key, value in self.data.items()]
+            key[1],
+            keystring(key[0]),
+            value) for key, value in self.data.items()]
         items += ["}"]
         return "\n".join(items)
 
@@ -59,7 +61,8 @@ class RawMessageCounter:
 
     def __str__(self):
         items = ["{"]
-        items += ["{}: {}".format(keystring(key), value) for key, value in self.data.items()]
+        items += ["{}: {}".format(keystring(key), value)
+                  for key, value in self.data.items()]
         items += ["}"]
         return "\n".join(items)
 
@@ -99,10 +102,10 @@ class Statistics:
 
     def __str__(self):
         return template.format(
-            bytes_read_success = self.bytes_read_success,
-            checksumerrors = self.checksumerrors,
-            rawmessages = str(len(self.rawmessages)),
-            unknownmessages = str(self.unknownmessages).replace("\n", "\n    "),
-            messages = str(self.messages).replace("\n", "\n    "),
-            payloaderrors = str(self.payloaderrors).replace("\n", "\n    "),
+            bytes_read_success=self.bytes_read_success,
+            checksumerrors=self.checksumerrors,
+            rawmessages=str(len(self.rawmessages)),
+            unknownmessages=str(self.unknownmessages).replace("\n", "\n    "),
+            messages=str(self.messages).replace("\n", "\n    "),
+            payloaderrors=str(self.payloaderrors).replace("\n", "\n    "),
         )

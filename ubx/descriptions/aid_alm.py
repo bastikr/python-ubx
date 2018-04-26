@@ -18,10 +18,10 @@ payload_description2 = Fields(
 )
 
 description = MessageDescription(
-    name = "AID-ALM",
-    message_class = b"\x0b",
-    message_id = b"\x30",
-    payload_description = Options(
+    name="AID-ALM",
+    message_class=b"\x0b",
+    message_id=b"\x30",
+    payload_description=Options(
         Empty,
         payload_description0,
         payload_description1,

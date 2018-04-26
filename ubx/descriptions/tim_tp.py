@@ -12,8 +12,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name = "TIM-TP",
-    message_class = b"\x0D",
-    message_id = b"\x01",
-    payload_description = payload_description
+    name="TIM-TP",
+    message_class=b"\x0D",
+    message_id=b"\x01",
+    payload_description=payload_description
 )

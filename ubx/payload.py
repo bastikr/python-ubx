@@ -56,6 +56,7 @@ class EmptyVariable:
     def __str__(self):
         return "Empty"
 
+
 Empty = EmptyVariable()
 
 
@@ -69,10 +70,9 @@ class AtomicVariable:
     def parse(self, buffer, context=None):
         if buffer.remaining_bytesize < self.bytesize:
             raise PayloadError("Not enough remaining bytes ({}) to parse {} of size {}".format(
-                                    buffer.remaining_bytesize,
-                                    self.name, self.bytesize),
-                                buffer, context
-                            )
+                buffer.remaining_bytesize,
+                self.name, self.bytesize),
+                               buffer, context)
         bytestring = buffer.read(self.bytesize)
         return self.struct.unpack(bytestring)[0]
 
@@ -125,10 +125,9 @@ class Fields(OrderedDict):
     def parse(self, buffer, context=None):
         if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
             raise PayloadError("Not enough remaining bytes ({}) to parse fields of size {}".format(
-                                    buffer.remaining_bytesize,
-                                    self.bytesize),
-                                buffer, context
-                            )
+                buffer.remaining_bytesize,
+                self.bytesize),
+                               buffer, context)
         data = OrderedDict()
         subcontext = Context.child(context, data)
         for name, description in self.items():
@@ -136,7 +135,7 @@ class Fields(OrderedDict):
                 data[name] = description.parse(buffer, subcontext)
             except PayloadError as e:
                 raise PayloadError("Fields: PayloadError while parsing the field {}.".format(name),
-                                    buffer, context, e)
+                                   buffer, context, e)
         return data
 
     def __str__(self):
@@ -170,10 +169,9 @@ class List:
     def parse(self, buffer, context=None):
         if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
             raise PayloadError("Not enough remaining bytes ({}) to parse list of size {}".format(
-                                    buffer.remaining_bytesize,
-                                    self.bytesize),
-                                buffer, context
-                            )
+                buffer.remaining_bytesize,
+                self.bytesize),
+                               buffer, context)
         data = []
         subcontext = Context.child(context, data)
         for i, description in enumerate(self.descriptions):
@@ -181,13 +179,13 @@ class List:
                 data.append(description.parse(buffer, subcontext))
             except PayloadError as e:
                 raise PayloadError("List description: PayloadError while parsing entry number {}.".format(i),
-                                    buffer, context, e)
+                                   buffer, context, e)
         return data
 
     def __str__(self):
         return "[\n  " +\
                ",\n  ".join([str(d).replace("\n", "\n  ")
-                            for d in self.descriptions]) +\
+                             for d in self.descriptions]) +\
                "\n]"
 
 
@@ -206,7 +204,7 @@ class Loop:
                 data.append(self.description.parse(buffer, subcontext))
             except PayloadError as e:
                 raise PayloadError("Loop description: Payload error in iteration {}/{}.".format(i+1, n),
-                                    buffer, context, e)
+                                   buffer, context, e)
         return data
 
     def __str__(self):
@@ -225,7 +223,7 @@ class Options:
                 payload_errors.append(PayloadError(
                     "Description bytesize ({}) doesn't match remaining bytesize ({})".format(
                         description.bytesize, buffer.remaining_bytesize),
-                        buffer, context))
+                    buffer, context))
                 continue
             try:
                 return description.parse(buffer, context)
@@ -234,7 +232,7 @@ class Options:
                 buffer.reset()
                 continue
         raise PayloadError("All available description options failed.",
-                            buffer, context, payload_errors)
+                           buffer, context, payload_errors)
 
     def __str__(self):
         options = ["  * " + str(d).replace("\n", "\n    ") for d in self.descriptions]
