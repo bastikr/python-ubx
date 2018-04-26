@@ -36,10 +36,12 @@ class UBXReader:
     def check_syncchars(self):
         byte = self.read_checked(1)
         if byte != b"\xb5":
-            raise UBXReaderException("First syncchar is '{}' instead of 'b5'".format(codecs.encode(byte, "hex")))
+            raise UBXReaderException("First syncchar is '{}' instead of 'b5'".format(
+                                        codecs.encode(byte, "hex").decode("utf-8")))
         byte = self.read_checked(1)
         if byte != b"\x62":
-            raise UBXReaderException("Second syncchar is '{}' instead of '62'".format(codecs.encode(byte, "hex")))
+            raise UBXReaderException("Second syncchar is '{}' instead of '62'".format(
+                                        codecs.encode(byte, "hex").decode("utf-8")))
 
     def read_rawmessage(self, seek_syncchars=True):
         if seek_syncchars:

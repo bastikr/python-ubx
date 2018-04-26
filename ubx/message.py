@@ -25,8 +25,8 @@ class MessageDescription:
                    "    payload = {payload}"
         return template.format(**{
                        "name" : self.name,
-                       "class" : codecs.encode(self.message_class, "hex"),
-                       "id" : codecs.encode(self.message_id, "hex"),
+                       "class" : codecs.encode(self.message_class, "hex").decode("utf-8"),
+                       "id" : codecs.encode(self.message_id, "hex").decode("utf-8"),
                        "payload" : str(self.payload_description).replace("\n", "\n"+" "*8)
                    })
 
