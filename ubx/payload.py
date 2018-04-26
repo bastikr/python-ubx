@@ -196,6 +196,8 @@ class Options:
 
     def parse(self, buffer, context=None):
         for description in self.descriptions:
+            if description.bytesize is not None and buffer.remaining_bytesize != description.bytesize:
+                continue
             try:
                 return description.parse(buffer, context)
             except PayloadError:
