@@ -3,6 +3,7 @@ from . import mon_hw
 from . import rxm_rawx
 from . import rxm_sfrbx
 from . import nav_sat
+from . import nav_svinfo
 from . import tim_tp
 
 
@@ -12,5 +13,6 @@ default = [
     rxm_rawx.description,
     rxm_sfrbx.description,
     nav_sat.description,
+    nav_svinfo.description,
     tim_tp.description,
 ]
