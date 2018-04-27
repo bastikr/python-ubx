@@ -3,6 +3,7 @@
 import argparse
 import sys
 import os
+import time
 
 import ubx
 
@@ -10,6 +11,7 @@ import ubx
 argparser = argparse.ArgumentParser(description="Analyze a UBX stream")
 argparser.add_argument("input", help="file or socket")
 argparser.add_argument("--progress", help="show progress", action="store_true")
+argparser.add_argument("--fast", help="disable counting bytes read", action="store_true")
 
 args = argparser.parse_args()
 
@@ -25,17 +27,36 @@ else:
 stats = ubx.Statistics()
 
 
-def read(n):
-    stats.add_bytesread_try(n)
-    result = read_raw(n)
-    stats.add_bytesread_success(len(result))
+class ReadWrapper:
+    def __init__(self, read_raw):
+        self._read_raw = read_raw
+        self.t = -float("inf")
+
+    def _read(self, n):
+        stats.add_bytesread_try(n)
+        result = self._read_raw(n)
+        stats.add_bytesread_success(len(result))
+        return result
+
     if args.progress:
-        sys.stdout.write("Bytes read: {}\r".format(stats.bytes_read_success))
-        sys.stdout.flush()
-    return result
+        def read(self, n):
+            result = self._read(n)
+            t = time.time()
+            if t - self.t > 0.05:
+                sys.stdout.write("Bytes read: {}\r".format(stats.bytes_read_success))
+                sys.stdout.flush()
+                self.t = t
+            return result
+    else:
+        def read(self, n):
+            return self._read(n)
 
+if args.fast:
+    reader = ubx.Reader(read_raw)
+else:
+    readwrapper = ReadWrapper(read_raw)
+    reader = ubx.Reader(readwrapper.read)
 
-reader = ubx.Reader(read)
 parser = ubx.default_parser
 
 
