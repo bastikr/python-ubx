@@ -11,5 +11,6 @@ setup(name='python-ubx',
       author_email='basti.kr@gmail.com',
       url='https://github.com/bastikr/python-ubx',
       packages=['ubx', 'ubx.descriptions'],
-      scripts=['scripts/ubxstats']
+      scripts=['scripts/ubxstats'],
+      install_requires=["bitarray"]
      )
