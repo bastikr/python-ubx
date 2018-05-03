@@ -1,6 +1,8 @@
 import struct
 from collections import OrderedDict
 
+import bitarray
+
 
 class PayloadError(Exception):
     def __init__(self, msg, buffer, context, suberror=None):
@@ -80,15 +82,43 @@ class AtomicVariable:
         return self.name
 
 
-class Bitfield(AtomicVariable):
+class BitfieldEntry:
+    def __init__(self, name, bits):
+        self.name = name
+        self.bits = bits
 
-    def __init__(self, bytesize):
-        name = "X" + str(bytesize)
-        struct_format = str(bytesize) + "s"
-        AtomicVariable.__init__(self, name, bytesize, struct_format)
+    def parse(self, bitarray):
+        return bitarray[self.bits]
 
     def __str__(self):
-        return "Bitfield({})".format(self.bytesize)
+        return "BitfieldEntry(name=\"{}\"; bits={})".format(self.name, self.bits)
+
+
+class Bitfield:
+    def __init__(self, bytesize, entries=None):
+        self.bytesize = bytesize
+        self.entries = entries
+
+    def parse(self, buffer, context=None):
+        if buffer.remaining_bytesize < self.bytesize:
+            raise PayloadError("Not enough remaining bytes ({}) to parse Bitfield of size {}".format(
+                buffer.remaining_bytesize, self.bytesize),
+                               buffer, context)
+        bytestring = buffer.read(self.bytesize)
+        bits = bitarray.bitarray(endian="big")
+        bits.frombytes(bytestring)
+        if self.entries is None:
+            return bits
+        d = OrderedDict()
+        for entry in self.entries:
+            d[entry.name] = entry.parse(bits)
+        return d
+
+    def __str__(self):
+        header = "Bitfield({})".format(self.bytesize)
+        if self.entries is None:
+            return header
+        return header + "\n".join(["  *"+str(entry) for entry in self.entries])
 
 
 U1 = AtomicVariable("U1", 1, "B")
