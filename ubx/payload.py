@@ -105,7 +105,7 @@ class Bitfield:
                 buffer.remaining_bytesize, self.bytesize),
                                buffer, context)
         bytestring = buffer.read(self.bytesize)
-        bits = bitarray.bitarray(endian="big")
+        bits = bitarray.bitarray(endian="little")
         bits.frombytes(bytestring)
         if self.entries is None:
             return bits
