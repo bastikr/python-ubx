@@ -55,6 +55,11 @@ class EmptyVariable:
     def parse(self, buffer, context=None):
         return None
 
+    def serialize(self, content, context=None):
+        if content is not None:
+            raise PayloadError("Content to be serialized by EmptyVariable is not None.", content, context)
+        return b""
+
     def __str__(self):
         return "Empty"
 
@@ -78,6 +83,9 @@ class AtomicVariable:
         bytestring = buffer.read(self.bytesize)
         return self.struct.unpack(bytestring)[0]
 
+    def serialize(self, content, context=None):
+        return self.struct.pack(content)
+
     def __str__(self):
         return self.name
 
@@ -89,6 +97,9 @@ class BitfieldEntry:
 
     def parse(self, bitarray):
         return bitarray[self.bits]
+
+    def serialize(self, content, bitarray, context=None):
+        bitarray[self.bits] = content[self.name]
 
     def __str__(self):
         return "BitfieldEntry(name=\"{}\"; bits={})".format(self.name, self.bits)
@@ -113,6 +124,22 @@ class Bitfield:
         for entry in self.entries:
             d[entry.name] = entry.parse(bits)
         return d
+
+    def serialize(self, content, context=None):
+        if isinstance(content, bitarray.bitarray):
+            return content.tobytes()
+        if not isinstance(content, (dict, OrderedDict)):
+            raise PayloadError("Serialization error in Bitfield: content must be dict or OrderedDict but is {}.".format(
+                type(content)), content, context)
+        if self.entries is None:
+            raise PayloadError("Serialization error in Bitfield: Description is None but content is {}.".format(
+                type(content)), content, context)
+        subcontext = Context.child(context, content)
+        bits = bitarray.bitarray(8*self.bytesize, endian="little")
+        bits.setall(False)
+        for entry in self.entries:
+            entry.serialize(content, bits, subcontext)
+        return bits.tobytes()
 
     def __str__(self):
         header = "Bitfield({})".format(self.bytesize)
@@ -168,6 +195,26 @@ class Fields(OrderedDict):
                                    buffer, context, e)
         return data
 
+    def serialize(self, content, context=None):
+        if not isinstance(content, (dict, OrderedDict)):
+            raise PayloadError("Serialization error in Fields: content must be dict or OrderedDict but is {}.".format(
+                type(content)), content, context)
+        if len(content) != len(self):
+            raise PayloadError("Serialization error in Fields: length of content is {} instead of {}.".format(
+                len(content), len(self)), content, context)
+        subcontext = Context.child(context, content)
+        data = []
+        for name, description in self.items():
+            if name not in content:
+                raise PayloadError("Serialization error in Fields: content has no field with name {}.".format(name),
+                    content, context)
+            try:
+                data.append(description.serialize(content[name], subcontext))
+            except PayloadError as e:
+                raise PayloadError("Serialization error in field {}.".format(name),
+                    content, context, e)
+        return b"".join(data)
+
     def __str__(self):
         description_strings = []
         for name, description in self.items():
@@ -212,6 +259,23 @@ class List:
                                    buffer, context, e)
         return data
 
+    def serialize(self, content, context=None):
+        if not isinstance(content, (list, tuple)):
+            raise PayloadError("Serialization error in list: content must be list or tuple but is {}.".format(
+                type(content)), content, context)
+        if len(content) != len(self.descriptions):
+            raise PayloadError("Serialization error in list: length of content is {} instead of {}.".format(
+                len(content), len(self.descriptions)), content, context)
+        subcontext = Context.child(context, content)
+        data = []
+        for i, description in enumerate(self.descriptions):
+            try:
+                data.append(description.serialize(content[i], subcontext))
+            except PayloadError as e:
+                raise PayloadError("Serialization error in list entry number {}".format(i),
+                    content, context, e)
+        return b"".join(data)
+
     def __str__(self):
         return "[\n  " +\
                ",\n  ".join([str(d).replace("\n", "\n  ")
@@ -236,6 +300,21 @@ class Loop:
                 raise PayloadError("Loop description: Payload error in iteration {}/{}.".format(i+1, n),
                                    buffer, context, e)
         return data
+
+    def serialize(self, content, context=None):
+        subcontext = Context.child(context, content)
+        data = []
+        if not isinstance(content, (list, tuple)):
+            raise PayloadError("Serialization error in loop: content must be list or tuple but is {}.".format(
+                type(content)), content, context)
+        try:
+            for i, entry in enumerate(content):
+                data.append(self.description.serialize(entry, subcontext))
+        except PayloadError as e:
+            raise PayloadError("Serialization error in loop iteration {}".format(i),
+                content, context, e)
+
+        return b"".join(data)
 
     def __str__(self):
         return "Loop(key=\"{}\"):\n| ".format(self.key) +\
@@ -263,6 +342,17 @@ class Options:
                 continue
         raise PayloadError("All available description options failed.",
                            buffer, context, payload_errors)
+
+    def serialize(self, content, context=None):
+        payload_errors = []
+        subcontext = Context.child(context, content)
+        for description in self.descriptions:
+            try:
+                return description.serialize(content, subcontext)
+            except PayloadError as e:
+                payload_errors.append(e)
+        raise PayloadError("All available description options failed.",
+                           content, context, payload_errors)
 
     def __str__(self):
         options = ["  * " + str(d).replace("\n", "\n    ") for d in self.descriptions]
