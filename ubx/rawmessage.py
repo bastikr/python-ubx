@@ -53,4 +53,4 @@ class RawMessage:
             self.payload,
             self.checksum().bytes()
         ]
-        return "".join(data)
+        return b"".join(data)
