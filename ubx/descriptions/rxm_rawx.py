@@ -1,6 +1,36 @@
 from ..payload import *
 from ..message import *
 
+
+recStat = Bitfield(1, (
+    BitfieldEntry("leapSec", 0),
+    BitfieldEntry("clkReset", 1),
+    )
+)
+
+prStdev = Bitfield(1, (
+    BitfieldEntry("prStd", slice(0, 4)),
+    )
+)
+
+cpStdev = Bitfield(1, (
+    BitfieldEntry("cpStd", slice(0, 4)),
+    )
+)
+
+doStdev = Bitfield(1, (
+    BitfieldEntry("doStd", slice(0, 4)),
+    )
+)
+
+trkStat = Bitfield(1, (
+    BitfieldEntry("prValid", 0),
+    BitfieldEntry("cpValid", 1),
+    BitfieldEntry("halfCyc", 2),
+    BitfieldEntry("subHalfCyc", 3),
+    )
+)
+
 meas_fields = Fields(
     ("prMes", R8),
     ("cpMes", R8),
@@ -11,9 +41,10 @@ meas_fields = Fields(
     ("freqId", U1),
     ("locktime", U2),
     ("cno", U1),
-    ("prStdev", X1),
-    ("doStdev", X1),
-    ("trkStat", X1),
+    ("prStdev", prStdev),
+    ("cpStdev", cpStdev),
+    ("doStdev", doStdev),
+    ("trkStat", trkStat),
     ("reserved3", U1)
 )
 
@@ -22,10 +53,9 @@ payload_description = Fields(
     ("week", U2),
     ("leapS", I1),
     ("numMeas", U1),
-    ("recStat", X1),
-    ("reserved1a", U1),
-    ("reserved1b", U1),
-    ("reserved1c", U1),
+    ("recStat", recStat),
+    ("version", U1),
+    ("reserved1", List(2*[U1])),
     ("meas", Loop(key = "numMeas", description = meas_fields))
 )
 

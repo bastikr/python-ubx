@@ -1,6 +1,15 @@
 from ..payload import *
 from ..message import *
 
+
+flags = Bitfield(1, (
+    BitfieldEntry("rtcCalib", 0),
+    BitfieldEntry("safeBoot", 1),
+    BitfieldEntry("jammingState", slice(2, 4)),
+    BitfieldEntry("xtalAbsent", 4),
+    )
+)
+
 payload_description = Fields(
     ("pinSel", X4),
     ("pinBank", X4),
@@ -10,7 +19,7 @@ payload_description = Fields(
     ("agcCnt", U2),
     ("aStatus", U1),
     ("aPower", U1),
-    ("flags", X1),
+    ("flags", flags),
     ("reserved1", U1),
     ("usedMask", X4),
     ("VP", List(17*[U1])),

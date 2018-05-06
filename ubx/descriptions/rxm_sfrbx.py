@@ -12,9 +12,9 @@ payload_description = Fields(
     ("reserved1", U1),
     ("freqId", U1),
     ("numWords", U1),
-    ("reserved2", U1),
+    ("chn", U1),
     ("version", U1),
-    ("reserved3", U1),
+    ("reserved2", U1),
     ("meas", Loop(key = "numWords", description = words_fields))
 )
 

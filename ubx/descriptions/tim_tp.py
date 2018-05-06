@@ -2,18 +2,34 @@ from ..payload import *
 from ..message import *
 
 
+flags = Bitfield(1, (
+    BitfieldEntry("timeBase", 0),
+    BitfieldEntry("utc", 1),
+    BitfieldEntry("raim", slice(2, 4)),
+    )
+)
+
+refInfo = Bitfield(1, (
+    BitfieldEntry("timeRefGnss", slice(0, 4)),
+    BitfieldEntry("utcStandard", slice(4, 8)),
+    )
+)
+
 payload_description = Fields(
     ("towMS", U4),
     ("towSubMS", U4),
     ("qErr", I4),
     ("week", U2),
-    ("flags", X1),
-    ("refInfo", X1)
+    ("flags", flags),
+    ("refInfo", refInfo)
 )
 
 description = MessageDescription(
     name="TIM-TP",
     message_class=b"\x0D",
     message_id=b"\x01",
-    payload_description=payload_description
+    payload_description=Options(
+        Empty,
+        payload_description
+    )
 )
