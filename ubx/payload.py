@@ -145,7 +145,7 @@ class Bitfield:
         header = "Bitfield({})".format(self.bytesize)
         if self.entries is None:
             return header
-        return header + "\n".join(["  *"+str(entry) for entry in self.entries])
+        return header + ":\n" + "\n".join(["  * "+str(entry) for entry in self.entries])
 
 
 U1 = AtomicVariable("U1", 1, "B")
