@@ -355,5 +355,7 @@ class Options:
                            content, context, payload_errors)
 
     def __str__(self):
-        options = ["  * " + str(d).replace("\n", "\n    ") for d in self.descriptions]
+        options = []
+        for i, d in enumerate(self.descriptions):
+            options.append("  [{}]: ".format(i) + str(d).replace("\n", "\n    "))
         return "Options:\n" + "\n".join(options)
