@@ -1,22 +1,11 @@
-from . import aid_alm
-from . import aid_eph
-from . import mon_hw
-from . import rxm_rawx
-from . import rxm_sfrbx
-from . import nav_sat
-from . import nav_status
-from . import nav_svinfo
-from . import tim_tp
+import os
+import importlib
 
+default = []
 
-default = [
-    aid_alm.description,
-    aid_eph.description,
-    mon_hw.description,
-    rxm_rawx.description,
-    rxm_sfrbx.description,
-    nav_sat.description,
-    nav_status.description,
-    nav_svinfo.description,
-    tim_tp.description,
-]
+for name in os.listdir(os.path.dirname(__file__)):
+    if name.startswith("_") or not name.endswith(".py"):
+        continue
+    name = name[:-3]
+    importlib.import_module("." + name, "ubx.descriptions")
+    default.append(globals()[name].description)
