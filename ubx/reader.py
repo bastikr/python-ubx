@@ -46,7 +46,7 @@ class Reader:
                 "Second syncchar is '{}' instead of '62'".format(
                     codecs.encode(byte, "hex").decode("utf-8")))
 
-    def read_rawmessage(self, seek_syncchars=True):
+    def read_rawmessageparts(self, seek_syncchars=True):
         if seek_syncchars:
             self.seek_syncchars()
         else:
@@ -54,15 +54,22 @@ class Reader:
         header = self.read_checked(4)
         byte_message_class = header[0:1]
         byte_message_id = header[1:2]
-        byte_length = header[2:4]
+        bytes_length = header[2:4]
 
-        length = struct.unpack("<H", byte_length)[0]
+        length = struct.unpack("<H", bytes_length)[0]
         bytes_payload = self.read_checked(length)
 
         bytes_checksum = self.read_checked(2)
         int_a, int_b = struct.unpack("<BB", bytes_checksum)
         checksum_received = checksum.Checksum(int_a, int_b)
         checksum_calculated = checksum.Checksum.from_bytestrings(
-            byte_message_class, byte_message_id, byte_length, bytes_payload)
+            byte_message_class, byte_message_id, bytes_length, bytes_payload)
         checksum_received.check_equal(checksum_calculated)
+        return (header,
+                byte_message_class, byte_message_id,
+                bytes_length, bytes_payload, bytes_checksum)
+
+    def read_rawmessage(self, seek_syncchars=True):
+        parts = self.read_rawmessageparts(seek_syncchars=seek_syncchars)
+        _, byte_message_class, byte_message_id, _, bytes_payload, _ = parts
         return rawmessage.RawMessage(byte_message_class, byte_message_id, bytes_payload)
