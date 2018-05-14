@@ -1,5 +1,8 @@
 import unittest
 
+import os
+import codecs
+
 import ubx
 from ubx.descriptions import mon_hw
 from ubx.descriptions import rxm_rawx
@@ -74,8 +77,33 @@ class TestPrinting(unittest.TestCase):
 
 
 class TestDescriptions(unittest.TestCase):
-    def test_parse(self):
-        print(rxm_rawx.description)
+    pass
+
+
+def make_testfunc(directory, name):
+    _, message_class, message_id, length, checksum = name[:-4].split("-")
+    message_class = codecs.decode(message_class.encode("utf-8"), "hex")
+    message_id = codecs.decode(message_id.encode("utf-8"), "hex")
+    checksum = codecs.decode(checksum.encode("utf-8"), "hex")
+    def test(self):
+        with open(os.path.join(directory, name), "rb") as f:
+            reader = ubx.Reader(f.read)
+            msg = reader.read_rawmessage()
+        self.assertEqual(message_class, msg.message_class)
+        self.assertEqual(message_id, msg.message_id)
+        self.assertEqual(int(length), len(msg))
+        self.assertEqual(checksum, msg.checksum().bytes())
+    return test
+
+
+testdir = "../ubx-testdata/data"
+names = os.listdir(testdir)
+for name in names:
+    if not name.endswith("ubx"):
+        continue
+    f = make_testfunc(testdir, name)
+    setattr(TestDescriptions, 'test_{0}'.format(name[:-4]), f)
+
 
 if __name__ == '__main__':
     unittest.main()
