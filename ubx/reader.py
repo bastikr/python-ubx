@@ -65,11 +65,10 @@ class Reader:
         checksum_calculated = checksum.Checksum.from_bytestrings(
             byte_message_class, byte_message_id, bytes_length, bytes_payload)
         checksum_received.check_equal(checksum_calculated)
-        return (header,
-                byte_message_class, byte_message_id,
+        return (byte_message_class, byte_message_id,
                 bytes_length, bytes_payload, bytes_checksum)
 
     def read_rawmessage(self, seek_syncchars=True):
         parts = self.read_rawmessageparts(seek_syncchars=seek_syncchars)
-        _, byte_message_class, byte_message_id, _, bytes_payload, _ = parts
+        byte_message_class, byte_message_id, _, bytes_payload, _ = parts
         return rawmessage.RawMessage(byte_message_class, byte_message_id, bytes_payload)
