@@ -80,7 +80,7 @@ class TestDescriptions(unittest.TestCase):
     pass
 
 
-def make_testfunc(directory, name):
+def make_test_read_serialize(directory, name):
     _, message_class, message_id, length, checksum = name[:-4].split("-")
     message_class = codecs.decode(message_class.encode("utf-8"), "hex")
     message_id = codecs.decode(message_id.encode("utf-8"), "hex")
@@ -93,6 +93,9 @@ def make_testfunc(directory, name):
         self.assertEqual(message_id, msg.message_id)
         self.assertEqual(int(length), len(msg))
         self.assertEqual(checksum, msg.checksum().bytes())
+        with open(os.path.join(directory, name), "rb") as f:
+            data = f.read()
+        self.assertEqual(data, msg.serialize())
     return test
 
 
@@ -101,7 +104,7 @@ names = os.listdir(testdir)
 for name in names:
     if not name.endswith("ubx"):
         continue
-    f = make_testfunc(testdir, name)
+    f = make_test_read_serialize(testdir, name)
     setattr(TestDescriptions, 'test_{0}'.format(name[:-4]), f)
 
 
