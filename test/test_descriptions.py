@@ -96,7 +96,7 @@ def make_testfunc(directory, name):
     return test
 
 
-testdir = "../ubx-testdata/data"
+testdir = "ubx-testdata/data"
 names = os.listdir(testdir)
 for name in names:
     if not name.endswith("ubx"):
