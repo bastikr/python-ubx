@@ -13,11 +13,22 @@ txReady = Bitfield(2, entries=[
     BitfieldEntry("thres", slice(7, 16))
 ])
 
-mode = Bitfield(4, entries=[
-    BitfieldEntry("charLen", slice(6, 8)),
-    BitfieldEntry("parity", slice(9, 12)),
-    BitfieldEntry("nStopBits", slice(12, 14))
-])
+# mode_uart = Bitfield(4, entries=[
+#     BitfieldEntry("charLen", slice(6, 8)),
+#     BitfieldEntry("parity", slice(9, 12)),
+#     BitfieldEntry("nStopBits", slice(12, 14))
+# ])
+
+# mode_usb = List(8*[U1])
+
+# mode_spi = Bitfield(2, entries=[
+#     BitfieldEntry("spiMode", slice(1, 3)),
+#     BitfieldEntry("ffCnt", slice(8, 14))
+# ])
+
+# mode_ddc = Bitfield(2, entries=[
+#     BitfieldEntry("slaveAddr", slice(1, 8))
+# ])
 
 inProtoMask = Bitfield(2, entries=[
     BitfieldEntry("inUbx", 0),
@@ -40,7 +51,7 @@ payload_description1 = Fields(
     ("portID", U1),
     ("reserved1", U1),
     ("txReady", txReady),
-    ("mode", mode),
+    ("mode", X4),
     ("baudRate", U4),
     ("inProtoMask", inProtoMask),
     ("outProtoMask", outProtoMask),
@@ -48,25 +59,13 @@ payload_description1 = Fields(
     ("reserved2", List(2*[U1]))
 )
 
-payload_description2 = Fields(
-    ("portID", U1),
-    ("reserved1", U1),
-    ("txReady", txReady),
-    ("reserved2", mode),
-    ("baudRate", U4),
-    ("inProtoMask", inProtoMask),
-    ("outProtoMask", outProtoMask),
-    ("flags", flags),
-    ("reserved2", List(2*[U1]))
-)
 
 description = MessageDescription(
     name="CFG-PRT",
     message_class=b"\x06",
     message_id=b"\x00",
     payload_description=Options(
-        Empty,
         payload_description0,
-        payload_description1,
+        payload_description1
     )
 )
