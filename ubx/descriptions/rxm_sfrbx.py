@@ -15,7 +15,7 @@ payload_description = Fields(
     ("chn", U1),
     ("version", U1),
     ("reserved2", U1),
-    ("meas", Loop(key = "numWords", description = words_fields))
+    ("meas", KeyLoop(key="numWords", description=words_fields))
 )
 
 description = MessageDescription(

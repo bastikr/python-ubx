@@ -8,7 +8,7 @@ from .payload import Empty, AtomicVariable,\
     R4, R8,\
     Bitfield, BitfieldEntry,\
     X1, X2, X4, X8,\
-    Fields, List, Loop, Options,\
+    Fields, List, KeyLoop, MatchedLoop, Options,\
     PayloadError
 
 from . import descriptions

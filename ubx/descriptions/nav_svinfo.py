@@ -40,7 +40,7 @@ payload_description0 = Fields(
     ("numCh", U1),
     ("globalFlags", globalFlags),
     ("reserved1", List(2*[U1])),
-    ("ch", Loop("numCh", chn_fields)),
+    ("ch", KeyLoop(key="numCh", description=chn_fields)),
 )
 
 description = MessageDescription(

@@ -36,7 +36,7 @@ payload_description = Fields(
     ("version", U1),
     ("numSvs", U1),
     ("reserved1", List([U1, U1])),
-    ("meas", Loop(key = "numSvs", description = svs_fields))
+    ("meas", KeyLoop(key = "numSvs", description = svs_fields))
 )
 
 description = MessageDescription(

@@ -63,10 +63,10 @@ class TestPrinting(unittest.TestCase):
         field1 = ("a", "va")
         field2 = ("b", "vb")
         field3 = ("c", "vc")
-        self.assertEqual(str(ubx.Loop("k", "va")),
+        self.assertEqual(str(ubx.KeyLoop("k", "va")),
                         "Loop(key=\"k\"):\n"
                         "| va")
-        self.assertEqual(str(ubx.Loop("k", ubx.Fields(field1, field2, field3))),
+        self.assertEqual(str(ubx.KeyLoop("k", ubx.Fields(field1, field2, field3))),
                         "Loop(key=\"k\"):\n"
                         "| Fields(length=?) {\n"
                         "|   a: va,\n"
