@@ -90,6 +90,14 @@ class AtomicVariable:
     def __str__(self):
         return self.name
 
+    def __mul__(self, n):
+        if not isinstance(n, int):
+            return NotImplemented
+        return List(n*[self])
+
+    def __rmul__(self, n):
+        return self.__mul__(n)
+
 
 class BitfieldEntry:
     def __init__(self, name, bits):
@@ -144,6 +152,14 @@ class Bitfield:
         if self.entries is None:
             return header
         return header + ":\n" + "\n".join(["  * "+str(entry) for entry in self.entries])
+
+    def __mul__(self, n):
+        if not isinstance(n, int):
+            return NotImplemented
+        return List(n*[self])
+
+    def __rmul__(self, n):
+        return self.__mul__(n)
 
 
 U1 = AtomicVariable("U1", 1, "B")

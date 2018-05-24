@@ -7,7 +7,7 @@ payload_description0 = Fields(
     ("powerSetupValue", U1),
     ("period", U2),
     ("onTime", U2),
-    ("reserved1", List(2*[U1]))
+    ("reserved1", 2*U1)
 )
 
 

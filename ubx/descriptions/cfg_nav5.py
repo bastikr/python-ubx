@@ -31,10 +31,10 @@ payload_description0 = Fields(
     ("dgnssTimeout", U1),
     ("cnoThreshNumSVs", U1),
     ("cnoThresh", U1),
-    ("reserved1", List(2*[U1])),
+    ("reserved1", 2*U1),
     ("staticHoldMaxDist", U2),
     ("utcStandard", U1),
-    ("reserved2", List(5*[U1]))
+    ("reserved2", 5*U1)
 )
 
 description = MessageDescription(

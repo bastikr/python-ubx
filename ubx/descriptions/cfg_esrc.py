@@ -12,7 +12,7 @@ sources = Fields(
     ("sourceType", U1),
     ("flags", flags),
     ("freq", U4),
-    ("reserved2", List(4*[U1])),
+    ("reserved2", 4*U1),
     ("withTemp", U4),
     ("withAge", U4),
     ("timeToTemp", U2),
@@ -25,7 +25,7 @@ sources = Fields(
 payload_description0 = Fields(
     ("version", U1),
     ("numSources", U1),
-    ("reserved1", List(2*[U1])),
+    ("reserved1", 2*U1),
     ("sources", KeyLoop("numSources", sources))
 )
 

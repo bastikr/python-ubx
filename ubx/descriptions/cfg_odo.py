@@ -15,16 +15,16 @@ odoCfg = Bitfield(1, entries=[
 
 payload_description0 = Fields(
     ("version", U1),
-    ("reserved1", List(3*[U1])),
+    ("reserved1", 3*U1),
     ("flags", flags),
     ("odoCfg", odoCfg),
-    ("reserved2", List(6*[U1])),
+    ("reserved2", 6*U1),
     ("cogMaxSpeed", U1),
     ("cogMaxPosAcc", U1),
-    ("reserved3", List(2*[U1])),
+    ("reserved3", 2*U1),
     ("velLpGain", U1),
     ("cogLpGain", U1),
-    ("reserved4", List(2*[U1]))
+    ("reserved4", 2*U1)
 )
 
 description = MessageDescription(

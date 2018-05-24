@@ -16,16 +16,16 @@ osc = Fields(
     ("withTemp", U4),
     ("withAge", U4),
     ("timeToTemp", U2),
-    ("reserved3", List(2*[U1])),
+    ("reserved3", 2*U1),
     ("gainVco", I4),
     ("gainUncertainty", U1),
-    ("reserved4", List(3*[U1])),
+    ("reserved4", 3*U1),
 )
 
 payload_description0 = Fields(
     ("version", U1),
     ("numOsc", U1),
-    ("reserved1", List(2*[U1])),
+    ("reserved1", 2*U1),
     ("osc", KeyLoop("numOsc", osc))
 )
 

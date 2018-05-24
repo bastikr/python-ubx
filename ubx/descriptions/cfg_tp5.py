@@ -32,7 +32,7 @@ payload_description0 = Fields(
 payload_description1 = Fields(
     ("tpIdx", U1),
     ("version", U1),
-    ("reserved1", List(2*[U1])),
+    ("reserved1", 2*U1),
     ("antCableDelay", I2),
     ("rfGroupDelay", I2),
     ("freqPeriod", U4),

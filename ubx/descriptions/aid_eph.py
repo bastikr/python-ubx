@@ -14,9 +14,9 @@ payload_description1 = Fields(
 payload_description2 = Fields(
     ("svid", U4),
     ("how", U4),
-    ("sf1d", List(8*[U4])),
-    ("sf2d", List(8*[U4])),
-    ("sf3d", List(8*[U4]))
+    ("sf1d", 8*U4),
+    ("sf2d", 8*U4),
+    ("sf3d", 8*U4)
 )
 
 description = MessageDescription(

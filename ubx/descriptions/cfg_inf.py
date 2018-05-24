@@ -17,8 +17,8 @@ infMsgMask = Bitfield(1, entries=[
 payload_description1 = MatchedLoop(
     Fields(
         ("protocolID", U1),
-        ("reserved1", List(3*[U1])),
-        ("infMsgMask", List(6*[infMsgMask]))
+        ("reserved1", 3*U1),
+        ("infMsgMask", 6*infMsgMask)
     )
 )
 

@@ -14,7 +14,7 @@ payload_description1 = Fields(
 payload_description2 = Fields(
     ("svid", U4),
     ("week", U4),
-    ("dwrd", List(8*[U4]))
+    ("dwrd", 8*U4)
 )
 
 description = MessageDescription(

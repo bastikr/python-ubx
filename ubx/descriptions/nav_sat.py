@@ -35,7 +35,7 @@ payload_description = Fields(
     ("iTOW", U4),
     ("version", U1),
     ("numSvs", U1),
-    ("reserved1", List([U1, U1])),
+    ("reserved1", 2*U1),
     ("meas", KeyLoop(key = "numSvs", description = svs_fields))
 )
 

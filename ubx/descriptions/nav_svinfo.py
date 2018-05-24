@@ -39,7 +39,7 @@ payload_description0 = Fields(
     ("iTOW", U4),
     ("numCh", U1),
     ("globalFlags", globalFlags),
-    ("reserved1", List(2*[U1])),
+    ("reserved1", 2*U1),
     ("ch", KeyLoop(key="numCh", description=chn_fields)),
 )
 

@@ -25,7 +25,7 @@ payload_description0 = Fields(
     ("gridOffset", U4),
     ("onTime", U2),
     ("minAcqTime", U2),
-    ("reserved3", List(20*[U1])),
+    ("reserved3", 20*U1),
 )
 
 
@@ -54,7 +54,7 @@ payload_description1 = Fields(
     ("gridOffset", U4),
     ("onTime", U2),
     ("minAcqTime", U2),
-    ("reserved3", List(20*[U1])),
+    ("reserved3", 20*U1),
     ("extintInactivityMs", U4)
 )
 

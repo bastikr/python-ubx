@@ -21,7 +21,7 @@ payload_description0 = Fields(
     ("fixedPosAcc", U4),
     ("svinMinDur", U4),
     ("svinAccLimit", U4),
-    ("reserved3", List(8*[U1])),
+    ("reserved3", 8*U1),
 )
 
 description = MessageDescription(

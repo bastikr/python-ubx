@@ -32,7 +32,7 @@ payload_description0 = Fields(
     ("miGNSSFix", U1),
     ("maxFreqChangeRate", U2),
     ("maxPhaseCorrRate", U2),
-    ("reserved1", List(2*[U1])),
+    ("reserved1", 2*U1),
     ("freqTolerance", U2),
     ("timeTolerance", U2),
     ("messageCfg", messageCfg),

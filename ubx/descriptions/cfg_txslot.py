@@ -15,7 +15,7 @@ payload_description0 = Fields(
     ("enable", enable),
     ("refTp", U1),
     ("reserved1", U1),
-    ("end", List(4*[U4]))
+    ("end", 4*U4)
 )
 
 description = MessageDescription(

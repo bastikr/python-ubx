@@ -22,7 +22,7 @@ payload_description = Fields(
     ("flags", flags),
     ("reserved1", U1),
     ("usedMask", X4),
-    ("VP", List(17*[U1])),
+    ("VP", 17*U1),
     ("jamInd", U1),
     ("reserved2", U2),
     ("pinIrq", X4),

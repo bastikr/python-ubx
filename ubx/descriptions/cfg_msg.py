@@ -10,7 +10,7 @@ payload_description0 = Fields(
 payload_description1 = Fields(
     ("msgClass", U1),
     ("msgID", U1),
-    ("rate", List(6*[U1]))
+    ("rate", 6*U1)
 )
 
 payload_description2 = Fields(

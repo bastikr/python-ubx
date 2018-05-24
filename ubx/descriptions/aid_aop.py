@@ -9,8 +9,8 @@ payload_description0 = Fields(
 payload_description1 = Fields(
     ("gnssId", U1),
     ("svId", U1),
-    ("reserved1", List(2*[U1])),
-    ("data", List(64*[U1]))
+    ("reserved1", 2*U1),
+    ("data", 64*U1)
 )
 
 description = MessageDescription(

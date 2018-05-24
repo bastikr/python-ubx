@@ -10,7 +10,7 @@ ids = Fields(
 payload_description0 = Fields(
     ("version", U1),
     ("length", U1),
-    ("reserved1", List(2*[U1])),
+    ("reserved1", 2*U1),
     ("seedHi", U4),
     ("seedLo", U4),
     ("ids", KeyLoop("length", ids))

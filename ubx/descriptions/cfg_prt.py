@@ -19,7 +19,7 @@ txReady = Bitfield(2, entries=[
 #     BitfieldEntry("nStopBits", slice(12, 14))
 # ])
 
-# mode_usb = List(8*[U1])
+# mode_usb = 8*U1
 
 # mode_spi = Bitfield(2, entries=[
 #     BitfieldEntry("spiMode", slice(1, 3)),
@@ -56,7 +56,7 @@ payload_description1 = Fields(
     ("inProtoMask", inProtoMask),
     ("outProtoMask", outProtoMask),
     ("flags", flags),
-    ("reserved2", List(2*[U1]))
+    ("reserved2", 2*U1)
 )
 
 

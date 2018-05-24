@@ -55,7 +55,7 @@ payload_description = Fields(
     ("numMeas", U1),
     ("recStat", recStat),
     ("version", U1),
-    ("reserved1", List(2*[U1])),
+    ("reserved1", 2*U1),
     ("meas", KeyLoop(key="numMeas", description=meas_fields))
 )
 

@@ -10,8 +10,8 @@ flags = Bitfield(2, entries=[
 payload_description0 = Fields(
     ("vendorID", U2),
     ("productID", U2),
-    ("reserved1", List(2*[U1])),
-    ("reserved2", List(2*[U1])),
+    ("reserved1", 2*U1),
+    ("reserved2", 2*U1),
     ("powerConsumption", U2),
     ("flags", flags),
     ("vendorString", Chars(32)),
