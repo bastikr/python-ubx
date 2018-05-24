@@ -48,6 +48,11 @@ class Buffer:
         self.index += n
         return selection
 
+    def check_bytesize(self, bytesize, name, context):
+        if bytesize is not None and self.remaining_bytesize < bytesize:
+            raise PayloadError("Not enough remaining bytes ({}) to parse {} of size {}".format(
+                    self.remaining_bytesize, name, bytesize),
+                                self, context)
 
 class EmptyVariable:
     bytesize = 0
@@ -75,11 +80,7 @@ class AtomicVariable:
         self.struct = struct.Struct("<" + self.struct_format)
 
     def parse(self, buffer, context=None):
-        if buffer.remaining_bytesize < self.bytesize:
-            raise PayloadError("Not enough remaining bytes ({}) to parse {} of size {}".format(
-                buffer.remaining_bytesize,
-                self.name, self.bytesize),
-                               buffer, context)
+        buffer.check_bytesize(self.bytesize, self.name, context)
         bytestring = buffer.read(self.bytesize)
         return self.struct.unpack(bytestring)[0]
 
@@ -111,10 +112,7 @@ class Bitfield:
         self.entries = entries
 
     def parse(self, buffer, context=None):
-        if buffer.remaining_bytesize < self.bytesize:
-            raise PayloadError("Not enough remaining bytes ({}) to parse Bitfield of size {}".format(
-                buffer.remaining_bytesize, self.bytesize),
-                               buffer, context)
+        buffer.check_bytesize(self.bytesize, "Bitfield", context)
         bytestring = buffer.read(self.bytesize)
         bits = bitarray.bitarray(endian="little")
         bits.frombytes(bytestring)
@@ -172,11 +170,7 @@ class Chars:
         self.bytesize = bytesize
 
     def parse(self, buffer, context=None):
-        if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
-            raise PayloadError("Not enough remaining bytes ({}) to parse chars of size {}".format(
-                buffer.remaining_bytesize,
-                self.bytesize),
-                               buffer, context)
+        buffer.check_bytesize(self.bytesize, "Chars", context)
         if self.bytesize is None:
             bytestring = buffer.read(buffer.remaining_bytesize)
         else:
@@ -203,11 +197,7 @@ class Fields(OrderedDict):
         self.bytesize = bytesize
 
     def parse(self, buffer, context=None):
-        if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
-            raise PayloadError("Not enough remaining bytes ({}) to parse fields of size {}".format(
-                buffer.remaining_bytesize,
-                self.bytesize),
-                               buffer, context)
+        buffer.check_bytesize(self.bytesize, "Fields", context)
         data = OrderedDict()
         subcontext = Context.child(context, data)
         for name, description in self.items():
@@ -267,11 +257,7 @@ class List:
         self.bytesize = bytesize
 
     def parse(self, buffer, context=None):
-        if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
-            raise PayloadError("Not enough remaining bytes ({}) to parse list of size {}".format(
-                buffer.remaining_bytesize,
-                self.bytesize),
-                               buffer, context)
+        buffer.check_bytesize(self.bytesize, "List", context)
         data = []
         subcontext = Context.child(context, data)
         for i, description in enumerate(self.descriptions):
