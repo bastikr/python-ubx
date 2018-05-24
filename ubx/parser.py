@@ -17,4 +17,7 @@ class Parser:
             raise KeyError("No description for " + str(rawmsg))
         else:
             buffer = payload.Buffer(rawmsg.payload, index=0)
-            return self.descriptions[key].parse(buffer)
+            msg = self.descriptions[key].parse(buffer)
+            if buffer.remaining_bytesize != 0:
+                raise payload.PayloadError("Not all bytes used.", buffer, None)
+            return msg
