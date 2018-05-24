@@ -167,6 +167,29 @@ X4 = Bitfield(4)
 X8 = Bitfield(8)
 
 
+class Chars:
+    def __init__(self, bytesize):
+        self.bytesize = bytesize
+
+    def parse(self, buffer, context=None):
+        if self.bytesize is not None and buffer.remaining_bytesize < self.bytesize:
+            raise PayloadError("Not enough remaining bytes ({}) to parse chars of size {}".format(
+                buffer.remaining_bytesize,
+                self.bytesize),
+                               buffer, context)
+        if self.bytesize is None:
+            bytestring = buffer.read(buffer.remaining_bytesize)
+        else:
+            bytestring = buffer.read(self.bytesize)
+        return bytestring.decode("iso-8859-1")
+
+    def serialize(self, content, context=None):
+        return content.encode("iso-8859-1")
+
+    def __str__(self):
+        return "Chars({})".format(self.bytesize)
+
+
 class Fields(OrderedDict):
     def __init__(self, *fields):
         OrderedDict.__init__(self, fields)
