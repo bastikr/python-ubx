@@ -14,9 +14,9 @@ payload_description0 = Fields(
     ("reserved2", List(2*[U1])),
     ("powerConsumption", U2),
     ("flags", flags),
-    ("vendorString", List(32*[U1])),
-    ("productString", List(32*[U1])),
-    ("serialNumber", List(32*[U1])),
+    ("vendorString", Chars(32)),
+    ("productString", Chars(32)),
+    ("serialNumber", Chars(32)),
 )
 
 description = MessageDescription(

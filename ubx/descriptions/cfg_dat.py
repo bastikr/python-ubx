@@ -16,7 +16,7 @@ payload_description0 = Fields(
 
 payload_description1 = Fields(
     ("datumNum", U2),
-    ("datumName", List(6*[U1])),
+    ("datumName", Chars(6)),
     ("majA", R8),
     ("flat", R8),
     ("dX", R4),

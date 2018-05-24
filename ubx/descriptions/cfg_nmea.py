@@ -55,7 +55,7 @@ payload_description2 = Fields(
     ("mainTalkerIf", U1),
     ("gsvTalkerId", U1),
     ("version", U1),
-    ("bdsTalkerId", List(2*[U1])),
+    ("bdsTalkerId", Chars(2)),
     ("reserved1", List(6*[U1]))
 )
 
