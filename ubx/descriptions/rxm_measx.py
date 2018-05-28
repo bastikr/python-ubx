@@ -1,3 +1,4 @@
+from ..classid import *
 from ..payload import *
 from ..message import *
 
@@ -42,7 +43,7 @@ payload_description0 = Fields(
 
 description = MessageDescription(
     name="RXM-MEASX",
-    message_class=b"\x02",
+    message_class=RXM,
     message_id=b"\x14",
     payload_description=Options(
         Empty,

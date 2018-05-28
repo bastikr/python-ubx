@@ -1,3 +1,4 @@
+from ..classid import *
 from ..payload import *
 from ..message import *
 
@@ -32,7 +33,7 @@ payload_description = Fields(
 
 description = MessageDescription(
     name="MON-HW",
-    message_class=b"\x0a",
+    message_class=MON,
     message_id=b"\x09",
     payload_description=Options(
         Empty,

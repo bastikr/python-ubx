@@ -1,3 +1,4 @@
+from ..classid import *
 from ..payload import *
 from ..message import *
 
@@ -15,7 +16,7 @@ payload_description = Fields(
 
 description = MessageDescription(
     name="MON-MSGPP",
-    message_class=b"\x0a",
+    message_class=MON,
     message_id=b"\x06",
     payload_description=Options(
         Empty,

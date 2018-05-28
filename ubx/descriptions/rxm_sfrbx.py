@@ -1,3 +1,4 @@
+from ..classid import *
 from ..payload import *
 from ..message import *
 
@@ -20,7 +21,7 @@ payload_description = Fields(
 
 description = MessageDescription(
     name="RXM-SFRBX",
-    message_class=b"\x02",
+    message_class=RXM,
     message_id=b"\x13",
     payload_description=Options(
         Empty,

@@ -1,3 +1,4 @@
+from ..classid import *
 from ..payload import *
 from ..message import *
 
@@ -32,7 +33,7 @@ payload_description0 = Fields(
 
 description = MessageDescription(
     name="AID-HUI",
-    message_class=b"\x0b",
+    message_class=AID,
     message_id=b"\x02",
     payload_description=Options(
         Empty,

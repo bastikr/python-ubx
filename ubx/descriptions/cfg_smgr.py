@@ -1,3 +1,4 @@
+from ..classid import *
 from ..payload import *
 from ..message import *
 
@@ -42,7 +43,7 @@ payload_description0 = Fields(
 
 description = MessageDescription(
     name="CFG-SMGR",
-    message_class=b"\x06",
+    message_class=CFG,
     message_id=b"\x62",
     payload_description=Options(
         Empty,

@@ -1,3 +1,4 @@
+from ..classid import *
 from ..payload import *
 from ..message import *
 
@@ -24,7 +25,7 @@ payload_description1 = MatchedLoop(
 
 description = MessageDescription(
     name="CFG-INF",
-    message_class=b"\x06",
+    message_class=CFG,
     message_id=b"\x02",
     payload_description=Options(
         payload_description0,

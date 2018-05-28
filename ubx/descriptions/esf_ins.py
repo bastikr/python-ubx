@@ -1,3 +1,4 @@
+from ..classid import *
 from ..payload import *
 from ..message import *
 
@@ -26,7 +27,7 @@ payload_description0 = Fields(
 
 description = MessageDescription(
     name="ESF-INS",
-    message_class=b"\x10",
+    message_class=ESF,
     message_id=b"\x15",
     payload_description=Options(
         Empty,

@@ -1,3 +1,4 @@
+from ..classid import *
 from ..payload import *
 from ..message import *
 
@@ -34,7 +35,7 @@ payload_description = Fields(
 
 description = MessageDescription(
     name="NAV-SBAS",
-    message_class=b"\x01",
+    message_class=NAV,
     message_id=b"\x32",
     payload_description=Options(
         Empty,

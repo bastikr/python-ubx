@@ -20,7 +20,7 @@ class MessageDescription:
 
     @property
     def key(self):
-        return self.message_class + self.message_id
+        return self.message_class.classbyte + self.message_id
 
     def __str__(self):
         template = "MessageDescription:\n"\
@@ -30,7 +30,7 @@ class MessageDescription:
                    "    payload = {payload}"
         return template.format(**{
             "name": self.name,
-            "class": codecs.encode(self.message_class, "hex").decode("utf-8"),
+            "class": codecs.encode(self.message_class.classbytes, "hex").decode("utf-8"),
             "id": codecs.encode(self.message_id, "hex").decode("utf-8"),
             "payload": str(self.payload_description).replace("\n", "\n"+" "*8)
             })
@@ -39,7 +39,7 @@ class MessageDescription:
         return Message(self, self.payload_description.parse(buffer))
 
     def rawmessage(self, content):
-        return rawmessage.RawMessage(self.message_class, self.message_id,
+        return rawmessage.RawMessage(self.message_class.classbyte, self.message_id,
                                      self.payload_description.serialize(content))
 
     def serialize(self, content):
@@ -68,7 +68,7 @@ class Message:
 
     @property
     def key(self):
-        return self.message_class + self.message_id
+        return self.message_class.classbyte + self.message_id
 
     def __str__(self):
         template = "Message(name=\"{}\")"

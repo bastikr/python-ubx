@@ -1,3 +1,5 @@
+from .classid import *
+
 from .checksum import Checksum, ChecksumError
 from .rawmessage import RawMessage
 from .message import Message

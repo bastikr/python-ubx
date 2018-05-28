@@ -1,3 +1,4 @@
+from ..classid import *
 from ..payload import *
 from ..message import *
 
@@ -18,7 +19,7 @@ payload_description = MatchedLoop(
 
 description = MessageDescription(
     name="MON-IO",
-    message_class=b"\x0a",
+    message_class=MON,
     message_id=b"\x02",
     payload_description=Options(
         Empty,
