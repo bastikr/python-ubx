@@ -6,7 +6,7 @@ payload_description = MatchedLoop(
     Fields(
         ("rxBytes", U4),
         ("txBytes", U4),
-        ("parrityErrs", U2),
+        ("parityErrs", U2),
         ("framingErrs", U2),
         ("overrunErrs", U2),
         ("breakCond", U2),
