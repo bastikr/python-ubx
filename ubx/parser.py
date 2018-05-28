@@ -8,8 +8,7 @@ class Parser:
             self.add_description(d)
 
     def add_description(self, description):
-        key = description.message_class + description.message_id
-        self.descriptions[key] = description
+        self.descriptions[description.key] = description
 
     def parse(self, rawmsg):
         key = rawmsg.key

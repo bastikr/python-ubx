@@ -18,6 +18,10 @@ class MessageDescription:
         self.message_id = message_id
         self.payload_description = payload_description
 
+    @property
+    def key(self):
+        return self.message_class + self.message_id
+
     def __str__(self):
         template = "MessageDescription:\n"\
                    "    name = {name}\n"\
