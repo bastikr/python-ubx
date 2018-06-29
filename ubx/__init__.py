@@ -15,7 +15,7 @@ from .payload import Empty, AtomicVariable,\
 
 from . import descriptions
 
-from .reader import Reader
+from .reader import Reader, ReaderException
 from .parser import Parser
 from .statistics import Statistics
 
