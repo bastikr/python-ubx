@@ -2,6 +2,7 @@ import struct
 import codecs
 
 from . import rawmessage
+from . import classid
 
 
 length_struct = struct.Struct("<H")
@@ -13,6 +14,11 @@ def lengthbytes(payload):
 
 class MessageDescription:
     def __init__(self, name, message_class, message_id, payload_description):
+        assert isinstance(name, str)
+        assert isinstance(message_class, classid.ClassId)
+        assert isinstance(message_id, bytes)
+        assert hasattr(payload_description, "parse")
+        assert hasattr(payload_description, "serialize")
         self.name = name
         self.message_class = message_class
         self.message_id = message_id
