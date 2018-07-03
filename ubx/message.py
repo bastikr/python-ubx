@@ -1,6 +1,6 @@
 import struct
-import codecs
 
+from . import utils
 from . import rawmessage
 from . import classid
 
@@ -36,8 +36,8 @@ class MessageDescription:
                    "    payload = {payload}"
         return template.format(**{
             "name": self.name,
-            "class": codecs.encode(self.message_class.classbyte, "hex").decode("utf-8"),
-            "id": codecs.encode(self.message_id, "hex").decode("utf-8"),
+            "class": utils.byte2hexstring(self.message_class.classbyte),
+            "id": utils.byte2hexstring(self.message_id),
             "payload": str(self.payload_description).replace("\n", "\n"+" "*8)
             })
 

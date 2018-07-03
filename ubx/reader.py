@@ -1,6 +1,6 @@
 import struct
-import codecs
 
+from . import utils
 from . import rawmessage
 from . import checksum
 
@@ -39,12 +39,12 @@ class Reader:
         if byte != b"\xb5":
             raise ReaderException(
                 "First syncchar is '{}' instead of 'b5'".format(
-                    codecs.encode(byte, "hex").decode("utf-8")))
+                    utils.byte2hexstring(byte)))
         byte = self.read_checked(1)
         if byte != b"\x62":
             raise ReaderException(
                 "Second syncchar is '{}' instead of '62'".format(
-                    codecs.encode(byte, "hex").decode("utf-8")))
+                    utils.byte2hexstring(byte)))
 
     def read_rawmessageparts(self, seek_syncchars=True):
         if seek_syncchars:
