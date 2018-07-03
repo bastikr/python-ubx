@@ -1,11 +1,8 @@
 import struct
 
+from . import syncchars
 from . import utils
 from . import checksum
-
-
-syncchar1 = b"\xb5"
-syncchar2 = b"\x62"
 
 
 class RawMessage:
@@ -45,8 +42,8 @@ class RawMessage:
 
     def serialize(self):
         data = [
-            syncchar1,
-            syncchar2,
+            syncchars.CHAR1,
+            syncchars.CHAR2,
             self.message_class,
             self.message_id,
             self.lengthbytes,

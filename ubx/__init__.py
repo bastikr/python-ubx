@@ -1,3 +1,4 @@
+from . import syncchars
 from .classid import *
 
 from .checksum import Checksum, ChecksumError

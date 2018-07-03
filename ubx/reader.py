@@ -1,5 +1,6 @@
 import struct
 
+from . import syncchars
 from . import utils
 from . import rawmessage
 from . import checksum
@@ -27,21 +28,21 @@ class Reader:
         while True:
             byte = self.read_checked(1)
             if matched_syncchar1:
-                if byte == b"\x62":
+                if byte == syncchars.CHAR2:
                     return True
                 else:
                     matched_syncchar1 = False
-            if byte == b"\xb5":
+            if byte == syncchars.CHAR1:
                 matched_syncchar1 = True
 
     def check_syncchars(self):
         byte = self.read_checked(1)
-        if byte != b"\xb5":
+        if byte != syncchars.CHAR1:
             raise ReaderException(
                 "First syncchar is '{}' instead of 'b5'".format(
                     utils.byte2hexstring(byte)))
         byte = self.read_checked(1)
-        if byte != b"\x62":
+        if byte != syncchars.CHAR2:
             raise ReaderException(
                 "Second syncchar is '{}' instead of '62'".format(
                     utils.byte2hexstring(byte)))
