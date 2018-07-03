@@ -1,5 +1,5 @@
 from . import syncchars
-from .classid import *
+from . import classid
 
 from .checksum import Checksum, ChecksumError
 from .rawmessage import RawMessage
