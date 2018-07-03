@@ -39,13 +39,15 @@ class Reader:
         byte = self.read_checked(1)
         if byte != syncchars.CHAR1:
             raise ReaderException(
-                "First syncchar is '{}' instead of 'b5'".format(
-                    utils.byte2hexstring(byte)))
+                "First syncchar is '0x{}' instead of '0x{}'".format(
+                    utils.byte2hexstring(byte),
+                    utils.byte2hexstring(syncchars.CHAR1)))
         byte = self.read_checked(1)
         if byte != syncchars.CHAR2:
             raise ReaderException(
-                "Second syncchar is '{}' instead of '62'".format(
-                    utils.byte2hexstring(byte)))
+                "Second syncchar is '0x{}' instead of '0x{}'".format(
+                    utils.byte2hexstring(byte),
+                    utils.byte2hexstring(syncchars.CHAR2)))
 
     def read_rawmessageparts(self, seek_syncchars=True):
         if seek_syncchars:
