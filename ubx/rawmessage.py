@@ -1,6 +1,7 @@
 import struct
 
 from . import syncchars
+from . import classid
 from . import utils
 from . import checksum
 
@@ -8,10 +9,10 @@ from . import checksum
 class RawMessage:
     length_struct = struct.Struct("<H")
 
-    def __init__(self, message_class, message_id, payload):
-        assert len(message_class) == 1
+    def __init__(self, classbyte, message_id, payload):
+        assert len(classbyte) == 1
         assert len(message_id) == 1
-        self.message_class = message_class
+        self.message_class = classid.get_by_byte(classbyte, "?")
         self.message_id = message_id
         self.payload = payload
 
@@ -35,7 +36,7 @@ class RawMessage:
 
     def checksum(self):
         return checksum.Checksum.from_bytestrings(
-            self.message_class,
+            self.message_class.classbyte,
             self.message_id,
             self.lengthbytes,
             self.payload)
@@ -44,7 +45,7 @@ class RawMessage:
         data = [
             syncchars.CHAR1,
             syncchars.CHAR2,
-            self.message_class,
+            self.message_class.classbyte,
             self.message_id,
             self.lengthbytes,
             self.payload,

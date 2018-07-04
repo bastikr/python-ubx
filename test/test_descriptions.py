@@ -82,7 +82,9 @@ class TestDescriptions(unittest.TestCase):
 
 def make_test_read_serialize(directory, name):
     _, message_class, message_id, length, checksum = name[:-4].split("-")
-    message_class = codecs.decode(message_class.encode("utf-8"), "hex")
+    classbyte = ubx.utils.hexstring2byte(message_class)
+    message_class = ubx.classid.get_by_byte(classbyte, "?")
+    # message_class = codecs.decode(message_class.encode("utf-8"), "hex")
     message_id = codecs.decode(message_id.encode("utf-8"), "hex")
     checksum = codecs.decode(checksum.encode("utf-8"), "hex")
     def test(self):
