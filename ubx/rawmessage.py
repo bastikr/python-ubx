@@ -9,17 +9,17 @@ from . import checksum
 class RawMessage:
     length_struct = struct.Struct("<H")
 
-    def __init__(self, classbyte, message_id, payload):
+    def __init__(self, classbyte, idbyte, payload):
         assert len(classbyte) == 1
-        assert len(message_id) == 1
+        assert len(idbyte) == 1
         self.message_class = classid.get_by_byte(classbyte, "?")
-        self.message_id = message_id
+        self.message_id = idbyte
         self.payload = payload
 
     def __str__(self):
         template = "RawMessage(class=0x{}, id=0x{}, length={})"
         return template.format(
-            utils.byte2hexstring(self.message_class.classbyte),
+            utils.byte2hexstring(self.message_class.byte),
             utils.byte2hexstring(self.message_id),
             len(self.payload))
 
@@ -36,7 +36,7 @@ class RawMessage:
 
     def checksum(self):
         return checksum.Checksum.from_bytestrings(
-            self.message_class.classbyte,
+            self.message_class.byte,
             self.message_id,
             self.lengthbytes,
             self.payload)
@@ -45,7 +45,7 @@ class RawMessage:
         data = [
             syncchars.CHAR1,
             syncchars.CHAR2,
-            self.message_class.classbyte,
+            self.message_class.byte,
             self.message_id,
             self.lengthbytes,
             self.payload,

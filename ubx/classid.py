@@ -2,13 +2,13 @@ from . import utils
 
 
 class ClassId:
-    def __init__(self, name, classbyte):
+    def __init__(self, name, byte):
         self.name = name
-        self.classbyte = classbyte
+        self.byte = byte
 
     def __eq__(self, other):
         if isinstance(other, ClassId):
-            return self.name==other.name and self.classbyte==other.classbyte
+            return self.name==other.name and self.byte==other.byte
         else:
             return NotImplemented
 
@@ -46,7 +46,7 @@ def get_by_byte(byte, defaultname=None):
     if not isinstance(byte, bytes):
         raise TypeError("Expected byte argument to be of type \"bytes\" but it is \"{}\".".format(type(byte)))
     for id in ids:
-        if id.classbyte==byte:
+        if id.byte==byte:
             return id
     if defaultname is None:
         raise ValueError("Unknown ClassId with byte \"0x{}\".".format(utils.byte2hexstring(byte)))
