@@ -3,6 +3,16 @@ class ClassId:
         self.name = name
         self.classbyte = classbyte
 
+    def __eq__(self, other):
+        if isinstance(other, ClassId):
+            return self.name==other.name and self.classbyte==other.classbyte
+        else:
+            return NotImplemented
+
+    def __ne__(self, other):
+        return not self==other
+
+
 NAV = ClassId("NAV", b"\x01")
 RXM = ClassId("RXM", b"\x02")
 INF = ClassId("INF", b"\x04")
