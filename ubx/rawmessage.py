@@ -12,7 +12,10 @@ class RawMessage:
     def __init__(self, classbyte, idbyte, payload):
         assert len(classbyte) == 1
         assert len(idbyte) == 1
-        self.message_class = classid.get_by_byte(classbyte, "?")
+        try:
+            self.message_class = classid.get_by_byte(classbyte)
+        except ValueError:
+            self.message_class = classid.ClassId("?", classbyte)
         self.message_id = idbyte
         self.payload = payload
 
