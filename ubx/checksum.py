@@ -1,14 +1,12 @@
-"""
-UBX Checksum.
-
-Uses the 8-Bit Fletcher Algorithm.
-"""
+"""Checksum using the 8-Bit Fletcher Algorithm with modulo 256."""
 
 import sys
 import struct
 
 
 class ChecksumError(Exception):
+    """Checksums don't match."""
+
     def __init__(self, checksum0, checksum1):
         Exception.__init__(self, "Checksums differ: {} vs {}".format(
             hex(checksum0.a) + hex(checksum0.a),
@@ -18,6 +16,8 @@ class ChecksumError(Exception):
 
 
 class Checksum:
+    """Checksum using a 8-Bit Fletcher algorithm with modulo 256."""
+
     checksum_struct = struct.Struct("<B")
 
     def __init__(self, a=0, b=0):
@@ -29,6 +29,7 @@ class Checksum:
     if sys.version_info > (3,):
         @staticmethod
         def from_bytestrings(*args):
+            """Calculate a combined Checksum for the given bytestrings."""
             a = 0
             b = 0
             for arg in args:
@@ -39,6 +40,7 @@ class Checksum:
     else:
         @staticmethod
         def from_bytestrings(*args):
+            """Calculate a combined Checksum for the given bytestrings."""
             a = 0
             b = 0
             for arg in args:
@@ -48,6 +50,7 @@ class Checksum:
             return Checksum(a & 0xFF, b & 0xFF)
 
     def update(self, byte):
+        """Update the Checksum using te given single byte."""
         self.a = (self.a + ord(byte)) & 0xFF
         self.b = (self.b + self.a) & 0xFF
 
@@ -61,9 +64,11 @@ class Checksum:
         return not self == other
 
     def bytes(self):
+        """Return a byte representation of this Checksum."""
         return self.checksum_struct.pack(self.a)\
              + self.checksum_struct.pack(self.b)
 
     def check_equal(self, other):
+        """Raise a ChecksumError if the two Checksums are not equal."""
         if self != other:
             raise ChecksumError(self, other)
