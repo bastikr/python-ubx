@@ -1,3 +1,5 @@
+"""Module collecting several non-ubx related functions."""
+
 import codecs
 
 
