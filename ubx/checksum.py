@@ -4,6 +4,10 @@ import sys
 import struct
 
 
+if sys.version_info > (3,):
+    long = int
+
+
 class ChecksumError(Exception):
     """Checksums don't match."""
 
@@ -21,14 +25,14 @@ class Checksum:
     checksum_struct = struct.Struct("<B")
 
     def __init__(self, a=0, b=0):
-        if not isinstance(a, int):
+        if not isinstance(a, (int, long)):
             raise TypeError("Checksum argument a has to be of type int but is a {}.".format(
                 type(a)))
-        if not isinstance(b, int):
+        if not isinstance(b, (int, long)):
             raise TypeError("Checksum argument b has to be of type int but is a {}.".format(
                 type(b)))
-        self.a = a
-        self.b = b
+        self.a = int(a & 0xFF)
+        self.b = int(b & 0xFF)
 
     if sys.version_info > (3,):
         @staticmethod
