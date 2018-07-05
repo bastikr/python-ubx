@@ -21,8 +21,12 @@ class Checksum:
     checksum_struct = struct.Struct("<B")
 
     def __init__(self, a=0, b=0):
-        assert isinstance(a, int)
-        assert isinstance(b, int)
+        if not isinstance(a, int):
+            raise TypeError("Checksum argument a has to be of type int but is a {}.".format(
+                type(a)))
+        if not isinstance(b, int):
+            raise TypeError("Checksum argument b has to be of type int but is a {}.".format(
+                type(b)))
         self.a = a
         self.b = b
 
