@@ -84,9 +84,9 @@ def make_test_read_serialize(directory, name):
     _, message_class, message_id, length, checksum = name[:-4].split("-")
     classbyte = ubx.utils.hexstring2byte(message_class)
     try:
-        message_class = ubx.classid.get_by_byte(classbyte)
+        message_class = ubx.message_class.get_by_byte(classbyte)
     except ValueError:
-        message_class = ubx.classid.ClassId("?", classbyte)
+        message_class = ubx.message_class.MessageClass("?", classbyte)
     message_id = codecs.decode(message_id.encode("utf-8"), "hex")
     checksum = codecs.decode(checksum.encode("utf-8"), "hex")
     def test(self):

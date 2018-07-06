@@ -1,4 +1,4 @@
-from ..classid import *
+from ..message_class import *
 from ..payload import *
 from ..message import *
 

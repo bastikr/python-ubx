@@ -1,7 +1,7 @@
 import struct
 
 from . import syncchars
-from . import classid
+from . import message_class
 from . import utils
 from . import checksum
 
@@ -13,9 +13,9 @@ class RawMessage:
         assert len(classbyte) == 1
         assert len(idbyte) == 1
         try:
-            self.message_class = classid.get_by_byte(classbyte)
+            self.message_class = message_class.get_by_byte(classbyte)
         except ValueError:
-            self.message_class = classid.ClassId("?", classbyte)
+            self.message_class = message_class.MessageClass("?", classbyte)
         self.message_id = idbyte
         self.payload = payload
 
