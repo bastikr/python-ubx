@@ -31,7 +31,7 @@ class RawMessage:
 
     @property
     def key(self):
-        return self.message_class + self.message_id
+        return self.message_class.byte + self.message_id
 
     @property
     def lengthbytes(self):
