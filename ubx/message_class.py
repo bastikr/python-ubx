@@ -8,6 +8,9 @@ class MessageClass:
     Simple class storing the name and byte of a UBX message class.
     """
     def __init__(self, name, byte):
+        if not isinstance(byte, bytes):
+            raise TypeError("byte argument has to be of type \"byte\" but is: {}".format(
+                type(byte)))
         self.name = name
         self.byte = byte
 
@@ -19,6 +22,10 @@ class MessageClass:
 
     def __ne__(self, other):
         return not self==other
+
+    def __str__(self):
+        bytestring = utils.byte2hexstring(self.byte)
+        return "MessageClass(name={}, byte=0x{})".format(self.name, bytestring)
 
 
 classes = [
