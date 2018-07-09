@@ -5,13 +5,6 @@ from . import rawmessage
 from .message_class import MessageClass
 
 
-length_struct = struct.Struct("<H")
-
-
-def lengthbytes(payload):
-    length_struct.pack(len(payload))
-
-
 class MessageDescription:
     def __init__(self, name, message_class, message_id, payload_description):
         assert isinstance(name, str)
