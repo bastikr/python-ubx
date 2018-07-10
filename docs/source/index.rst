@@ -9,6 +9,8 @@ A python library implementing the binary u-blox UBX protocol.
    :maxdepth: 2
    :caption: Contents:
 
+   generated/message_descriptions/message_descriptions
+
 
 Indices and tables
 ==================
