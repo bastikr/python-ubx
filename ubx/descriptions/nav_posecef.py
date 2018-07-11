@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -12,9 +13,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="NAV-POSECEF",
     message_class=NAV,
-    message_id=b"\x01",
+    message_id=MessageId("POSECEF", b"\x01"),
     payload_description=Options(
         Empty,
         payload_description0,

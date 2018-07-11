@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -19,9 +20,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="LOG-RETRIEVEPOSEXTRA",
     message_class=LOG,
-    message_id=b"\x0f",
+    message_id=MessageId("RETRIEVEPOSEXTRA", b"\x0f"),
     payload_description=Options(
         payload_description
     )

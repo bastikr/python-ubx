@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -9,9 +10,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="MGA-DBD",
     message_class=MGA,
-    message_id=b"\x80",
+    message_id=MessageId("DBD", b"\x80"),
     payload_description=Options(
         Empty,
         payload_description

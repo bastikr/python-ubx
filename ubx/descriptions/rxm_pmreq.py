@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -34,9 +35,8 @@ payload_description1 = Fields(
 )
 
 description = MessageDescription(
-    name="RXM-PMREQ",
     message_class=RXM,
-    message_id=b"\x41",
+    message_id=MessageId("PMREQ", b"\x41"),
     payload_description=Options(
         Empty,
         payload_description0,

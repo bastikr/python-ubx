@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -19,9 +20,8 @@ payload_description2 = Fields(
 )
 
 description = MessageDescription(
-    name="AID-ALM",
     message_class=AID,
-    message_id=b"\x30",
+    message_id=MessageId("ALM", b"\x30"),
     payload_description=Options(
         Empty,
         payload_description0,

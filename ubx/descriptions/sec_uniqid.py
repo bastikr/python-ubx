@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -10,9 +11,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="SEC-UNIQID",
     message_class=SEC,
-    message_id=b"\x03",
+    message_id=MessageId("UNIQID", b"\x03"),
     payload_description=Options(
         payload_description
     )

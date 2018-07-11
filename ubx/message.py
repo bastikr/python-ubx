@@ -3,23 +3,26 @@ import struct
 from . import utils
 from . import rawmessage
 from .message_class import MessageClass
+from .message_id import MessageId
 
 
 class MessageDescription:
-    def __init__(self, name, message_class, message_id, payload_description):
-        assert isinstance(name, str)
+    def __init__(self, message_class, message_id, payload_description):
         assert isinstance(message_class, MessageClass)
-        assert isinstance(message_id, bytes)
+        assert isinstance(message_id, MessageId)
         assert hasattr(payload_description, "parse")
         assert hasattr(payload_description, "serialize")
-        self.name = name
         self.message_class = message_class
         self.message_id = message_id
         self.payload_description = payload_description
 
     @property
+    def name(self):
+        return self.message_class.name + "-" + self.message_id.name
+
+    @property
     def key(self):
-        return self.message_class.byte + self.message_id
+        return self.message_class.byte + self.message_id.byte
 
     def __str__(self):
         template = "MessageDescription:\n"\
@@ -30,7 +33,7 @@ class MessageDescription:
         return template.format(**{
             "name": self.name,
             "class": utils.byte2hexstring(self.message_class.byte),
-            "id": utils.byte2hexstring(self.message_id),
+            "id": utils.byte2hexstring(self.message_id.byte),
             "payload": str(self.payload_description).replace("\n", "\n"+" "*8)
             })
 
@@ -38,7 +41,7 @@ class MessageDescription:
         return Message(self, self.payload_description.parse(buffer))
 
     def rawmessage(self, content):
-        return rawmessage.RawMessage(self.message_class.byte, self.message_id,
+        return rawmessage.RawMessage(self.message_class.byte, self.message_id.byte,
                                      self.payload_description.serialize(content))
 
     def serialize(self, content):
@@ -67,7 +70,7 @@ class Message:
 
     @property
     def key(self):
-        return self.message_class.byte + self.message_id
+        return self.message_class.byte + self.message_id.byte
 
     def __str__(self):
         template = "Message(name=\"{}\")"

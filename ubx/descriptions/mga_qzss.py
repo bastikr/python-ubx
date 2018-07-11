@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -65,9 +66,8 @@ payload_description_health = Fields(
 )
 
 description = MessageDescription(
-    name="MGA-QZSS",
     message_class=MGA,
-    message_id=b"\x05",
+    message_id=MessageId("QZSS", b"\x05"),
     payload_description=Options(
         payload_description_eph,
         payload_description_alm,

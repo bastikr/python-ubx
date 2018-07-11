@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -10,9 +11,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="MON-RXBUF",
     message_class=MON,
-    message_id=b"\x07",
+    message_id=MessageId("RXBUF", b"\x07"),
     payload_description=Options(
         Empty,
         payload_description

@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -8,9 +9,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="INF-TEST",
     message_class=INF,
-    message_id=b"\x03",
+    message_id=MessageId("TEST", b"\x03"),
     payload_description=Options(
         payload_description0,
     )

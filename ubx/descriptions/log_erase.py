@@ -1,12 +1,12 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
 
 description = MessageDescription(
-    name="LOG-ERASE",
     message_class=LOG,
-    message_id=b"\x03",
+    message_id=MessageId("ERASE", b"\x03"),
     payload_description=Options(
         Empty
     )

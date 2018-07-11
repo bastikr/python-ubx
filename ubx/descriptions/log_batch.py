@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -59,9 +60,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="LOG-BATCH",
     message_class=LOG,
-    message_id=b"\x11",
+    message_id=MessageId("BATCH", b"\x11"),
     payload_description=Options(
         Empty,
         payload_description

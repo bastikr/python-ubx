@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -13,9 +14,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="MON-BATCH",
     message_class=MON,
-    message_id=b"\x32",
+    message_id=MessageId("BATCH", b"\x32"),
     payload_description=Options(
         Empty,
         payload_description

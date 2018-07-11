@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -21,9 +22,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="CFG-USB",
     message_class=CFG,
-    message_id=b"\x1b",
+    message_id=MessageId("USB", b"\x1b"),
     payload_description=Options(
         Empty,
         payload_description0,

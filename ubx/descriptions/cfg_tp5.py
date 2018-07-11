@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -45,9 +46,8 @@ payload_description1 = Fields(
 )
 
 description = MessageDescription(
-    name="CFG-TP5",
     message_class=CFG,
-    message_id=b"\x31",
+    message_id=MessageId("TP5", b"\x31"),
     payload_description=Options(
         Empty,
         payload_description0,

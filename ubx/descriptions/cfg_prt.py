@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -62,9 +63,8 @@ payload_description1 = Fields(
 
 
 description = MessageDescription(
-    name="CFG-PRT",
     message_class=CFG,
-    message_id=b"\x00",
+    message_id=MessageId("PRT", b"\x00"),
     payload_description=Options(
         payload_description0,
         payload_description1

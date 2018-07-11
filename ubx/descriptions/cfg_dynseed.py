@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -11,9 +12,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="CFG-DYNSEED",
     message_class=CFG,
-    message_id=b"\x85",
+    message_id=MessageId("DYNSEED", b"\x85"),
     payload_description=Options(
         payload_description0,
     )

@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -25,9 +26,8 @@ payload_description_ack = Fields(
 )
 
 description = MessageDescription(
-    name="MGA-FLASH",
     message_class=MGA,
-    message_id=b"\x21",
+    message_id=MessageId("FLASH", b"\x21"),
     payload_description=Options(
         payload_description_stop,
         payload_description_ack,

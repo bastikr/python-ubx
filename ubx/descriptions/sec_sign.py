@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -13,9 +14,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="SEC-SIGN",
     message_class=SEC,
-    message_id=b"\x01",
+    message_id=MessageId("SIGN", b"\x01"),
     payload_description=Options(
         payload_description
     )

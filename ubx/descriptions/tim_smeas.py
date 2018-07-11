@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -30,9 +31,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="TIM-SMEAS",
     message_class=TIM,
-    message_id=b"\x13",
+    message_id=MessageId("SMEAS", b"\x13"),
     payload_description=Options(
         Empty,
         payload_description

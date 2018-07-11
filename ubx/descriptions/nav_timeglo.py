@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -19,9 +20,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="NAV-TIMEGLO",
     message_class=NAV,
-    message_id=b"\x23",
+    message_id=MessageId("TIMEGLO", b"\x23"),
     payload_description=Options(
         Empty,
         payload_description0,

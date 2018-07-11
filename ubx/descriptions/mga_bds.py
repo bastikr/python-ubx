@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -94,9 +95,8 @@ payload_description_iono = Fields(
 )
 
 description = MessageDescription(
-    name="MGA-BDS",
     message_class=MGA,
-    message_id=b"\x03",
+    message_id=MessageId("BDS", b"\x03"),
     payload_description=Options(
         payload_description_eph,
         payload_description_alm,

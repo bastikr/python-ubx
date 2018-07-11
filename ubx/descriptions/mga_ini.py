@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -99,9 +100,8 @@ payload_description_eop = Fields(
 )
 
 description = MessageDescription(
-    name="MGA-INI",
     message_class=MGA,
-    message_id=b"\x40",
+    message_id=MessageId("INI", b"\x40"),
     payload_description=Options(
         payload_description_pos_xyz,
         payload_description_pos_llh,

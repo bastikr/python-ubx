@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -14,9 +15,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="LOG-RETRIEVEBATCH",
     message_class=LOG,
-    message_id=b"\x10",
+    message_id=MessageId("RETRIEVEBATCH", b"\x10"),
     payload_description=Options(
         payload_description
     )

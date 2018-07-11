@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -24,9 +25,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="NAV-TIMEUTC",
     message_class=NAV,
-    message_id=b"\x21",
+    message_id=MessageId("TIMEUTC", b"\x21"),
     payload_description=Options(
         Empty,
         payload_description0,

@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -22,9 +23,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="CFG-RST",
     message_class=CFG,
-    message_id=b"\x04",
+    message_id=MessageId("RST", b"\x04"),
     payload_description=Options(
         Empty,
         payload_description0,

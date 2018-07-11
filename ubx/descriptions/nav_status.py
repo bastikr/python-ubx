@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -35,9 +36,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="NAV-STATUS",
     message_class=NAV,
-    message_id=b"\x03",
+    message_id=MessageId("STATUS", b"\x03"),
     payload_description=Options(
         Empty,
         payload_description0,

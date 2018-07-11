@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -61,9 +62,8 @@ payload_description_timeoffset = Fields(
 )
 
 description = MessageDescription(
-    name="MGA-GLO",
     message_class=MGA,
-    message_id=b"\x06",
+    message_id=MessageId("GLO", b"\x06"),
     payload_description=Options(
         payload_description_eph,
         payload_description_alm,

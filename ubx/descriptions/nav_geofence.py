@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -18,9 +19,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="NAV-GEOFENCE",
     message_class=NAV,
-    message_id=b"\x39",
+    message_id=MessageId("GEOFENCE", b"\x39"),
     payload_description=Options(
         Empty,
         payload_description0,

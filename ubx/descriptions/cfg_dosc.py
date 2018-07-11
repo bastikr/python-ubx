@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -31,9 +32,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="CFG-DOSC",
     message_class=CFG,
-    message_id=b"\x61",
+    message_id=MessageId("DOSC", b"\x61"),
     payload_description=Options(
         Empty,
         payload_description0,

@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -32,9 +33,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="NAV-RELPOSNED",
     message_class=NAV,
-    message_id=b"\x3c",
+    message_id=MessageId("RELPOSNED", b"\x3c"),
     payload_description=Options(
         Empty,
         payload_description0,

@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -9,8 +10,7 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="ACK-ACK",
     message_class=ACK,
-    message_id=b"\x01",
+    message_id=MessageId("ACK", b"\x01"),
     payload_description=payload_description0
 )

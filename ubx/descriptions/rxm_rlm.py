@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -26,9 +27,8 @@ payload_description1 = Fields(
 )
 
 description = MessageDescription(
-    name="RXM-RLM",
     message_class=RXM,
-    message_id=b"\x59",
+    message_id=MessageId("RLM", b"\x59"),
     payload_description=Options(
         Empty,
         payload_description0,

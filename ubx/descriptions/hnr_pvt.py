@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -46,9 +47,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="HNR-PVT",
     message_class=HNR,
-    message_id=b"\x00",
+    message_id=MessageId("PVT", b"\x00"),
     payload_description=Options(
         Empty,
         payload_description0,

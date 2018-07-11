@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -19,9 +20,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="CFG-LOGFILTER",
     message_class=CFG,
-    message_id=b"\x47",
+    message_id=MessageId("LOGFILTER", b"\x47"),
     payload_description=Options(
         Empty,
         payload_description0

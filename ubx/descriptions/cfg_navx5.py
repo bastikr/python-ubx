@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -110,9 +111,8 @@ payload_description2 = Fields(
 
 
 description = MessageDescription(
-    name="CFG-NAVX5",
     message_class=CFG,
-    message_id=b"\x23",
+    message_id=MessageId("NAVX5", b"\x23"),
     payload_description=Options(
         Empty,
         payload_description2,

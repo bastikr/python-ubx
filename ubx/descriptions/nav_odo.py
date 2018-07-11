@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -13,9 +14,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="NAV-ODO",
     message_class=NAV,
-    message_id=b"\x09",
+    message_id=MessageId("ODO", b"\x09"),
     payload_description=Options(
         Empty,
         payload_description0,

@@ -1,7 +1,9 @@
 from . import syncchars
 from . import message_class
+from . import message_id
 
 from .message_class import MessageClass
+from .message_id import MessageId
 from .checksum import Checksum, ChecksumError
 from .rawmessage import RawMessage
 from .message import Message

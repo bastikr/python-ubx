@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -34,9 +35,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="MON-GNSS",
     message_class=MON,
-    message_id=b"\x28",
+    message_id=MessageId("GNSS", b"\x28"),
     payload_description=Options(
         Empty,
         payload_description

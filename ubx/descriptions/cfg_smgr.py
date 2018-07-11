@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -42,9 +43,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="CFG-SMGR",
     message_class=CFG,
-    message_id=b"\x62",
+    message_id=MessageId("SMGR", b"\x62"),
     payload_description=Options(
         Empty,
         payload_description0,

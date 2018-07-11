@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -22,9 +23,8 @@ payload_description0 = Fields(
 )
 
 description = MessageDescription(
-    name="CFG-BATCH",
     message_class=CFG,
-    message_id=b"\x93",
+    message_id=MessageId("BATCH", b"\x93"),
     payload_description=Options(
         Empty,
         payload_description0,

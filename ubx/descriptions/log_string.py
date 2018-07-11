@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -8,9 +9,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="LOG-STRING",
     message_class=LOG,
-    message_id=b"\x04",
+    message_id=MessageId("STRING", b"\x04"),
     payload_description=Options(
         payload_description
     )

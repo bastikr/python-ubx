@@ -1,4 +1,5 @@
 from ..message_class import *
+from ..message_id import *
 from ..payload import *
 from ..message import *
 
@@ -33,9 +34,8 @@ payload_description = Fields(
 )
 
 description = MessageDescription(
-    name="RXM-SVSI",
     message_class=RXM,
-    message_id=b"\x20",
+    message_id=MessageId("SVSI", b"\x20"),
     payload_description=Options(
         Empty,
         payload_description
