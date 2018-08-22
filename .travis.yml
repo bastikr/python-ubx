@@ -11,9 +11,24 @@ python:
 
 cache: pip
 
+before_install:
+
 install:
+  - pip install travis-sphinx
   - pip install -r requirements.txt
   - git clone https://github.com/bastikr/ubx-testdata.git
+  - export PYTHONPATH=$PYTHONPATH:`pwd`
+  - cd docs
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
+      python scripts/generate_messages.py;
+    fi
+  - cd ..
 
 script:
   - python -m unittest discover test
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then
+      travis-sphinx build;
+    fi
+
+after_success:
+  - travis-sphinx deploy
