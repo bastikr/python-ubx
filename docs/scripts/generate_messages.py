@@ -27,7 +27,7 @@ for description in ubx.descriptions.default:
     description_link = ":ref:`message-description-{}`".format(name)
     description_links[description.message_class.name].append((name, description_link))
 
-    output.append(str(description))
+    output.append(ubx.printing.RST().print_dispatch(description))
     output.append("\n")
 
     targetpath = os.path.join(targetdir, name + ".rst")

@@ -24,3 +24,5 @@ from .parser import Parser
 from .statistics import Statistics
 
 default_parser = Parser(*descriptions.default)
+
+from . import printing
