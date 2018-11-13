@@ -1,0 +1,26 @@
+.. _message-description-CFG-RATE:
+
+CFG-RATE
+--------
+
+:name: CFG-RATE
+
+:class: 0x06
+
+:id: 0x08
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=6)
+       
+         :measRate:
+           U2
+       
+         :navRate:
+           U2
+       
+         :timeRef:
+           U2
+

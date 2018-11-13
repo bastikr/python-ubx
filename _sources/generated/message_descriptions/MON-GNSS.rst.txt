@@ -1,0 +1,65 @@
+.. _message-description-MON-GNSS:
+
+MON-GNSS
+--------
+
+:name: MON-GNSS
+
+:class: 0x0a
+
+:id: 0x28
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=8)
+       
+         :version:
+           U1
+       
+         :supported:
+           Bitfield(1)
+           
+             0: *GPSSup*
+           
+             1: *GlonassSup*
+           
+             2: *BeidouSup*
+           
+             3: *GalileoSup*
+       
+         :defaultGnss:
+           Bitfield(1)
+           
+             0: *GPSDef*
+           
+             1: *GlonassDef*
+           
+             2: *BeidouDef*
+           
+             3: *GalileoDef*
+       
+         :enabled:
+           Bitfield(1)
+           
+             0: *GPSEna*
+           
+             1: *GlonassEna*
+           
+             2: *BeidouEna*
+           
+             3: *GalileoEna*
+       
+         :simultaneous:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

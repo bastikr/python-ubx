@@ -1,0 +1,108 @@
+.. _message-description-TIM-TOS:
+
+TIM-TOS
+-------
+
+:name: TIM-TOS
+
+:class: 0x0d
+
+:id: 0x12
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=56)
+       
+         :version:
+           U1
+       
+         :gnssId:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :flags:
+           Bitfield(4)
+           
+             0: *leapNow*
+           
+             1: *leapSoon*
+           
+             2: *leapPositive*
+           
+             3: *timeInLimit*
+           
+             4: *intOscInLimit*
+           
+             5: *extOscInLimit*
+           
+             6: *gnssTimeValid*
+           
+             7: *UTCTimeValid*
+           
+             8:11: *DiscSrc*
+           
+             11: *raim*
+           
+             12: *cohPulse*
+           
+             13: *lockedPulse*
+       
+         :year:
+           U2
+       
+         :month:
+           U1
+       
+         :day:
+           U1
+       
+         :hour:
+           U1
+       
+         :minute:
+           U1
+       
+         :second:
+           U1
+       
+         :utcStandard:
+           U1
+       
+         :utcOffset:
+           I4
+       
+         :utcUncertainty:
+           U4
+       
+         :week:
+           U4
+       
+         :TOW:
+           U4
+       
+         :gnssOffset:
+           I4
+       
+         :gnssUncertainty:
+           U4
+       
+         :intOscOffset:
+           I4
+       
+         :intOscUncertainty:
+           U4
+       
+         :extOscOffset:
+           I4
+       
+         :extOscUncertainty:
+           U4
+

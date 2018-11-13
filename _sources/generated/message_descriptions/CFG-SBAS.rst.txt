@@ -1,0 +1,114 @@
+.. _message-description-CFG-SBAS:
+
+CFG-SBAS
+--------
+
+:name: CFG-SBAS
+
+:class: 0x06
+
+:id: 0x16
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=8)
+       
+         :mode:
+           Bitfield(1)
+           
+             0: *enabled*
+           
+             1: *test*
+       
+         :usage:
+           Bitfield(1)
+           
+             0: *range*
+           
+             1: *diffCor*
+           
+             2: *integrity*
+       
+         :maxSBAS:
+           U1
+       
+         :scanmode2:
+           Bitfield(1)
+           
+             0: *PRN152*
+           
+             1: *PRN153*
+           
+             3: *PRN154*
+           
+             4: *PRN155*
+           
+             5: *PRN156*
+           
+             6: *PRN157*
+           
+             7: *PRN158*
+       
+         :scanmode1:
+           Bitfield(4)
+           
+             0: *PRN120*
+           
+             1: *PRN121*
+           
+             3: *PRN123*
+           
+             4: *PRN124*
+           
+             5: *PRN125*
+           
+             6: *PRN126*
+           
+             7: *PRN127*
+           
+             8: *PRN128*
+           
+             9: *PRN129*
+           
+             10: *PRN130*
+           
+             11: *PRN131*
+           
+             13: *PRN133*
+           
+             14: *PRN134*
+           
+             15: *PRN135*
+           
+             16: *PRN136*
+           
+             17: *PRN137*
+           
+             18: *PRN138*
+           
+             19: *PRN139*
+           
+             20: *PRN140*
+           
+             21: *PRN141*
+           
+             23: *PRN143*
+           
+             24: *PRN144*
+           
+             25: *PRN145*
+           
+             26: *PRN146*
+           
+             27: *PRN147*
+           
+             28: *PRN148*
+           
+             29: *PRN149*
+           
+             30: *PRN150*
+           
+             31: *PRN151*
+

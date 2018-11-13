@@ -1,0 +1,30 @@
+.. _message-description-TIM-DOSC:
+
+TIM-DOSC
+--------
+
+:name: TIM-DOSC
+
+:class: 0x0d
+
+:id: 0x11
+
+:payload:
+
+  #. Fields(length=8)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :value:
+           U4
+

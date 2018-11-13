@@ -1,0 +1,344 @@
+.. _message-description-MGA-INI:
+
+MGA-INI
+-------
+
+:name: MGA-INI
+
+:class: 0x13
+
+:id: 0x40
+
+:payload:
+
+  #. Fields(length=20)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :ecefX:
+           I4
+       
+         :ecefY:
+           I4
+       
+         :ecefZ:
+           I4
+       
+         :posAcc:
+           U4
+  
+  #. Fields(length=20)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :lat:
+           I4
+       
+         :lon:
+           I4
+       
+         :alt:
+           I4
+       
+         :posAcc:
+           U4
+  
+  #. Fields(length=24)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :ref:
+           Bitfield(1)
+           
+             0:4: *source*
+           
+             4: *fall*
+           
+             5: *last*
+       
+         :leapSecs:
+           I1
+       
+         :year:
+           U2
+       
+         :month:
+           U1
+       
+         :day:
+           U1
+       
+         :hour:
+           U1
+       
+         :minute:
+           U1
+       
+         :second:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :ns:
+           U4
+       
+         :tAccS:
+           U2
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :tAccNs:
+           U4
+  
+  #. Fields(length=24)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :ref:
+           Bitfield(1)
+           
+             0:4: *source*
+           
+             4: *fall*
+           
+             5: *last*
+       
+         :gnssId:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :week:
+           U2
+       
+         :tow:
+           U4
+       
+         :ns:
+           U4
+       
+         :tAccS:
+           U2
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :tAccNs:
+           U4
+  
+  #. Fields(length=12)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :clkD:
+           I4
+       
+         :clkDAcc:
+           U4
+  
+  #. Fields(length=13)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0:4: *source*
+           
+             4: *fall*
+       
+         :freq:
+           I4
+       
+         :freqAcc:
+           U4
+  
+  #. Fields(length=72)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :d2kRef:
+           U2
+       
+         :d2kMax:
+           U2
+       
+         :xpP0:
+           I4
+       
+         :xpP1:
+           I4
+       
+         :ypP0:
+           I4
+       
+         :ypP1:
+           I4
+       
+         :dUT1:
+           I4
+       
+         :ddUT1:
+           I4
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

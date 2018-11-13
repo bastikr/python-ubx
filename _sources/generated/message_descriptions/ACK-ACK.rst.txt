@@ -1,0 +1,21 @@
+.. _message-description-ACK-ACK:
+
+ACK-ACK
+-------
+
+:name: ACK-ACK
+
+:class: 0x05
+
+:id: 0x01
+
+:payload:
+
+  Fields(length=2)
+  
+    :clsID:
+      U1
+  
+    :msgID:
+      U1
+

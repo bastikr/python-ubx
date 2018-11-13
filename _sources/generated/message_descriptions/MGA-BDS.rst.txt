@@ -1,0 +1,356 @@
+.. _message-description-MGA-BDS:
+
+MGA-BDS
+-------
+
+:name: MGA-BDS
+
+:class: 0x13
+
+:id: 0x03
+
+:payload:
+
+  #. Fields(length=88)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :svId:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :satH1:
+           U1
+       
+         :IODC:
+           U1
+       
+         :a2:
+           I2
+       
+         :a1:
+           I4
+       
+         :a0:
+           I4
+       
+         :toc:
+           U4
+       
+         :TGD1:
+           I2
+       
+         :URAI:
+           U1
+       
+         :IODE:
+           U1
+       
+         :toe:
+           U4
+       
+         :sqrtA:
+           U4
+       
+         :e:
+           U4
+       
+         :omega:
+           I4
+       
+         :Deltan:
+           I2
+       
+         :IDOT:
+           I2
+       
+         :M0:
+           I4
+       
+         :Omega0:
+           I4
+       
+         :OmegaDot:
+           I4
+       
+         :i0:
+           I4
+       
+         :Cuc:
+           I4
+       
+         :Cus:
+           I4
+       
+         :Crc:
+           I4
+       
+         :Crs:
+           I4
+       
+         :Cic:
+           I4
+       
+         :Cis:
+           I4
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+  
+  #. Fields(length=40)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :svId:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :Wna:
+           U1
+       
+         :toa:
+           U1
+       
+         :deltaI:
+           I2
+       
+         :sqrtA:
+           U4
+       
+         :e:
+           U4
+       
+         :omega:
+           I4
+       
+         :M0:
+           I4
+       
+         :Omega0:
+           I4
+       
+         :OmegaDot:
+           I4
+       
+         :a0:
+           I2
+       
+         :a1:
+           I2
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+  
+  #. Fields(length=68)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :healthCode:
+           List
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+  
+  #. Fields(length=20)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :a0UTC:
+           I4
+       
+         :a1UTC:
+           I4
+       
+         :dtLS:
+           I1
+       
+         :reserved2:
+           U1
+       
+         :wnRec:
+           U1
+       
+         :wnLSF:
+           U1
+       
+         :dN:
+           U1
+       
+         :dtLSF:
+           I1
+       
+         :reserved3:
+           List
+           
+             - U1
+           
+             - U1
+  
+  #. Fields(length=16)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :alpha0:
+           I1
+       
+         :alpha1:
+           I1
+       
+         :alpha2:
+           I1
+       
+         :alpha3:
+           I1
+       
+         :beta0:
+           I1
+       
+         :beta1:
+           I1
+       
+         :beta2:
+           I1
+       
+         :beta3:
+           I1
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

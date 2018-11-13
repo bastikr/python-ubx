@@ -1,0 +1,49 @@
+.. _message-description-MGA-DBD:
+
+MGA-DBD
+-------
+
+:name: MGA-DBD
+
+:class: 0x13
+
+:id: 0x80
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :data:
+           MatchedLoop
+           
+             U1
+

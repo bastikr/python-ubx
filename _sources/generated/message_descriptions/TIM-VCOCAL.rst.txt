@@ -1,0 +1,76 @@
+.. _message-description-TIM-VCOCAL:
+
+TIM-VCOCAL
+----------
+
+:name: TIM-VCOCAL
+
+:class: 0x0d
+
+:id: 0x15
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=1)
+       
+         :type:
+           U1
+  
+  #. Fields(length=12)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :oscId:
+           U1
+       
+         :srcId:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :raw0:
+           U2
+       
+         :raw1:
+           U2
+       
+         :maxStepSize:
+           U2
+  
+  #. Fields(length=12)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :oscId:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :gainUncertainty:
+           U2
+       
+         :gainVco:
+           I4
+

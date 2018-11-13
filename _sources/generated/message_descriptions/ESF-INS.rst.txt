@@ -1,0 +1,66 @@
+.. _message-description-ESF-INS:
+
+ESF-INS
+-------
+
+:name: ESF-INS
+
+:class: 0x10
+
+:id: 0x15
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=36)
+       
+         :bitfield0:
+           Bitfield(4)
+           
+             0:8: *version*
+           
+             8: *xAngRateValid*
+           
+             9: *yAngRateValid*
+           
+             10: *zAngRateValid*
+           
+             11: *xAccelValid*
+           
+             12: *yAccelValid*
+           
+             13: *zAccelValid*
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :iTOW:
+           U4
+       
+         :xAngRate:
+           I4
+       
+         :yAngRate:
+           I4
+       
+         :zAngRate:
+           I4
+       
+         :xAccel:
+           I4
+       
+         :yAccel:
+           I4
+       
+         :zAccel:
+           I4
+

@@ -1,0 +1,107 @@
+.. _message-description-RXM-RAWX:
+
+RXM-RAWX
+--------
+
+:name: RXM-RAWX
+
+:class: 0x02
+
+:id: 0x15
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :rcvTow:
+           R8
+       
+         :week:
+           U2
+       
+         :leapS:
+           I1
+       
+         :numMeas:
+           U1
+       
+         :recStat:
+           Bitfield(1)
+           
+             0: *leapSec*
+           
+             1: *clkReset*
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :meas:
+           KeyLoop(key="numMeas"):
+           
+            Fields(length=32)
+             
+               :prMes:
+                 R8
+             
+               :cpMes:
+                 R8
+             
+               :doMes:
+                 R4
+             
+               :gnssId:
+                 U1
+             
+               :svId:
+                 U1
+             
+               :reserved2:
+                 U1
+             
+               :freqId:
+                 U1
+             
+               :locktime:
+                 U2
+             
+               :cno:
+                 U1
+             
+               :prStdev:
+                 Bitfield(1)
+                 
+                   0:4: *prStd*
+             
+               :cpStdev:
+                 Bitfield(1)
+                 
+                   0:4: *cpStd*
+             
+               :doStdev:
+                 Bitfield(1)
+                 
+                   0:4: *doStd*
+             
+               :trkStat:
+                 Bitfield(1)
+                 
+                   0: *prValid*
+                 
+                   1: *cpValid*
+                 
+                   2: *halfCyc*
+                 
+                   3: *subHalfCyc*
+             
+               :reserved3:
+                 U1
+

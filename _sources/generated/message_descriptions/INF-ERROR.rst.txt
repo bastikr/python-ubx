@@ -1,0 +1,18 @@
+.. _message-description-INF-ERROR:
+
+INF-ERROR
+---------
+
+:name: INF-ERROR
+
+:class: 0x04
+
+:id: 0x00
+
+:payload:
+
+  #. Fields(length=?)
+       
+         :str:
+           Chars(None)
+

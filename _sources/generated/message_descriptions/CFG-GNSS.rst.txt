@@ -1,0 +1,53 @@
+.. _message-description-CFG-GNSS:
+
+CFG-GNSS
+--------
+
+:name: CFG-GNSS
+
+:class: 0x06
+
+:id: 0x3e
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :msgVer:
+           U1
+       
+         :numTrkChHw:
+           U1
+       
+         :numTrkChUse:
+           U1
+       
+         :numCfgBlocks:
+           U1
+       
+         :cfgBlocks:
+           KeyLoop(key="numCfgBlocks"):
+           
+            Fields(length=8)
+             
+               :gnssId:
+                 U1
+             
+               :resTrkCh:
+                 U1
+             
+               :maxTrkCh:
+                 U1
+             
+               :reserved1:
+                 U1
+             
+               :flags:
+                 Bitfield(4)
+                 
+                   0: *enable*
+                 
+                   16:24: *sigCfgMask*
+

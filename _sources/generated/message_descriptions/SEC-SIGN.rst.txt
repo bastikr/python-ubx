@@ -1,0 +1,103 @@
+.. _message-description-SEC-SIGN:
+
+SEC-SIGN
+--------
+
+:name: SEC-SIGN
+
+:class: 0x27
+
+:id: 0x01
+
+:payload:
+
+  #. Fields(length=40)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :classID:
+           U1
+       
+         :messageID:
+           U1
+       
+         :checksum:
+           U2
+       
+         :hash:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

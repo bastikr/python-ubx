@@ -1,0 +1,55 @@
+.. _message-description-AID-ALM:
+
+AID-ALM
+-------
+
+:name: AID-ALM
+
+:class: 0x0b
+
+:id: 0x30
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=1)
+       
+         :svid:
+           U1
+  
+  #. Fields(length=8)
+       
+         :svid:
+           U4
+       
+         :week:
+           U4
+  
+  #. Fields(length=40)
+       
+         :svid:
+           U4
+       
+         :week:
+           U4
+       
+         :dwrd:
+           List
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+

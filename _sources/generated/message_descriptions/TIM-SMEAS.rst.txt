@@ -1,0 +1,88 @@
+.. _message-description-TIM-SMEAS:
+
+TIM-SMEAS
+---------
+
+:name: TIM-SMEAS
+
+:class: 0x0d
+
+:id: 0x13
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :version:
+           U1
+       
+         :numMeas:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :iTOW:
+           U4
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :meass:
+           KeyLoop(key="numMeas"):
+           
+            Fields(length=24)
+             
+               :sourceId:
+                 U1
+             
+               :flags:
+                 Bitfield(1)
+                 
+                   0: *freqValid*
+                 
+                   1: *phaseValid*
+             
+               :phaseOffsetFrac:
+                 I1
+             
+               :phaseUncFrac:
+                 U1
+             
+               :phaseOffset:
+                 I4
+             
+               :phaseUnc:
+                 U4
+             
+               :reserved3:
+                 List
+                 
+                   - U1
+                 
+                   - U1
+                 
+                   - U1
+                 
+                   - U1
+             
+               :freqOffset:
+                 I4
+             
+               :freqUnc:
+                 U4
+

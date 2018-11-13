@@ -1,0 +1,146 @@
+.. _message-description-MON-MSGPP:
+
+MON-MSGPP
+---------
+
+:name: MON-MSGPP
+
+:class: 0x0a
+
+:id: 0x06
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=120)
+       
+         :msg1:
+           List
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+       
+         :msg2:
+           List
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+       
+         :msg3:
+           List
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+       
+         :msg4:
+           List
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+       
+         :msg5:
+           List
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+       
+         :msg6:
+           List
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+       
+         :skipped:
+           List
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+

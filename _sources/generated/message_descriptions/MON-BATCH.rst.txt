@@ -1,0 +1,41 @@
+.. _message-description-MON-BATCH:
+
+MON-BATCH
+---------
+
+:name: MON-BATCH
+
+:class: 0x0a
+
+:id: 0x32
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=12)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :fillLevel:
+           U2
+       
+         :dropsAll:
+           U2
+       
+         :dropsSinceMon:
+           U2
+       
+         :nextMsgCnt:
+           U2
+

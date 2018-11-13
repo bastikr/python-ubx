@@ -1,0 +1,20 @@
+.. _message-description-LOG-STRING:
+
+LOG-STRING
+----------
+
+:name: LOG-STRING
+
+:class: 0x21
+
+:id: 0x04
+
+:payload:
+
+  #. Fields(length=?)
+       
+         :bytes:
+           MatchedLoop
+           
+             U1
+

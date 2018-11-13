@@ -1,0 +1,50 @@
+.. _message-description-TIM-FCHG:
+
+TIM-FCHG
+--------
+
+:name: TIM-FCHG
+
+:class: 0x0d
+
+:id: 0x16
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=32)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :iTOW:
+           U4
+       
+         :intDeltaFreq:
+           I4
+       
+         :intDeltaFreqUnc:
+           U4
+       
+         :intRaw:
+           U4
+       
+         :extDeltaFreq:
+           I4
+       
+         :extDeltaFreqUnc:
+           U4
+       
+         :extRaw:
+           U4
+

@@ -1,0 +1,69 @@
+.. _message-description-NAV-TIMELS:
+
+NAV-TIMELS
+----------
+
+:name: NAV-TIMELS
+
+:class: 0x01
+
+:id: 0x26
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=24)
+       
+         :iTOW:
+           U4
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :srcOfCurrLs:
+           U1
+       
+         :currLs:
+           I1
+       
+         :srcOfLsChange:
+           U1
+       
+         :lsChange:
+           I1
+       
+         :timeToLsEvent:
+           I4
+       
+         :dateOfLsGpsWn:
+           U2
+       
+         :dateOfLsGpsDn:
+           U2
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :valid:
+           Bitfield(1)
+           
+             0: *validCurrLs*
+           
+             1: *validTimeToLsEvent*
+

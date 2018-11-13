@@ -1,0 +1,40 @@
+.. _message-description-SEC-UNIQID:
+
+SEC-UNIQID
+----------
+
+:name: SEC-UNIQID
+
+:class: 0x27
+
+:id: 0x03
+
+:payload:
+
+  #. Fields(length=9)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :uniqueID:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

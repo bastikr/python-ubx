@@ -1,0 +1,93 @@
+.. _message-description-AID-EPH:
+
+AID-EPH
+-------
+
+:name: AID-EPH
+
+:class: 0x0b
+
+:id: 0x31
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=1)
+       
+         :svid:
+           U1
+  
+  #. Fields(length=8)
+       
+         :svid:
+           U4
+       
+         :how:
+           U4
+  
+  #. Fields(length=104)
+       
+         :svid:
+           U4
+       
+         :how:
+           U4
+       
+         :sf1d:
+           List
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+       
+         :sf2d:
+           List
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+       
+         :sf3d:
+           List
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+

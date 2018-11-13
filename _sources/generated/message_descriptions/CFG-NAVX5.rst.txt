@@ -1,0 +1,397 @@
+.. _message-description-CFG-NAVX5:
+
+CFG-NAVX5
+---------
+
+:name: CFG-NAVX5
+
+:class: 0x06
+
+:id: 0x23
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=44)
+       
+         :version:
+           U2
+       
+         :mask1:
+           Bitfield(2)
+           
+             2: *minMax*
+           
+             3: *minCno*
+           
+             6: *initial3dfix*
+           
+             9: *wknRoll*
+           
+             10: *ackAid*
+           
+             13: *ppp*
+           
+             14: *aop*
+       
+         :mask2:
+           Bitfield(4)
+           
+             6: *adr*
+           
+             6: *sigAttenComp*
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :minSVs:
+           U1
+       
+         :maxSVs:
+           U1
+       
+         :minCNO:
+           U1
+       
+         :reserved2:
+           U1
+       
+         :iniFix3D:
+           U1
+       
+         :reserved3:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :ackAiding:
+           U1
+       
+         :wknRollover:
+           U2
+       
+         :sigAttenCompMode:
+           U1
+       
+         :reserved4:
+           U1
+       
+         :reserved5:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :reserved6:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :usePPP:
+           U1
+       
+         :aopCfg:
+           Bitfield(1)
+           
+             0: *useAOP*
+       
+         :reserved7:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :aopOrbMaxErr:
+           U2
+       
+         :reserved8:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :reserved9:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :useAddr:
+           U1
+       
+         :reserved10:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :reserved11:
+           List
+           
+             - U1
+           
+             - U1
+  
+  #. Fields(length=40)
+       
+         :version:
+           U2
+       
+         :mask1:
+           Bitfield(2)
+           
+             2: *minMax*
+           
+             3: *minCno*
+           
+             6: *initial3dfix*
+           
+             9: *wknRoll*
+           
+             10: *ackAid*
+           
+             13: *ppp*
+           
+             14: *aop*
+       
+         :mask2:
+           Bitfield(4)
+           
+             6: *adr*
+           
+             6: *sigAttenComp*
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :minSVs:
+           U1
+       
+         :maxSVs:
+           U1
+       
+         :minCNO:
+           U1
+       
+         :reserved2:
+           U1
+       
+         :iniFix3D:
+           U1
+       
+         :reserved3:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :ackAiding:
+           U1
+       
+         :wknRollover:
+           U2
+       
+         :sigAttenCompMode:
+           U1
+       
+         :reserved4:
+           U1
+       
+         :reserved5:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :reserved6:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :usePPP:
+           U1
+       
+         :aopCfg:
+           Bitfield(1)
+           
+             0: *useAOP*
+       
+         :reserved7:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :aopOrbMaxErr:
+           U2
+       
+         :reserved8:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :reserved9:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :useAddr:
+           U1
+  
+  #. Fields(length=40)
+       
+         :version:
+           U2
+       
+         :mask1:
+           Bitfield(2)
+           
+             2: *minMax*
+           
+             3: *minCno*
+           
+             6: *initial3dfix*
+           
+             9: *wknRoll*
+           
+             10: *ackAid*
+           
+             13: *ppp*
+           
+             14: *aop*
+       
+         :mask2:
+           Bitfield(4)
+           
+             6: *adr*
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :minSVs:
+           U1
+       
+         :maxSVs:
+           U1
+       
+         :minCNO:
+           U1
+       
+         :reserved2:
+           U1
+       
+         :iniFix3D:
+           U1
+       
+         :reserved3:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :ackAiding:
+           U1
+       
+         :wknRollover:
+           U2
+       
+         :reserved4:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :usePPP:
+           U1
+       
+         :aopCfg:
+           Bitfield(1)
+           
+             0: *useAOP*
+       
+         :reserved5:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :aopOrbMaxErr:
+           U2
+       
+         :reserved6:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :reserved7:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :useAddr:
+           U1
+

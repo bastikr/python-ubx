@@ -1,0 +1,110 @@
+.. _message-description-MON-HW:
+
+MON-HW
+------
+
+:name: MON-HW
+
+:class: 0x0a
+
+:id: 0x09
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=60)
+       
+         :pinSel:
+           Bitfield(4)
+       
+         :pinBank:
+           Bitfield(4)
+       
+         :pinDir:
+           Bitfield(4)
+       
+         :pinVal:
+           Bitfield(4)
+       
+         :noisePerMS:
+           U2
+       
+         :agcCnt:
+           U2
+       
+         :aStatus:
+           U1
+       
+         :aPower:
+           U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *rtcCalib*
+           
+             1: *safeBoot*
+           
+             2:4: *jammingState*
+           
+             4: *xtalAbsent*
+       
+         :reserved1:
+           U1
+       
+         :usedMask:
+           Bitfield(4)
+       
+         :VP:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :jamInd:
+           U1
+       
+         :reserved2:
+           U2
+       
+         :pinIrq:
+           Bitfield(4)
+       
+         :pullH:
+           Bitfield(4)
+       
+         :pullL:
+           Bitfield(4)
+

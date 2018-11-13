@@ -1,0 +1,44 @@
+.. _message-description-MON-PATCH:
+
+MON-PATCH
+---------
+
+:name: MON-PATCH
+
+:class: 0x0a
+
+:id: 0x27
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :version:
+           U2
+       
+         :nEntries:
+           U2
+       
+         :entries:
+           KeyLoop(key="nEntries"):
+           
+            Fields(length=16)
+             
+               :patchInfo:
+                 Bitfield(4)
+                 
+                   0: *activated*
+                 
+                   1:3: *location*
+             
+               :comparatorNumber:
+                 U4
+             
+               :patchAddress:
+                 U4
+             
+               :patchData:
+                 U4
+

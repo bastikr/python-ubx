@@ -1,0 +1,49 @@
+.. _message-description-RXM-SFRBX:
+
+RXM-SFRBX
+---------
+
+:name: RXM-SFRBX
+
+:class: 0x02
+
+:id: 0x13
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :gnssId:
+           U1
+       
+         :svId:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :freqId:
+           U1
+       
+         :numWords:
+           U1
+       
+         :chn:
+           U1
+       
+         :version:
+           U1
+       
+         :reserved2:
+           U1
+       
+         :meas:
+           KeyLoop(key="numWords"):
+           
+            Fields(length=4)
+             
+               :dwrd:
+                 U4
+

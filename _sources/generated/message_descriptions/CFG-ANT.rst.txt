@@ -1,0 +1,41 @@
+.. _message-description-CFG-ANT:
+
+CFG-ANT
+-------
+
+:name: CFG-ANT
+
+:class: 0x06
+
+:id: 0x13
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=4)
+       
+         :flags:
+           Bitfield(2)
+           
+             0: *scvs*
+           
+             1: *scd*
+           
+             2: *ocd*
+           
+             3: *pdwnOnSCD*
+           
+             4: *recovery*
+       
+         :pins:
+           Bitfield(2)
+           
+             0:5: *pinSwitch*
+           
+             5:10: *pinSCD*
+           
+             10:15: *pinOCD*
+           
+             15: *reconfig*
+

@@ -1,0 +1,23 @@
+.. _message-description-CFG-RXM:
+
+CFG-RXM
+-------
+
+:name: CFG-RXM
+
+:class: 0x06
+
+:id: 0x11
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=2)
+       
+         :reserved1:
+           U1
+       
+         :lpMode:
+           U1
+

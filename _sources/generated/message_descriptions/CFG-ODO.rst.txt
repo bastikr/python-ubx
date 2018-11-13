@@ -1,0 +1,86 @@
+.. _message-description-CFG-ODO:
+
+CFG-ODO
+-------
+
+:name: CFG-ODO
+
+:class: 0x06
+
+:id: 0x1e
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *useODO*
+           
+             1: *useCOG*
+           
+             2: *outLPVel*
+           
+             3: *outLPCog*
+       
+         :odoCfg:
+           Bitfield(1)
+           
+             0:3: *profile*
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :cogMaxSpeed:
+           U1
+       
+         :cogMaxPosAcc:
+           U1
+       
+         :reserved3:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :velLpGain:
+           U1
+       
+         :cogLpGain:
+           U1
+       
+         :reserved4:
+           List
+           
+             - U1
+           
+             - U1
+

@@ -1,0 +1,18 @@
+.. _message-description-INF-TEST:
+
+INF-TEST
+--------
+
+:name: INF-TEST
+
+:class: 0x04
+
+:id: 0x03
+
+:payload:
+
+  #. Fields(length=?)
+       
+         :str:
+           Chars(None)
+

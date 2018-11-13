@@ -1,0 +1,82 @@
+.. _message-description-NAV-SVINFO:
+
+NAV-SVINFO
+----------
+
+:name: NAV-SVINFO
+
+:class: 0x01
+
+:id: 0x30
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :iTOW:
+           U4
+       
+         :numCh:
+           U1
+       
+         :globalFlags:
+           Bitfield(1)
+           
+             0:3: *chipGen*
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :ch:
+           KeyLoop(key="numCh"):
+           
+            Fields(length=12)
+             
+               :chn:
+                 U1
+             
+               :svid:
+                 U1
+             
+               :flags:
+                 Bitfield(1)
+                 
+                   0: *svUsed*
+                 
+                   1: *diffCorr*
+                 
+                   2: *orbitAvail*
+                 
+                   3: *orbitEph*
+                 
+                   4: *unhealthy*
+                 
+                   5: *orbitAlm*
+                 
+                   6: *orbitAop*
+                 
+                   7: *smoothed*
+             
+               :quality:
+                 Bitfield(1)
+                 
+                   0:4: *qualityInd*
+             
+               :cno:
+                 U1
+             
+               :elev:
+                 I1
+             
+               :azim:
+                 I2
+             
+               :prRes:
+                 I4
+

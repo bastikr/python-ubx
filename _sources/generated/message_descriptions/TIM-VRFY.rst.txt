@@ -1,0 +1,40 @@
+.. _message-description-TIM-VRFY:
+
+TIM-VRFY
+--------
+
+:name: TIM-VRFY
+
+:class: 0x0d
+
+:id: 0x06
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :itow:
+           I4
+       
+         :frac:
+           I4
+       
+         :deltaMs:
+           I4
+       
+         :deltaNs:
+           I4
+       
+         :wno:
+           U2
+       
+         :flags:
+           Bitfield(1)
+           
+             0:3: *src*
+       
+         :reserved1:
+           U1
+

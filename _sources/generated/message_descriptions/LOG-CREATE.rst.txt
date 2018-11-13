@@ -1,0 +1,32 @@
+.. _message-description-LOG-CREATE:
+
+LOG-CREATE
+----------
+
+:name: LOG-CREATE
+
+:class: 0x21
+
+:id: 0x07
+
+:payload:
+
+  #. Fields(length=8)
+       
+         :version:
+           U1
+       
+         :logCfg:
+           Bitfield(1)
+           
+             0: *circular*
+       
+         :reserved1:
+           U1
+       
+         :logSize:
+           U1
+       
+         :userDefinedSize:
+           U4
+

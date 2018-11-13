@@ -1,0 +1,75 @@
+.. _message-description-NAV-SVIN:
+
+NAV-SVIN
+--------
+
+:name: NAV-SVIN
+
+:class: 0x01
+
+:id: 0x3b
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=40)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :iTOW:
+           U4
+       
+         :dur:
+           U4
+       
+         :meanX:
+           I4
+       
+         :meanY:
+           I4
+       
+         :meanZ:
+           I4
+       
+         :meanXHP:
+           I1
+       
+         :meanYHP:
+           I1
+       
+         :meanZHP:
+           I1
+       
+         :reserved2:
+           U1
+       
+         :meanAcc:
+           U4
+       
+         :obs:
+           U4
+       
+         :valid:
+           U1
+       
+         :active:
+           U1
+       
+         :reserved3:
+           List
+           
+             - U1
+           
+             - U1
+

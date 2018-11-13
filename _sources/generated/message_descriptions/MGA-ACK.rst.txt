@@ -1,0 +1,38 @@
+.. _message-description-MGA-ACK:
+
+MGA-ACK
+-------
+
+:name: MGA-ACK
+
+:class: 0x13
+
+:id: 0x60
+
+:payload:
+
+  #. Fields(length=8)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :infoCode:
+           U1
+       
+         :msgId:
+           U1
+       
+         :msgPayloadStart:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

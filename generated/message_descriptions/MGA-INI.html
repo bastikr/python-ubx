@@ -1,0 +1,646 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MGA-INI &#8212; Python-UBX  documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MGA-QZSS" href="MGA-QZSS.html" />
+    <link rel="prev" title="MGA-GPS" href="MGA-GPS.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mga-ini">
+<span id="message-description-mga-ini"></span><h1>MGA-INI<a class="headerlink" href="#mga-ini" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">name:</th><td class="field-body"><p class="first">MGA-INI</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">class:</th><td class="field-body"><p class="first">0x13</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">id:</th><td class="field-body"><p class="first">0x40</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">payload:</th><td class="field-body"><ol class="first last arabic">
+<li><p class="first">Fields(length=20)</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">version:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">reserved1:</th><td class="field-body"><p class="first">List</p>
+<blockquote>
+<div><ul class="simple">
+<li>U1</li>
+<li>U1</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ecefX:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ecefY:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ecefZ:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">posAcc:</th><td class="field-body"><p class="first last">U4</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p class="first">Fields(length=20)</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">version:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">reserved1:</th><td class="field-body"><p class="first">List</p>
+<blockquote>
+<div><ul class="simple">
+<li>U1</li>
+<li>U1</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lat:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lon:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">alt:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">posAcc:</th><td class="field-body"><p class="first last">U4</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p class="first">Fields(length=24)</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">version:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ref:</th><td class="field-body"><p class="first">Bitfield(1)</p>
+<blockquote>
+<div><p>0:4: <em>source</em></p>
+<p>4: <em>fall</em></p>
+<p>5: <em>last</em></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">leapSecs:</th><td class="field-body"><p class="first">I1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">year:</th><td class="field-body"><p class="first">U2</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">month:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">day:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">hour:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">minute:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">second:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">reserved1:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ns:</th><td class="field-body"><p class="first">U4</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">tAccS:</th><td class="field-body"><p class="first">U2</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">reserved2:</th><td class="field-body"><p class="first">List</p>
+<blockquote>
+<div><ul class="simple">
+<li>U1</li>
+<li>U1</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">tAccNs:</th><td class="field-body"><p class="first last">U4</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p class="first">Fields(length=24)</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">version:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ref:</th><td class="field-body"><p class="first">Bitfield(1)</p>
+<blockquote>
+<div><p>0:4: <em>source</em></p>
+<p>4: <em>fall</em></p>
+<p>5: <em>last</em></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">gnssId:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">reserved1:</th><td class="field-body"><p class="first">List</p>
+<blockquote>
+<div><ul class="simple">
+<li>U1</li>
+<li>U1</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">week:</th><td class="field-body"><p class="first">U2</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">tow:</th><td class="field-body"><p class="first">U4</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ns:</th><td class="field-body"><p class="first">U4</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">tAccS:</th><td class="field-body"><p class="first">U2</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">reserved2:</th><td class="field-body"><p class="first">List</p>
+<blockquote>
+<div><ul class="simple">
+<li>U1</li>
+<li>U1</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">tAccNs:</th><td class="field-body"><p class="first last">U4</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p class="first">Fields(length=12)</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">version:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">reserved1:</th><td class="field-body"><p class="first">List</p>
+<blockquote>
+<div><ul class="simple">
+<li>U1</li>
+<li>U1</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">clkD:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">clkDAcc:</th><td class="field-body"><p class="first last">U4</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p class="first">Fields(length=13)</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">version:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">reserved1:</th><td class="field-body"><p class="first">List</p>
+<blockquote>
+<div><ul class="simple">
+<li>U1</li>
+<li>U1</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">flags:</th><td class="field-body"><p class="first">Bitfield(1)</p>
+<blockquote>
+<div><p>0:4: <em>source</em></p>
+<p>4: <em>fall</em></p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">freq:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">freqAcc:</th><td class="field-body"><p class="first last">U4</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p class="first">Fields(length=72)</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">type:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">version:</th><td class="field-body"><p class="first">U1</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">reserved1:</th><td class="field-body"><p class="first">List</p>
+<blockquote>
+<div><ul class="simple">
+<li>U1</li>
+<li>U1</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">d2kRef:</th><td class="field-body"><p class="first">U2</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">d2kMax:</th><td class="field-body"><p class="first">U2</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">xpP0:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">xpP1:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ypP0:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ypP1:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">dUT1:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ddUT1:</th><td class="field-body"><p class="first">I4</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">reserved2:</th><td class="field-body"><p class="first">List</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+<li>U1</li>
+</ul>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ol>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Python-UBX</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="message_descriptions.html">Message Descriptions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ACK-ACK.html">ACK-ACK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ACK-NACK.html">ACK-NACK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AID-ALM.html">AID-ALM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AID-AOP.html">AID-AOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AID-EPH.html">AID-EPH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AID-HUI.html">AID-HUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AID-INI.html">AID-INI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-ANT.html">CFG-ANT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-BATCH.html">CFG-BATCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-CFG.html">CFG-CFG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-DAT.html">CFG-DAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-DGNSS.html">CFG-DGNSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-DOSC.html">CFG-DOSC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-DYNSEED.html">CFG-DYNSEED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-ESRC.html">CFG-ESRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-FIXSEED.html">CFG-FIXSEED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-GEOFENCE.html">CFG-GEOFENCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-GNSS.html">CFG-GNSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-HNR.html">CFG-HNR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-INF.html">CFG-INF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-ITFM.html">CFG-ITFM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-LOGFILTER.html">CFG-LOGFILTER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-MSG.html">CFG-MSG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-NAV5.html">CFG-NAV5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-NAVX5.html">CFG-NAVX5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-NMEA.html">CFG-NMEA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-ODO.html">CFG-ODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-PM2.html">CFG-PM2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-PMS.html">CFG-PMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-PRT.html">CFG-PRT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-PWR.html">CFG-PWR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-RATE.html">CFG-RATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-RINV.html">CFG-RINV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-RST.html">CFG-RST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-RXM.html">CFG-RXM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-SBAS.html">CFG-SBAS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-SMGR.html">CFG-SMGR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-TMODE2.html">CFG-TMODE2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-TMODE3.html">CFG-TMODE3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-TP5.html">CFG-TP5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-TXSLOT.html">CFG-TXSLOT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CFG-USB.html">CFG-USB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ESF-INS.html">ESF-INS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ESF-RAW.html">ESF-RAW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ESF-STATUS.html">ESF-STATUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HNR-PVT.html">HNR-PVT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="INF-DEBUG.html">INF-DEBUG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="INF-ERROR.html">INF-ERROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="INF-NOTICE.html">INF-NOTICE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="INF-TEST.html">INF-TEST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="INF-WARNING.html">INF-WARNING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-BATCH.html">LOG-BATCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-CREATE.html">LOG-CREATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-ERASE.html">LOG-ERASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-FINDTIME.html">LOG-FINDTIME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-INFO.html">LOG-INFO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-RETRIEVE.html">LOG-RETRIEVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-RETRIEVEBATCH.html">LOG-RETRIEVEBATCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-RETRIEVEPOS.html">LOG-RETRIEVEPOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-RETRIEVEPOSEXTRA.html">LOG-RETRIEVEPOSEXTRA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-RETRIEVESTRING.html">LOG-RETRIEVESTRING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG-STRING.html">LOG-STRING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MGA-ACK.html">MGA-ACK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MGA-ANO.html">MGA-ANO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MGA-BDS.html">MGA-BDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MGA-DBD.html">MGA-DBD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MGA-FLASH.html">MGA-FLASH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MGA-GAL.html">MGA-GAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MGA-GLO.html">MGA-GLO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MGA-GPS.html">MGA-GPS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MGA-INI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MGA-QZSS.html">MGA-QZSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-BATCH.html">MON-BATCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-GNSS.html">MON-GNSS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-HW.html">MON-HW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-HW2.html">MON-HW2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-IO.html">MON-IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-MSGPP.html">MON-MSGPP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-PATCH.html">MON-PATCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-RXBUF.html">MON-RXBUF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-RXR.html">MON-RXR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-SMGR.html">MON-SMGR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-TXBUF.html">MON-TXBUF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MON-VER.html">MON-VER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-AOPSTATUS.html">NAV-AOPSTATUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-ATT.html">NAV-ATT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-CLOCK.html">NAV-CLOCK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-DGPS.html">NAV-DGPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-DOP.html">NAV-DOP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-EOE.html">NAV-EOE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-GEOFENCE.html">NAV-GEOFENCE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-HPPOSECEF.html">NAV-HPPOSECEF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-HPPOSLLH.html">NAV-HPPOSLLH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-ODO.html">NAV-ODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-ORB.html">NAV-ORB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-POSECEF.html">NAV-POSECEF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-POSLLH.html">NAV-POSLLH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-PVT.html">NAV-PVT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-RELPOSNED.html">NAV-RELPOSNED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-RESETODO.html">NAV-RESETODO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-SAT.html">NAV-SAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-SBAS.html">NAV-SBAS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-SOL.html">NAV-SOL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-STATUS.html">NAV-STATUS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-SVIN.html">NAV-SVIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-SVINFO.html">NAV-SVINFO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-TIMEDBS.html">NAV-TIMEDBS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-TIMEGAL.html">NAV-TIMEGAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-TIMEGLO.html">NAV-TIMEGLO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-TIMEGPS.html">NAV-TIMEGPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-TIMELS.html">NAV-TIMELS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-TIMEUTC.html">NAV-TIMEUTC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-VELECEF.html">NAV-VELECEF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NAV-VELNED.html">NAV-VELNED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RXM-IMES.html">RXM-IMES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RXM-MEASX.html">RXM-MEASX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RXM-PMREQ.html">RXM-PMREQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RXM-RAWX.html">RXM-RAWX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RXM-RLM.html">RXM-RLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RXM-RTCM.html">RXM-RTCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RXM-SFRBX.html">RXM-SFRBX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RXM-SVSI.html">RXM-SVSI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SEC-SIGN.html">SEC-SIGN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SEC-UNIQID.html">SEC-UNIQID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TIM-DOSC.html">TIM-DOSC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TIM-FCHG.html">TIM-FCHG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TIM-HOC.html">TIM-HOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TIM-SMEAS.html">TIM-SMEAS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TIM-SVIN.html">TIM-SVIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TIM-TM2.html">TIM-TM2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TIM-TOS.html">TIM-TOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TIM-TP.html">TIM-TP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TIM-VCOCAL.html">TIM-VCOCAL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TIM-VRFY.html">TIM-VRFY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#ack">ACK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#aid">AID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#cfg">CFG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#esf">ESF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#hnr">HNR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#inf">INF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#log">LOG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#mga">MGA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#mon">MON</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#nav">NAV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#rxm">RXM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#sec">SEC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message_descriptions.html#tim">TIM</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="message_descriptions.html">Message Descriptions</a><ul>
+      <li>Previous: <a href="MGA-GPS.html" title="previous chapter">MGA-GPS</a></li>
+      <li>Next: <a href="MGA-QZSS.html" title="next chapter">MGA-QZSS</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Sebastian Krämer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/generated/message_descriptions/MGA-INI.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

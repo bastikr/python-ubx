@@ -1,0 +1,53 @@
+.. _message-description-LOG-RETRIEVESTRING:
+
+LOG-RETRIEVESTRING
+------------------
+
+:name: LOG-RETRIEVESTRING
+
+:class: 0x21
+
+:id: 0x0d
+
+:payload:
+
+  #. Fields(length=?)
+       
+         :entryIndex:
+           U4
+       
+         :version:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :year:
+           U2
+       
+         :month:
+           U1
+       
+         :day:
+           U1
+       
+         :hour:
+           U1
+       
+         :minute:
+           U1
+       
+         :second:
+           U1
+       
+         :reserved2:
+           U1
+       
+         :byteCount:
+           U2
+       
+         :bytes:
+           KeyLoop(key="byteCount"):
+           
+            U1
+

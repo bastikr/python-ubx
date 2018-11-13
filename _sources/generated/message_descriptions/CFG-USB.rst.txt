@@ -1,0 +1,56 @@
+.. _message-description-CFG-USB:
+
+CFG-USB
+-------
+
+:name: CFG-USB
+
+:class: 0x06
+
+:id: 0x1b
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=108)
+       
+         :vendorID:
+           U2
+       
+         :productID:
+           U2
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :powerConsumption:
+           U2
+       
+         :flags:
+           Bitfield(2)
+           
+             0: *reEnum*
+           
+             1: *powerMode*
+       
+         :vendorString:
+           Chars(32)
+       
+         :productString:
+           Chars(32)
+       
+         :serialNumber:
+           Chars(32)
+

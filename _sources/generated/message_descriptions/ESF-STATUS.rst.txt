@@ -1,0 +1,88 @@
+.. _message-description-ESF-STATUS:
+
+ESF-STATUS
+----------
+
+:name: ESF-STATUS
+
+:class: 0x10
+
+:id: 0x10
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :iTOW:
+           U4
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :fusionMode:
+           U1
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :numSens:
+           U1
+       
+         :sens:
+           KeyLoop(key="numSens"):
+           
+            Fields(length=4)
+             
+               :sensStatus1:
+                 Bitfield(1)
+                 
+                   0:6: *type*
+                 
+                   6: *used*
+                 
+                   7: *ready*
+             
+               :sensStatus2:
+                 Bitfield(1)
+                 
+                   0:2: *calibStatus*
+                 
+                   2:4: *timeStatus*
+             
+               :freq:
+                 U1
+             
+               :faults:
+                 Bitfield(1)
+                 
+                   0: *badMeas*
+                 
+                   1: *badTTag*
+                 
+                   2: *missingMeas*
+                 
+                   3: *noisyMeas*
+

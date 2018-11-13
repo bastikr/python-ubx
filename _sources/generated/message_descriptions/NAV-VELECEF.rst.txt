@@ -1,0 +1,32 @@
+.. _message-description-NAV-VELECEF:
+
+NAV-VELECEF
+-----------
+
+:name: NAV-VELECEF
+
+:class: 0x01
+
+:id: 0x11
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :iTOW:
+           U4
+       
+         :ecefVX:
+           I4
+       
+         :ecefVY:
+           I4
+       
+         :ecefVZ:
+           I4
+       
+         :sAcc:
+           U4
+

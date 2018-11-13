@@ -1,0 +1,76 @@
+.. _message-description-MON-SMGR:
+
+MON-SMGR
+--------
+
+:name: MON-SMGR
+
+:class: 0x0a
+
+:id: 0x2e
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=16)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :iTOW:
+           U4
+       
+         :intOsc:
+           Bitfield(2)
+           
+             0:4: *intOscState*
+           
+             4: *intOscCalib*
+           
+             5: *intOscDisc*
+       
+         :extOsc:
+           Bitfield(2)
+           
+             0:4: *extOscState*
+           
+             4: *extOscCalib*
+           
+             5: *extOscDisc*
+       
+         :discSrc:
+           U1
+       
+         :gnss:
+           Bitfield(1)
+           
+             0: *gnssAvail*
+       
+         :extInt0:
+           Bitfield(1)
+           
+             0: *extInt0Avail*
+           
+             1: *extInt0Type*
+           
+             2: *extInt0FeedBack*
+       
+         :extInt1:
+           Bitfield(1)
+           
+             0: *extInt1Avail*
+           
+             1: *extInt1Type*
+           
+             2: *extInt1FeedBack*
+

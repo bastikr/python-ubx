@@ -1,0 +1,115 @@
+.. _message-description-RXM-IMES:
+
+RXM-IMES
+--------
+
+:name: RXM-IMES
+
+:class: 0x02
+
+:id: 0x61
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :numTx:
+           U1
+       
+         :version:
+           U1
+       
+         :resreved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :txs:
+           KeyLoop(key="numTx"):
+           
+            Fields(length=44)
+             
+               :reserved2:
+                 U1
+             
+               :txId:
+                 U1
+             
+               :reserved3:
+                 List
+                 
+                   - U1
+                 
+                   - U1
+                 
+                   - U1
+             
+               :cno:
+                 U1
+             
+               :reserved4:
+                 List
+                 
+                   - U1
+                 
+                   - U1
+             
+               :doppler:
+                 I4
+             
+               :position1_1:
+                 Bitfield(4)
+                 
+                   0:8: *pos1Floor*
+                 
+                   8:31: *pos1Lat*
+             
+               :position1_2:
+                 Bitfield(4)
+                 
+                   0:24: *pos1Lon*
+                 
+                   24: *pos1Valid*
+             
+               :position2_1:
+                 Bitfield(4)
+                 
+                   0:9: *pos2Floor*
+                 
+                   9:21: *pos2Alt*
+                 
+                   21:23: *pos2Acc*
+                 
+                   23: *pos1Valid*
+             
+               :lat:
+                 I4
+             
+               :lon:
+                 I4
+             
+               :shortIdFrame:
+                 Bitfield(4)
+                 
+                   0:12: *shortId*
+                 
+                   12: *shortValid*
+                 
+                   13: *shortBoundary*
+             
+               :mediumIdLSB:
+                 U4
+             
+               :mediumId_2:
+                 Bitfield(4)
+                 
+                   0: *mediumIdMSB*
+                 
+                   1: *mediumValid*
+                 
+                   2: *mediumboundary*
+

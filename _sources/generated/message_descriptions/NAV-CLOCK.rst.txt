@@ -1,0 +1,32 @@
+.. _message-description-NAV-CLOCK:
+
+NAV-CLOCK
+---------
+
+:name: NAV-CLOCK
+
+:class: 0x01
+
+:id: 0x22
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :iTOW:
+           U4
+       
+         :clkB:
+           I4
+       
+         :clkD:
+           I4
+       
+         :tAcc:
+           U4
+       
+         :fAcc:
+           U4
+

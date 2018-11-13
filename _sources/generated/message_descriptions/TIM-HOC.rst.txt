@@ -1,0 +1,34 @@
+.. _message-description-TIM-HOC:
+
+TIM-HOC
+-------
+
+:name: TIM-HOC
+
+:class: 0x0d
+
+:id: 0x17
+
+:payload:
+
+  #. Fields(length=8)
+       
+         :version:
+           U1
+       
+         :oscId:
+           U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *raw*
+           
+             1: *difference*
+       
+         :reserved1:
+           U1
+       
+         :value:
+           I4
+

@@ -1,0 +1,15 @@
+.. _message-description-NAV-RESETODO:
+
+NAV-RESETODO
+------------
+
+:name: NAV-RESETODO
+
+:class: 0x01
+
+:id: 0x10
+
+:payload:
+
+  #. `Empty`
+

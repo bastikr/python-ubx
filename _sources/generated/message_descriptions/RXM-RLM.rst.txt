@@ -1,0 +1,133 @@
+.. _message-description-RXM-RLM:
+
+RXM-RLM
+-------
+
+:name: RXM-RLM
+
+:class: 0x02
+
+:id: 0x59
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=16)
+       
+         :version:
+           U1
+       
+         :type:
+           U1
+       
+         :svId:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :beacon:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :message:
+           U1
+       
+         :params:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :reserved2:
+           U1
+  
+  #. Fields(length=28)
+       
+         :version:
+           U1
+       
+         :type:
+           U1
+       
+         :svId:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :beacon:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :message:
+           U1
+       
+         :params:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

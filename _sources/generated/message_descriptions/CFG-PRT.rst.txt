@@ -1,0 +1,75 @@
+.. _message-description-CFG-PRT:
+
+CFG-PRT
+-------
+
+:name: CFG-PRT
+
+:class: 0x06
+
+:id: 0x00
+
+:payload:
+
+  #. Fields(length=1)
+       
+         :PortID:
+           U1
+  
+  #. Fields(length=20)
+       
+         :portID:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :txReady:
+           Bitfield(2)
+           
+             0: *en*
+           
+             1: *pol*
+           
+             2:7: *pin*
+           
+             7:16: *thres*
+       
+         :mode:
+           Bitfield(4)
+       
+         :baudRate:
+           U4
+       
+         :inProtoMask:
+           Bitfield(2)
+           
+             0: *inUbx*
+           
+             1: *inNmea*
+           
+             2: *inRtcm*
+           
+             5: *inRtcm3*
+       
+         :outProtoMask:
+           Bitfield(2)
+           
+             0: *outUbx*
+           
+             1: *outNmea*
+           
+             5: *outRtcm3*
+       
+         :flags:
+           Bitfield(2)
+           
+             1: *extendedTxTimeout*
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+

@@ -1,0 +1,81 @@
+.. _message-description-LOG-RETRIEVEPOSEXTRA:
+
+LOG-RETRIEVEPOSEXTRA
+--------------------
+
+:name: LOG-RETRIEVEPOSEXTRA
+
+:class: 0x21
+
+:id: 0x0f
+
+:payload:
+
+  #. Fields(length=32)
+       
+         :entryIndex:
+           U4
+       
+         :version:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :year:
+           U2
+       
+         :month:
+           U1
+       
+         :day:
+           U1
+       
+         :hour:
+           U1
+       
+         :minute:
+           U1
+       
+         :second:
+           U1
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :distance:
+           U4
+       
+         :reserved3:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

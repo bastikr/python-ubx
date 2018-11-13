@@ -1,0 +1,45 @@
+.. _message-description-CFG-BATCH:
+
+CFG-BATCH
+---------
+
+:name: CFG-BATCH
+
+:class: 0x06
+
+:id: 0x93
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=9)
+       
+         :version:
+           U1
+       
+         :flags:
+           Bitfield(2)
+           
+             0: *enable*
+           
+             2: *extraPvt*
+           
+             3: *extraOdo*
+           
+             5: *pioEnable*
+           
+             6: *pioActiveLow*
+       
+         :bufSize:
+           U2
+       
+         :notifThrs:
+           U2
+       
+         :pioId:
+           U1
+       
+         :reserved1:
+           U1
+

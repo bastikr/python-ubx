@@ -1,0 +1,151 @@
+.. _message-description-LOG-BATCH:
+
+LOG-BATCH
+---------
+
+:name: LOG-BATCH
+
+:class: 0x21
+
+:id: 0x11
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=100)
+       
+         :version:
+           U1
+       
+         :contentValid:
+           Bitfield(1)
+           
+             0: *extraPvt*
+           
+             1: *extraOdo*
+       
+         :msgCnt:
+           U2
+       
+         :iTOW:
+           U4
+       
+         :year:
+           U2
+       
+         :month:
+           U1
+       
+         :day:
+           U1
+       
+         :hour:
+           U1
+       
+         :min:
+           U1
+       
+         :sec:
+           U1
+       
+         :valid:
+           Bitfield(1)
+           
+             0: *validDate*
+           
+             1: *validTime*
+       
+         :tAcc:
+           U4
+       
+         :fracSec:
+           I4
+       
+         :fixType:
+           U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *gnssFixOK*
+           
+             1: *diffSoln*
+           
+             2:5: *psmState*
+       
+         :flags2:
+           Bitfield(1)
+       
+         :numSV:
+           U1
+       
+         :lon:
+           I4
+       
+         :lat:
+           I4
+       
+         :height:
+           I4
+       
+         :hMSL:
+           I4
+       
+         :hAcc:
+           U4
+       
+         :vAcc:
+           U4
+       
+         :velN:
+           I4
+       
+         :velE:
+           I4
+       
+         :velD:
+           I4
+       
+         :gSpeed:
+           I4
+       
+         :headMot:
+           I4
+       
+         :sAcc:
+           U4
+       
+         :headAcc:
+           U4
+       
+         :pDOP:
+           U2
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :distance:
+           U4
+       
+         :totalDistance:
+           U4
+       
+         :distanceStd:
+           U4
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

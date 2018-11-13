@@ -1,0 +1,48 @@
+.. _message-description-CFG-TMODE2:
+
+CFG-TMODE2
+----------
+
+:name: CFG-TMODE2
+
+:class: 0x06
+
+:id: 0x3d
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=28)
+       
+         :timeMode:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :flags:
+           Bitfield(2)
+           
+             0: *lla*
+           
+             1: *altInv*
+       
+         :ecefXOrLat:
+           I4
+       
+         :ecefYOrLon:
+           I4
+       
+         :ecefZOrAlt:
+           I4
+       
+         :fixedPosAcc:
+           U4
+       
+         :svinMinDur:
+           U4
+       
+         :svinAccLim:
+           U4
+

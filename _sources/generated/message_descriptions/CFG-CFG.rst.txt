@@ -1,0 +1,166 @@
+.. _message-description-CFG-CFG:
+
+CFG-CFG
+-------
+
+:name: CFG-CFG
+
+:class: 0x06
+
+:id: 0x09
+
+:payload:
+
+  #. Fields(length=12)
+       
+         :clearMask:
+           Bitfield(4)
+           
+             0: *ioPort*
+           
+             1: *msgConf*
+           
+             2: *infMsg*
+           
+             3: *navConf*
+           
+             4: *rxmConf*
+           
+             8: *senConf*
+           
+             9: *rinvConf*
+           
+             10: *antConf*
+           
+             11: *logConf*
+           
+             12: *ftsConf*
+       
+         :saveMask:
+           Bitfield(4)
+           
+             0: *ioPort*
+           
+             1: *msgConf*
+           
+             2: *infMsg*
+           
+             3: *navConf*
+           
+             4: *rxmConf*
+           
+             8: *senConf*
+           
+             9: *rinvConf*
+           
+             10: *antConf*
+           
+             11: *logConf*
+           
+             12: *ftsConf*
+       
+         :loadMask:
+           Bitfield(4)
+           
+             0: *ioPort*
+           
+             1: *msgConf*
+           
+             2: *infMsg*
+           
+             3: *navConf*
+           
+             4: *rxmConf*
+           
+             8: *senConf*
+           
+             9: *rinvConf*
+           
+             10: *antConf*
+           
+             11: *logConf*
+           
+             12: *ftsConf*
+  
+  #. Fields(length=13)
+       
+         :clearMask:
+           Bitfield(4)
+           
+             0: *ioPort*
+           
+             1: *msgConf*
+           
+             2: *infMsg*
+           
+             3: *navConf*
+           
+             4: *rxmConf*
+           
+             8: *senConf*
+           
+             9: *rinvConf*
+           
+             10: *antConf*
+           
+             11: *logConf*
+           
+             12: *ftsConf*
+       
+         :saveMask:
+           Bitfield(4)
+           
+             0: *ioPort*
+           
+             1: *msgConf*
+           
+             2: *infMsg*
+           
+             3: *navConf*
+           
+             4: *rxmConf*
+           
+             8: *senConf*
+           
+             9: *rinvConf*
+           
+             10: *antConf*
+           
+             11: *logConf*
+           
+             12: *ftsConf*
+       
+         :loadMask:
+           Bitfield(4)
+           
+             0: *ioPort*
+           
+             1: *msgConf*
+           
+             2: *infMsg*
+           
+             3: *navConf*
+           
+             4: *rxmConf*
+           
+             8: *senConf*
+           
+             9: *rinvConf*
+           
+             10: *antConf*
+           
+             11: *logConf*
+           
+             12: *ftsConf*
+       
+         :deviceMask:
+           Bitfield(1)
+           
+             0: *devBBR*
+           
+             1: *devFlash*
+           
+             2: *devEEPROM*
+           
+             4: *devSpiFlash*
+

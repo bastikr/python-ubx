@@ -1,0 +1,88 @@
+.. _message-description-NAV-SBAS:
+
+NAV-SBAS
+--------
+
+:name: NAV-SBAS
+
+:class: 0x01
+
+:id: 0x32
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :iTOW:
+           U4
+       
+         :geo:
+           U1
+       
+         :mode:
+           U1
+       
+         :sys:
+           I1
+       
+         :service:
+           Bitfield(1)
+           
+             0: *Ranging*
+           
+             1: *Corrections*
+           
+             2: *Integrity*
+           
+             3: *Testmode*
+       
+         :cnt:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :svs:
+           KeyLoop(key="cnt"):
+           
+            Fields(length=12)
+             
+               :svid:
+                 U1
+             
+               :flags:
+                 U1
+             
+               :udre:
+                 U1
+             
+               :svSys:
+                 U1
+             
+               :svService:
+                 U1
+             
+               :reserved2:
+                 U1
+             
+               :prc:
+                 I2
+             
+               :reserved3:
+                 List
+                 
+                   - U1
+                 
+                   - U1
+             
+               :ic:
+                 I2
+

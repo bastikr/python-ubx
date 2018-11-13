@@ -1,0 +1,87 @@
+.. _message-description-CFG-SMGR:
+
+CFG-SMGR
+--------
+
+:name: CFG-SMGR
+
+:class: 0x06
+
+:id: 0x62
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=18)
+       
+         :version:
+           U1
+       
+         :miGNSSFix:
+           U1
+       
+         :maxFreqChangeRate:
+           U2
+       
+         :maxPhaseCorrRate:
+           U2
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :freqTolerance:
+           U2
+       
+         :timeTolerance:
+           U2
+       
+         :messageCfg:
+           Bitfield(2)
+           
+             0: *measInternal*
+           
+             1: *measGNSS*
+           
+             2: *measEXTINT0*
+           
+             3: *measEXTINT1*
+       
+         :maxSlewRate:
+           U2
+       
+         :flags:
+           Bitfield(2)
+           
+             0: *disableInternal*
+           
+             1: *disableExternal*
+           
+             2: *preferenceMode*
+           
+             3: *enableGNSS*
+           
+             4: *enableEXTINT0*
+           
+             5: *enableEXTINT1*
+           
+             6: *enableHostMeasInt*
+           
+             7: *enableHostMeasExt*
+           
+             10: *useAnyFix*
+           
+             11: *disableMaxSlewRate*
+           
+             12: *issueFreqWarning*
+           
+             13: *issueTimeWarning*
+           
+             14:16: *TPCoherent*
+           
+             16: *disableOffset*
+

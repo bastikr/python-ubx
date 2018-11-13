@@ -1,0 +1,45 @@
+.. _message-description-TIM-TP:
+
+TIM-TP
+------
+
+:name: TIM-TP
+
+:class: 0x0d
+
+:id: 0x01
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=16)
+       
+         :towMS:
+           U4
+       
+         :towSubMS:
+           U4
+       
+         :qErr:
+           I4
+       
+         :week:
+           U2
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *timeBase*
+           
+             1: *utc*
+           
+             2:4: *raim*
+       
+         :refInfo:
+           Bitfield(1)
+           
+             0:4: *timeRefGnss*
+           
+             4:8: *utcStandard*
+

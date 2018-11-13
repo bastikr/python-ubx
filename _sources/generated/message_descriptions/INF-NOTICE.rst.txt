@@ -1,0 +1,18 @@
+.. _message-description-INF-NOTICE:
+
+INF-NOTICE
+----------
+
+:name: INF-NOTICE
+
+:class: 0x04
+
+:id: 0x02
+
+:payload:
+
+  #. Fields(length=?)
+       
+         :str:
+           Chars(None)
+

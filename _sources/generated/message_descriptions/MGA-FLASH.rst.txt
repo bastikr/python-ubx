@@ -1,0 +1,57 @@
+.. _message-description-MGA-FLASH:
+
+MGA-FLASH
+---------
+
+:name: MGA-FLASH
+
+:class: 0x13
+
+:id: 0x21
+
+:payload:
+
+  #. Fields(length=2)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+  
+  #. Fields(length=6)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :ack:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :sequence:
+           U2
+  
+  #. Fields(length=?)
+       
+         :type:
+           U1
+       
+         :version:
+           U1
+       
+         :sequence:
+           U2
+       
+         :size:
+           U2
+       
+         :data:
+           KeyLoop(key="size"):
+           
+            U1
+

@@ -1,0 +1,60 @@
+.. _message-description-RXM-PMREQ:
+
+RXM-PMREQ
+---------
+
+:name: RXM-PMREQ
+
+:class: 0x02
+
+:id: 0x41
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=8)
+       
+         :duration:
+           U4
+       
+         :flags:
+           Bitfield(4)
+           
+             1: *backup*
+  
+  #. Fields(length=16)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :duration:
+           U4
+       
+         :flags:
+           Bitfield(4)
+           
+             1: *backup*
+           
+             2: *force*
+       
+         :wakeupSources:
+           Bitfield(4)
+           
+             3: *uartrx*
+           
+             5: *extint0*
+           
+             6: *extint1*
+           
+             7: *spics*
+

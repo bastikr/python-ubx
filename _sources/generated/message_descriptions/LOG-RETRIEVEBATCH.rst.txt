@@ -1,0 +1,30 @@
+.. _message-description-LOG-RETRIEVEBATCH:
+
+LOG-RETRIEVEBATCH
+-----------------
+
+:name: LOG-RETRIEVEBATCH
+
+:class: 0x21
+
+:id: 0x10
+
+:payload:
+
+  #. Fields(length=4)
+       
+         :version:
+           U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *sendMonFirst*
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+

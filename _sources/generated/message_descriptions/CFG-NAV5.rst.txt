@@ -1,0 +1,108 @@
+.. _message-description-CFG-NAV5:
+
+CFG-NAV5
+--------
+
+:name: CFG-NAV5
+
+:class: 0x06
+
+:id: 0x24
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=36)
+       
+         :mask:
+           Bitfield(2)
+           
+             0: *dyn*
+           
+             1: *minEl*
+           
+             2: *posFixMode*
+           
+             3: *drLim*
+           
+             4: *posMask*
+           
+             5: *timeMask*
+           
+             6: *staticHoldMask*
+           
+             7: *dgpsMask*
+           
+             8: *cnoThreshold*
+           
+             10: *utc*
+       
+         :dynModel:
+           U1
+       
+         :fixMode:
+           U1
+       
+         :fixedAlt:
+           I4
+       
+         :fixedAltVar:
+           U4
+       
+         :minElev:
+           I1
+       
+         :drLimit:
+           U1
+       
+         :pDop:
+           U2
+       
+         :tDop:
+           U2
+       
+         :pAcc:
+           U2
+       
+         :tAcc:
+           U2
+       
+         :staticHoldThresh:
+           U1
+       
+         :dgnssTimeout:
+           U1
+       
+         :cnoThreshNumSVs:
+           U1
+       
+         :cnoThresh:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :staticHoldMaxDist:
+           U2
+       
+         :utcStandard:
+           U1
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

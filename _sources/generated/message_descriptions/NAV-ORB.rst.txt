@@ -1,0 +1,72 @@
+.. _message-description-NAV-ORB:
+
+NAV-ORB
+-------
+
+:name: NAV-ORB
+
+:class: 0x01
+
+:id: 0x34
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :iTOW:
+           U4
+       
+         :version:
+           U1
+       
+         :numSv:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :svs:
+           KeyLoop(key="numSv"):
+           
+            Fields(length=6)
+             
+               :gnssId:
+                 U1
+             
+               :svId:
+                 U1
+             
+               :svFlag:
+                 Bitfield(1)
+                 
+                   0:2: *health*
+                 
+                   2:4: *visibility*
+             
+               :eph:
+                 Bitfield(1)
+                 
+                   0:5: *ephUsability*
+                 
+                   5:8: *ephSource*
+             
+               :alm:
+                 Bitfield(1)
+                 
+                   0:5: *almUsability*
+                 
+                   5:8: *almSource*
+             
+               :otherOrb:
+                 Bitfield(1)
+                 
+                   0:5: *anoAopUsability*
+                 
+                   5:8: *type*
+

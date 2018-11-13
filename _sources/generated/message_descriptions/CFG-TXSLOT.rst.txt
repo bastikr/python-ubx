@@ -1,0 +1,50 @@
+.. _message-description-CFG-TXSLOT:
+
+CFG-TXSLOT
+----------
+
+:name: CFG-TXSLOT
+
+:class: 0x06
+
+:id: 0x53
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :version:
+           U1
+       
+         :enable:
+           Bitfield(1)
+           
+             0: *DDC*
+           
+             1: *UART1*
+           
+             2: *UART2*
+           
+             3: *USB*
+           
+             4: *SPI*
+       
+         :refTp:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :end:
+           List
+           
+             - U4
+           
+             - U4
+           
+             - U4
+           
+             - U4
+

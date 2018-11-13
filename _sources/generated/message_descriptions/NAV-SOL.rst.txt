@@ -1,0 +1,84 @@
+.. _message-description-NAV-SOL:
+
+NAV-SOL
+-------
+
+:name: NAV-SOL
+
+:class: 0x01
+
+:id: 0x06
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=52)
+       
+         :iTOW:
+           U4
+       
+         :fTOW:
+           I4
+       
+         :week:
+           I2
+       
+         :gpsFix:
+           U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *gnssFixOK*
+           
+             1: *diffSoln*
+           
+             2: *WKNSET*
+           
+             3: *TOWSET*
+       
+         :ecefX:
+           I4
+       
+         :ecefY:
+           I4
+       
+         :ecefZ:
+           I4
+       
+         :pAcc:
+           U4
+       
+         :ecefVX:
+           I4
+       
+         :ecefVY:
+           I4
+       
+         :ecefVZ:
+           I4
+       
+         :sAcc:
+           U4
+       
+         :pDOP:
+           U2
+       
+         :reserved1:
+           U1
+       
+         :numSv:
+           U1
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

@@ -1,0 +1,61 @@
+.. _message-description-TIM-TM2:
+
+TIM-TM2
+-------
+
+:name: TIM-TM2
+
+:class: 0x0d
+
+:id: 0x03
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=28)
+       
+         :ch:
+           U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *mode*
+           
+             1: *run*
+           
+             2: *newFallingEdge*
+           
+             3:5: *timeBase*
+           
+             5: *utc*
+           
+             6: *time*
+           
+             7: *newRisingEdge*
+       
+         :count:
+           U2
+       
+         :wnR:
+           U2
+       
+         :wnF:
+           U2
+       
+         :towMsR:
+           U4
+       
+         :towSubMsR:
+           U4
+       
+         :towMsF:
+           U4
+       
+         :towSubMsF:
+           U4
+       
+         :accEst:
+           U4
+

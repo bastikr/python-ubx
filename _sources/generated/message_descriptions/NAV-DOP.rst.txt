@@ -1,0 +1,41 @@
+.. _message-description-NAV-DOP:
+
+NAV-DOP
+-------
+
+:name: NAV-DOP
+
+:class: 0x01
+
+:id: 0x04
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=18)
+       
+         :iTOW:
+           U4
+       
+         :gDOP:
+           U2
+       
+         :pDOP:
+           U2
+       
+         :tDOP:
+           U2
+       
+         :vDOP:
+           U2
+       
+         :hDOP:
+           U2
+       
+         :nDOP:
+           U2
+       
+         :eDOP:
+           U2
+

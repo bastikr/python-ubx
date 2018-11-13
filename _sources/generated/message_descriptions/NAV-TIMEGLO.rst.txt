@@ -1,0 +1,42 @@
+.. _message-description-NAV-TIMEGLO:
+
+NAV-TIMEGLO
+-----------
+
+:name: NAV-TIMEGLO
+
+:class: 0x01
+
+:id: 0x23
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :iTOW:
+           U4
+       
+         :TOD:
+           U4
+       
+         :fTOD:
+           I4
+       
+         :Nt:
+           U2
+       
+         :N4:
+           U1
+       
+         :valid:
+           Bitfield(1)
+           
+             0: *todValid*
+           
+             1: *dateValid*
+       
+         :tAcc:
+           U4
+

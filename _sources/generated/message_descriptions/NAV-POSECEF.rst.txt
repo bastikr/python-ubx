@@ -1,0 +1,32 @@
+.. _message-description-NAV-POSECEF:
+
+NAV-POSECEF
+-----------
+
+:name: NAV-POSECEF
+
+:class: 0x01
+
+:id: 0x01
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :iTOW:
+           U4
+       
+         :ecefX:
+           I4
+       
+         :ecefY:
+           I4
+       
+         :ecefZ:
+           I4
+       
+         :pAcc:
+           U4
+

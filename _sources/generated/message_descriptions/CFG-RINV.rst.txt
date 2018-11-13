@@ -1,0 +1,29 @@
+.. _message-description-CFG-RINV:
+
+CFG-RINV
+--------
+
+:name: CFG-RINV
+
+:class: 0x06
+
+:id: 0x34
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *dump*
+           
+             1: *binary*
+       
+         :data:
+           MatchedLoop
+           
+             U1
+

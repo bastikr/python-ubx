@@ -1,0 +1,22 @@
+.. _message-description-MON-RXR:
+
+MON-RXR
+-------
+
+:name: MON-RXR
+
+:class: 0x0a
+
+:id: 0x21
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=1)
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *awake*
+

@@ -1,0 +1,50 @@
+.. _message-description-NAV-ATT:
+
+NAV-ATT
+-------
+
+:name: NAV-ATT
+
+:class: 0x01
+
+:id: 0x05
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=32)
+       
+         :iTOW:
+           U4
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :roll:
+           I4
+       
+         :pitch:
+           I4
+       
+         :heading:
+           I4
+       
+         :accRoll:
+           U4
+       
+         :accPitch:
+           U4
+       
+         :accHeading:
+           U4
+

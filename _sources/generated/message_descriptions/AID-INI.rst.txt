@@ -1,0 +1,80 @@
+.. _message-description-AID-INI:
+
+AID-INI
+-------
+
+:name: AID-INI
+
+:class: 0x0b
+
+:id: 0x01
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=48)
+       
+         :ecefXOrLat:
+           I4
+       
+         :ecefYOrLon:
+           I4
+       
+         :ecefZOrAlt:
+           I4
+       
+         :posAcc:
+           U4
+       
+         :tmCfg:
+           Bitfield(2)
+           
+             1: *fEdge*
+           
+             4: *tm1*
+           
+             6: *f1*
+       
+         :wnoOrDate:
+           U2
+       
+         :towOrTime:
+           U4
+       
+         :towNs:
+           I4
+       
+         :tAccMs:
+           U4
+       
+         :tAccNs:
+           U4
+       
+         :clkDOrFreq:
+           I4
+       
+         :clkDAccOrFreqAcc:
+           U4
+       
+         :flags:
+           Bitfield(4)
+           
+             0: *pos*
+           
+             1: *time*
+           
+             2: *clockD*
+           
+             3: *tp*
+           
+             4: *clockF*
+           
+             5: *lla*
+           
+             6: *altInv*
+           
+             7: *prevTm*
+           
+             10: *utc*
+

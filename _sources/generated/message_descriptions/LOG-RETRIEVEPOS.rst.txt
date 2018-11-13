@@ -1,0 +1,69 @@
+.. _message-description-LOG-RETRIEVEPOS:
+
+LOG-RETRIEVEPOS
+---------------
+
+:name: LOG-RETRIEVEPOS
+
+:class: 0x21
+
+:id: 0x0b
+
+:payload:
+
+  #. Fields(length=40)
+       
+         :entryIndex:
+           U4
+       
+         :lon:
+           I4
+       
+         :lat:
+           I4
+       
+         :hMSL:
+           I4
+       
+         :hAcc:
+           U4
+       
+         :gSpeed:
+           U4
+       
+         :heading:
+           U4
+       
+         :version:
+           U1
+       
+         :fixType:
+           U1
+       
+         :year:
+           U2
+       
+         :month:
+           U1
+       
+         :day:
+           U1
+       
+         :hour:
+           U1
+       
+         :minute:
+           U1
+       
+         :second:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :numSV:
+           U1
+       
+         :reserved2:
+           U1
+

@@ -1,0 +1,55 @@
+.. _message-description-NAV-TIMEUTC:
+
+NAV-TIMEUTC
+-----------
+
+:name: NAV-TIMEUTC
+
+:class: 0x01
+
+:id: 0x21
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :iTOW:
+           U4
+       
+         :tAcc:
+           U4
+       
+         :nano:
+           I4
+       
+         :year:
+           U2
+       
+         :month:
+           U1
+       
+         :day:
+           U1
+       
+         :hour:
+           U1
+       
+         :min:
+           U1
+       
+         :sec:
+           U1
+       
+         :valid:
+           Bitfield(1)
+           
+             0: *validTOW*
+           
+             1: *validWKN*
+           
+             1: *validUTC*
+           
+             4:8: *utcStandard*
+

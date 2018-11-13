@@ -1,0 +1,89 @@
+.. _message-description-NAV-SAT:
+
+NAV-SAT
+-------
+
+:name: NAV-SAT
+
+:class: 0x01
+
+:id: 0x35
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :iTOW:
+           U4
+       
+         :version:
+           U1
+       
+         :numSvs:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :meas:
+           KeyLoop(key="numSvs"):
+           
+            Fields(length=12)
+             
+               :gnssId:
+                 U1
+             
+               :svId:
+                 U1
+             
+               :cno:
+                 U1
+             
+               :elev:
+                 I1
+             
+               :azim:
+                 I2
+             
+               :prRes:
+                 I2
+             
+               :flags:
+                 Bitfield(4)
+                 
+                   0:3: *qualityInd*
+                 
+                   3: *svUsed*
+                 
+                   4:6: *health*
+                 
+                   6: *diffCor*
+                 
+                   7: *smoothed*
+                 
+                   8:11: *orbitSource*
+                 
+                   11: *ephAvail*
+                 
+                   12: *almAvail*
+                 
+                   13: *anoAvail*
+                 
+                   14: *aopAvail*
+                 
+                   16: *sbasCorrUsed*
+                 
+                   17: *rtcmCorrUsed*
+                 
+                   20: *prCorrUsed*
+                 
+                   21: *crCorrUsed*
+                 
+                   22: *doCorrUsed*
+

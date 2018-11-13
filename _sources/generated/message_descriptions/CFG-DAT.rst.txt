@@ -1,0 +1,79 @@
+.. _message-description-CFG-DAT:
+
+CFG-DAT
+-------
+
+:name: CFG-DAT
+
+:class: 0x06
+
+:id: 0x06
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=44)
+       
+         :majA:
+           R8
+       
+         :flat:
+           R8
+       
+         :dX:
+           R4
+       
+         :dY:
+           R4
+       
+         :dZ:
+           R4
+       
+         :rotX:
+           R4
+       
+         :rotY:
+           R4
+       
+         :rotZ:
+           R4
+       
+         :scale:
+           R4
+  
+  #. Fields(length=52)
+       
+         :datumNum:
+           U2
+       
+         :datumName:
+           Chars(6)
+       
+         :majA:
+           R8
+       
+         :flat:
+           R8
+       
+         :dX:
+           R4
+       
+         :dY:
+           R4
+       
+         :dZ:
+           R4
+       
+         :rotX:
+           R4
+       
+         :rotY:
+           R4
+       
+         :rotZ:
+           R4
+       
+         :scale:
+           R4
+

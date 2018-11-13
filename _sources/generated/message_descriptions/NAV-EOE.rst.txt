@@ -1,0 +1,20 @@
+.. _message-description-NAV-EOE:
+
+NAV-EOE
+-------
+
+:name: NAV-EOE
+
+:class: 0x01
+
+:id: 0x61
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=4)
+       
+         :iTOW:
+           U4
+

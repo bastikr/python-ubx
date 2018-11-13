@@ -1,0 +1,464 @@
+.. _message_descriptions:
+
+---------------------
+Message Descriptions
+---------------------
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   ACK-ACK
+   ACK-NACK
+   AID-ALM
+   AID-AOP
+   AID-EPH
+   AID-HUI
+   AID-INI
+   CFG-ANT
+   CFG-BATCH
+   CFG-CFG
+   CFG-DAT
+   CFG-DGNSS
+   CFG-DOSC
+   CFG-DYNSEED
+   CFG-ESRC
+   CFG-FIXSEED
+   CFG-GEOFENCE
+   CFG-GNSS
+   CFG-HNR
+   CFG-INF
+   CFG-ITFM
+   CFG-LOGFILTER
+   CFG-MSG
+   CFG-NAV5
+   CFG-NAVX5
+   CFG-NMEA
+   CFG-ODO
+   CFG-PM2
+   CFG-PMS
+   CFG-PRT
+   CFG-PWR
+   CFG-RATE
+   CFG-RINV
+   CFG-RST
+   CFG-RXM
+   CFG-SBAS
+   CFG-SMGR
+   CFG-TMODE2
+   CFG-TMODE3
+   CFG-TP5
+   CFG-TXSLOT
+   CFG-USB
+   ESF-INS
+   ESF-RAW
+   ESF-STATUS
+   HNR-PVT
+   INF-DEBUG
+   INF-ERROR
+   INF-NOTICE
+   INF-TEST
+   INF-WARNING
+   LOG-BATCH
+   LOG-CREATE
+   LOG-ERASE
+   LOG-FINDTIME
+   LOG-INFO
+   LOG-RETRIEVE
+   LOG-RETRIEVEBATCH
+   LOG-RETRIEVEPOS
+   LOG-RETRIEVEPOSEXTRA
+   LOG-RETRIEVESTRING
+   LOG-STRING
+   MGA-ACK
+   MGA-ANO
+   MGA-BDS
+   MGA-DBD
+   MGA-FLASH
+   MGA-GAL
+   MGA-GLO
+   MGA-GPS
+   MGA-INI
+   MGA-QZSS
+   MON-BATCH
+   MON-GNSS
+   MON-HW
+   MON-HW2
+   MON-IO
+   MON-MSGPP
+   MON-PATCH
+   MON-RXBUF
+   MON-RXR
+   MON-SMGR
+   MON-TXBUF
+   MON-VER
+   NAV-AOPSTATUS
+   NAV-ATT
+   NAV-CLOCK
+   NAV-DGPS
+   NAV-DOP
+   NAV-EOE
+   NAV-GEOFENCE
+   NAV-HPPOSECEF
+   NAV-HPPOSLLH
+   NAV-ODO
+   NAV-ORB
+   NAV-POSECEF
+   NAV-POSLLH
+   NAV-PVT
+   NAV-RELPOSNED
+   NAV-RESETODO
+   NAV-SAT
+   NAV-SBAS
+   NAV-SOL
+   NAV-STATUS
+   NAV-SVIN
+   NAV-SVINFO
+   NAV-TIMEDBS
+   NAV-TIMEGAL
+   NAV-TIMEGLO
+   NAV-TIMEGPS
+   NAV-TIMELS
+   NAV-TIMEUTC
+   NAV-VELECEF
+   NAV-VELNED
+   RXM-IMES
+   RXM-MEASX
+   RXM-PMREQ
+   RXM-RAWX
+   RXM-RLM
+   RXM-RTCM
+   RXM-SFRBX
+   RXM-SVSI
+   SEC-SIGN
+   SEC-UNIQID
+   TIM-DOSC
+   TIM-FCHG
+   TIM-HOC
+   TIM-SMEAS
+   TIM-SVIN
+   TIM-TM2
+   TIM-TOS
+   TIM-TP
+   TIM-VCOCAL
+   TIM-VRFY
+
+
+ACK
+---
+
+* :ref:`message-description-ACK-ACK`
+
+* :ref:`message-description-ACK-NACK`
+
+
+AID
+---
+
+* :ref:`message-description-AID-ALM`
+
+* :ref:`message-description-AID-AOP`
+
+* :ref:`message-description-AID-EPH`
+
+* :ref:`message-description-AID-HUI`
+
+* :ref:`message-description-AID-INI`
+
+
+CFG
+---
+
+* :ref:`message-description-CFG-ANT`
+
+* :ref:`message-description-CFG-BATCH`
+
+* :ref:`message-description-CFG-CFG`
+
+* :ref:`message-description-CFG-DAT`
+
+* :ref:`message-description-CFG-DGNSS`
+
+* :ref:`message-description-CFG-DOSC`
+
+* :ref:`message-description-CFG-DYNSEED`
+
+* :ref:`message-description-CFG-ESRC`
+
+* :ref:`message-description-CFG-FIXSEED`
+
+* :ref:`message-description-CFG-GEOFENCE`
+
+* :ref:`message-description-CFG-GNSS`
+
+* :ref:`message-description-CFG-HNR`
+
+* :ref:`message-description-CFG-INF`
+
+* :ref:`message-description-CFG-ITFM`
+
+* :ref:`message-description-CFG-LOGFILTER`
+
+* :ref:`message-description-CFG-MSG`
+
+* :ref:`message-description-CFG-NAV5`
+
+* :ref:`message-description-CFG-NAVX5`
+
+* :ref:`message-description-CFG-NMEA`
+
+* :ref:`message-description-CFG-ODO`
+
+* :ref:`message-description-CFG-PM2`
+
+* :ref:`message-description-CFG-PMS`
+
+* :ref:`message-description-CFG-PRT`
+
+* :ref:`message-description-CFG-PWR`
+
+* :ref:`message-description-CFG-RATE`
+
+* :ref:`message-description-CFG-RINV`
+
+* :ref:`message-description-CFG-RST`
+
+* :ref:`message-description-CFG-RXM`
+
+* :ref:`message-description-CFG-SBAS`
+
+* :ref:`message-description-CFG-SMGR`
+
+* :ref:`message-description-CFG-TMODE2`
+
+* :ref:`message-description-CFG-TMODE3`
+
+* :ref:`message-description-CFG-TP5`
+
+* :ref:`message-description-CFG-TXSLOT`
+
+* :ref:`message-description-CFG-USB`
+
+
+ESF
+---
+
+* :ref:`message-description-ESF-INS`
+
+* :ref:`message-description-ESF-RAW`
+
+* :ref:`message-description-ESF-STATUS`
+
+
+HNR
+---
+
+* :ref:`message-description-HNR-PVT`
+
+
+INF
+---
+
+* :ref:`message-description-INF-DEBUG`
+
+* :ref:`message-description-INF-ERROR`
+
+* :ref:`message-description-INF-NOTICE`
+
+* :ref:`message-description-INF-TEST`
+
+* :ref:`message-description-INF-WARNING`
+
+
+LOG
+---
+
+* :ref:`message-description-LOG-BATCH`
+
+* :ref:`message-description-LOG-CREATE`
+
+* :ref:`message-description-LOG-ERASE`
+
+* :ref:`message-description-LOG-FINDTIME`
+
+* :ref:`message-description-LOG-INFO`
+
+* :ref:`message-description-LOG-RETRIEVE`
+
+* :ref:`message-description-LOG-RETRIEVEBATCH`
+
+* :ref:`message-description-LOG-RETRIEVEPOS`
+
+* :ref:`message-description-LOG-RETRIEVEPOSEXTRA`
+
+* :ref:`message-description-LOG-RETRIEVESTRING`
+
+* :ref:`message-description-LOG-STRING`
+
+
+MGA
+---
+
+* :ref:`message-description-MGA-ACK`
+
+* :ref:`message-description-MGA-ANO`
+
+* :ref:`message-description-MGA-BDS`
+
+* :ref:`message-description-MGA-DBD`
+
+* :ref:`message-description-MGA-FLASH`
+
+* :ref:`message-description-MGA-GAL`
+
+* :ref:`message-description-MGA-GLO`
+
+* :ref:`message-description-MGA-GPS`
+
+* :ref:`message-description-MGA-INI`
+
+* :ref:`message-description-MGA-QZSS`
+
+
+MON
+---
+
+* :ref:`message-description-MON-BATCH`
+
+* :ref:`message-description-MON-GNSS`
+
+* :ref:`message-description-MON-HW`
+
+* :ref:`message-description-MON-HW2`
+
+* :ref:`message-description-MON-IO`
+
+* :ref:`message-description-MON-MSGPP`
+
+* :ref:`message-description-MON-PATCH`
+
+* :ref:`message-description-MON-RXBUF`
+
+* :ref:`message-description-MON-RXR`
+
+* :ref:`message-description-MON-SMGR`
+
+* :ref:`message-description-MON-TXBUF`
+
+* :ref:`message-description-MON-VER`
+
+
+NAV
+---
+
+* :ref:`message-description-NAV-AOPSTATUS`
+
+* :ref:`message-description-NAV-ATT`
+
+* :ref:`message-description-NAV-CLOCK`
+
+* :ref:`message-description-NAV-DGPS`
+
+* :ref:`message-description-NAV-DOP`
+
+* :ref:`message-description-NAV-EOE`
+
+* :ref:`message-description-NAV-GEOFENCE`
+
+* :ref:`message-description-NAV-HPPOSECEF`
+
+* :ref:`message-description-NAV-HPPOSLLH`
+
+* :ref:`message-description-NAV-ODO`
+
+* :ref:`message-description-NAV-ORB`
+
+* :ref:`message-description-NAV-POSECEF`
+
+* :ref:`message-description-NAV-POSLLH`
+
+* :ref:`message-description-NAV-PVT`
+
+* :ref:`message-description-NAV-RELPOSNED`
+
+* :ref:`message-description-NAV-RESETODO`
+
+* :ref:`message-description-NAV-SAT`
+
+* :ref:`message-description-NAV-SBAS`
+
+* :ref:`message-description-NAV-SOL`
+
+* :ref:`message-description-NAV-STATUS`
+
+* :ref:`message-description-NAV-SVIN`
+
+* :ref:`message-description-NAV-SVINFO`
+
+* :ref:`message-description-NAV-TIMEDBS`
+
+* :ref:`message-description-NAV-TIMEGAL`
+
+* :ref:`message-description-NAV-TIMEGLO`
+
+* :ref:`message-description-NAV-TIMEGPS`
+
+* :ref:`message-description-NAV-TIMELS`
+
+* :ref:`message-description-NAV-TIMEUTC`
+
+* :ref:`message-description-NAV-VELECEF`
+
+* :ref:`message-description-NAV-VELNED`
+
+
+RXM
+---
+
+* :ref:`message-description-RXM-IMES`
+
+* :ref:`message-description-RXM-MEASX`
+
+* :ref:`message-description-RXM-PMREQ`
+
+* :ref:`message-description-RXM-RAWX`
+
+* :ref:`message-description-RXM-RLM`
+
+* :ref:`message-description-RXM-RTCM`
+
+* :ref:`message-description-RXM-SFRBX`
+
+* :ref:`message-description-RXM-SVSI`
+
+
+SEC
+---
+
+* :ref:`message-description-SEC-SIGN`
+
+* :ref:`message-description-SEC-UNIQID`
+
+
+TIM
+---
+
+* :ref:`message-description-TIM-DOSC`
+
+* :ref:`message-description-TIM-FCHG`
+
+* :ref:`message-description-TIM-HOC`
+
+* :ref:`message-description-TIM-SMEAS`
+
+* :ref:`message-description-TIM-SVIN`
+
+* :ref:`message-description-TIM-TM2`
+
+* :ref:`message-description-TIM-TOS`
+
+* :ref:`message-description-TIM-TP`
+
+* :ref:`message-description-TIM-VCOCAL`
+
+* :ref:`message-description-TIM-VRFY`

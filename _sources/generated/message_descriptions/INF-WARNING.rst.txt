@@ -1,0 +1,18 @@
+.. _message-description-INF-WARNING:
+
+INF-WARNING
+-----------
+
+:name: INF-WARNING
+
+:class: 0x04
+
+:id: 0x01
+
+:payload:
+
+  #. Fields(length=?)
+       
+         :str:
+           Chars(None)
+

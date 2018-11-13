@@ -1,0 +1,109 @@
+.. _message-description-CFG-INF:
+
+CFG-INF
+-------
+
+:name: CFG-INF
+
+:class: 0x06
+
+:id: 0x02
+
+:payload:
+
+  #. Fields(length=1)
+       
+         :protocolID:
+           U1
+  
+  #. MatchedLoop
+       
+         Fields(length=10)
+         
+           :protocolID:
+             U1
+         
+           :reserved1:
+             List
+             
+               - U1
+             
+               - U1
+             
+               - U1
+         
+           :infMsgMask:
+             List
+             
+               - Bitfield(1)
+                 
+                   0: *ERROR*
+                 
+                   1: *WARNING*
+                 
+                   2: *NOTICE*
+                 
+                   3: *TEST*
+                 
+                   4: *DEBUG*
+             
+               - Bitfield(1)
+                 
+                   0: *ERROR*
+                 
+                   1: *WARNING*
+                 
+                   2: *NOTICE*
+                 
+                   3: *TEST*
+                 
+                   4: *DEBUG*
+             
+               - Bitfield(1)
+                 
+                   0: *ERROR*
+                 
+                   1: *WARNING*
+                 
+                   2: *NOTICE*
+                 
+                   3: *TEST*
+                 
+                   4: *DEBUG*
+             
+               - Bitfield(1)
+                 
+                   0: *ERROR*
+                 
+                   1: *WARNING*
+                 
+                   2: *NOTICE*
+                 
+                   3: *TEST*
+                 
+                   4: *DEBUG*
+             
+               - Bitfield(1)
+                 
+                   0: *ERROR*
+                 
+                   1: *WARNING*
+                 
+                   2: *NOTICE*
+                 
+                   3: *TEST*
+                 
+                   4: *DEBUG*
+             
+               - Bitfield(1)
+                 
+                   0: *ERROR*
+                 
+                   1: *WARNING*
+                 
+                   2: *NOTICE*
+                 
+                   3: *TEST*
+                 
+                   4: *DEBUG*
+

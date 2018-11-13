@@ -1,0 +1,44 @@
+.. _message-description-NAV-TIMEDBS:
+
+NAV-TIMEDBS
+-----------
+
+:name: NAV-TIMEDBS
+
+:class: 0x01
+
+:id: 0x24
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :iTOW:
+           U4
+       
+         :SOW:
+           U4
+       
+         :fSOW:
+           I4
+       
+         :week:
+           I2
+       
+         :leapS:
+           I1
+       
+         :valid:
+           Bitfield(1)
+           
+             0: *sowValid*
+           
+             1: *weekValid*
+           
+             2: *leapSValid*
+       
+         :tAcc:
+           U4
+

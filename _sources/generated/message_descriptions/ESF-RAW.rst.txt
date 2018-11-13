@@ -1,0 +1,43 @@
+.. _message-description-ESF-RAW:
+
+ESF-RAW
+-------
+
+:name: ESF-RAW
+
+:class: 0x10
+
+:id: 0x03
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :measurements:
+           MatchedLoop
+           
+             Fields(length=8)
+             
+               :data:
+                 Bitfield(4)
+                 
+                   0:24: *dataField*
+                 
+                   24:32: *dataType*
+             
+               :sTtag:
+                 U4
+

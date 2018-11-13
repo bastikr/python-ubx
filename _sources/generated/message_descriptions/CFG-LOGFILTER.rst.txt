@@ -1,0 +1,41 @@
+.. _message-description-CFG-LOGFILTER:
+
+CFG-LOGFILTER
+-------------
+
+:name: CFG-LOGFILTER
+
+:class: 0x06
+
+:id: 0x47
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=12)
+       
+         :version:
+           U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *recordEnabled*
+           
+             1: *psmOncePerWakupEnabled*
+           
+             2: *applyAllFilterSettings*
+       
+         :minInterval:
+           U2
+       
+         :timeThreshold:
+           U2
+       
+         :speedThreshold:
+           U2
+       
+         :positionThreshold:
+           U4
+

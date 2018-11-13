@@ -1,0 +1,48 @@
+.. _message-description-TIM-SVIN:
+
+TIM-SVIN
+--------
+
+:name: TIM-SVIN
+
+:class: 0x0d
+
+:id: 0x04
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=28)
+       
+         :dur:
+           U4
+       
+         :meanX:
+           I4
+       
+         :meanY:
+           I4
+       
+         :meanZ:
+           I4
+       
+         :meanV:
+           I4
+       
+         :obs:
+           U4
+       
+         :valid:
+           U1
+       
+         :active:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+

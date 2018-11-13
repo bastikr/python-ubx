@@ -1,0 +1,36 @@
+.. _message-description-RXM-RTCM:
+
+RXM-RTCM
+--------
+
+:name: RXM-RTCM
+
+:class: 0x02
+
+:id: 0x32
+
+:payload:
+
+  #. Fields(length=8)
+       
+         :version:
+           U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *crcFailed*
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :refStation:
+           U2
+       
+         :msgType:
+           U2
+

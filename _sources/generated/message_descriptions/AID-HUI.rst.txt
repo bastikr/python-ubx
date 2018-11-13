@@ -1,0 +1,80 @@
+.. _message-description-AID-HUI:
+
+AID-HUI
+-------
+
+:name: AID-HUI
+
+:class: 0x0b
+
+:id: 0x02
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=72)
+       
+         :health:
+           Bitfield(4)
+       
+         :utcA0:
+           R8
+       
+         :utcA1:
+           R8
+       
+         :utcTOW:
+           I4
+       
+         :utcWNT:
+           I2
+       
+         :utcLS:
+           I2
+       
+         :utcWNF:
+           I2
+       
+         :utcDN:
+           I2
+       
+         :utcLSF:
+           I2
+       
+         :utcSpare:
+           I2
+       
+         :klobA0:
+           R4
+       
+         :klobA1:
+           R4
+       
+         :klobA2:
+           R4
+       
+         :klobA3:
+           R4
+       
+         :klobB0:
+           R4
+       
+         :klobB1:
+           R4
+       
+         :klobB2:
+           R4
+       
+         :klobB3:
+           R4
+       
+         :flags:
+           Bitfield(4)
+           
+             0: *healthValid*
+           
+             1: *utcValid*
+           
+             2: *klobValid*
+

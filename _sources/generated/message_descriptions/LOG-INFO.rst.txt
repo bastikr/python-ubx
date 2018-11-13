@@ -1,0 +1,120 @@
+.. _message-description-LOG-INFO:
+
+LOG-INFO
+--------
+
+:name: LOG-INFO
+
+:class: 0x21
+
+:id: 0x08
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=48)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :filestoreCapacity:
+           U4
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :currentMaxLogSize:
+           U4
+       
+         :currentLogSize:
+           U4
+       
+         :entryCount:
+           U4
+       
+         :oldestYear:
+           U2
+       
+         :oldestMonth:
+           U1
+       
+         :oldestDay:
+           U1
+       
+         :oldestHour:
+           U1
+       
+         :oldestMinute:
+           U1
+       
+         :oldestSecond:
+           U1
+       
+         :reserved3:
+           U1
+       
+         :newestYear:
+           U2
+       
+         :newestMonth:
+           U1
+       
+         :newestDay:
+           U1
+       
+         :newestHour:
+           U1
+       
+         :newestMinute:
+           U1
+       
+         :newestSecond:
+           U1
+       
+         :reserved4:
+           U1
+       
+         :status:
+           Bitfield(1)
+           
+             3: *recording*
+           
+             4: *inactive*
+           
+             5: *circular*
+       
+         :reserved5:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

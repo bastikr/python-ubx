@@ -1,0 +1,62 @@
+.. _message-description-NAV-HPPOSLLH:
+
+NAV-HPPOSLLH
+------------
+
+:name: NAV-HPPOSLLH
+
+:class: 0x01
+
+:id: 0x14
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=36)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :iTOW:
+           U4
+       
+         :lon:
+           I4
+       
+         :lat:
+           I4
+       
+         :height:
+           I4
+       
+         :hMSL:
+           I4
+       
+         :lonHp:
+           I1
+       
+         :latHp:
+           I1
+       
+         :heightHp:
+           I1
+       
+         :hMSLHp:
+           I1
+       
+         :hAcc:
+           U4
+       
+         :vAcc:
+           U4
+

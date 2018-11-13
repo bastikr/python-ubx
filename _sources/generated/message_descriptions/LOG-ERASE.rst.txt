@@ -1,0 +1,15 @@
+.. _message-description-LOG-ERASE:
+
+LOG-ERASE
+---------
+
+:name: LOG-ERASE
+
+:class: 0x21
+
+:id: 0x03
+
+:payload:
+
+  #. `Empty`
+

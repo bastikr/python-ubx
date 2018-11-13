@@ -1,0 +1,37 @@
+.. _message-description-CFG-ITFM:
+
+CFG-ITFM
+--------
+
+:name: CFG-ITFM
+
+:class: 0x06
+
+:id: 0x39
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=8)
+       
+         :config:
+           Bitfield(4)
+           
+             0:4: *bbThreshold*
+           
+             4:9: *cwThreshold*
+           
+             9:32: *algorithmBits*
+           
+             31: *enable*
+       
+         :config2:
+           Bitfield(4)
+           
+             0:12: *generalBits*
+           
+             12:14: *antSetting*
+           
+             14: *enable2*
+

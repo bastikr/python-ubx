@@ -1,0 +1,43 @@
+.. _message-description-NAV-GEOFENCE:
+
+NAV-GEOFENCE
+------------
+
+:name: NAV-GEOFENCE
+
+:class: 0x01
+
+:id: 0x39
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :iTOW:
+           U4
+       
+         :version:
+           U1
+       
+         :status:
+           U1
+       
+         :numFences:
+           U1
+       
+         :combState:
+           U1
+       
+         :fences:
+           KeyLoop(key="numFences"):
+           
+            Fields(length=2)
+             
+               :state:
+                 U1
+             
+               :reserved1:
+                 U1
+

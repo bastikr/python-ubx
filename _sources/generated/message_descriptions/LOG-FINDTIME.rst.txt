@@ -1,0 +1,67 @@
+.. _message-description-LOG-FINDTIME:
+
+LOG-FINDTIME
+------------
+
+:name: LOG-FINDTIME
+
+:class: 0x21
+
+:id: 0x0e
+
+:payload:
+
+  #. Fields(length=12)
+       
+         :version:
+           U1
+       
+         :type:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :year:
+           U2
+       
+         :month:
+           U1
+       
+         :day:
+           U1
+       
+         :hour:
+           U1
+       
+         :minute:
+           U1
+       
+         :second:
+           U1
+       
+         :reserved2:
+           U1
+  
+  #. Fields(length=8)
+       
+         :version:
+           U1
+       
+         :type:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :entryNumber:
+           U4
+

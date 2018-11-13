@@ -1,0 +1,43 @@
+.. _message-description-CFG-RST:
+
+CFG-RST
+-------
+
+:name: CFG-RST
+
+:class: 0x06
+
+:id: 0x04
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=2)
+       
+         :navBbrMask:
+           Bitfield(1)
+           
+             0: *eph*
+           
+             1: *alm*
+           
+             2: *health*
+           
+             3: *klob*
+           
+             4: *pos*
+           
+             5: *clkd*
+           
+             6: *osc*
+           
+             7: *utc*
+           
+             8: *rtc*
+           
+             15: *aop*
+       
+         :resetMode:
+           U1
+

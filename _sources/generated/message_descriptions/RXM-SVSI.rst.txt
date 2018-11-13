@@ -1,0 +1,63 @@
+.. _message-description-RXM-SVSI:
+
+RXM-SVSI
+--------
+
+:name: RXM-SVSI
+
+:class: 0x02
+
+:id: 0x20
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :iTOW:
+           U4
+       
+         :week:
+           I2
+       
+         :numVis:
+           U1
+       
+         :numSV:
+           U1
+       
+         :svs:
+           KeyLoop(key="numSV"):
+           
+            Fields(length=6)
+             
+               :svid:
+                 U1
+             
+               :svFlag:
+                 Bitfield(1)
+                 
+                   0:4: *ura*
+                 
+                   4: *healthy*
+                 
+                   5: *ephVal*
+                 
+                   6: *almVal*
+                 
+                   7: *notAvail*
+             
+               :azim:
+                 I2
+             
+               :elev:
+                 I1
+             
+               :age:
+                 Bitfield(1)
+                 
+                   0:4: *almAge*
+                 
+                   4:8: *ephAge*
+

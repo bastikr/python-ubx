@@ -1,0 +1,120 @@
+.. _message-description-HNR-PVT:
+
+HNR-PVT
+-------
+
+:name: HNR-PVT
+
+:class: 0x28
+
+:id: 0x00
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=72)
+       
+         :iTOW:
+           U4
+       
+         :year:
+           U2
+       
+         :month:
+           U1
+       
+         :day:
+           U1
+       
+         :hour:
+           U1
+       
+         :min:
+           U1
+       
+         :sec:
+           U1
+       
+         :valid:
+           Bitfield(1)
+           
+             0: *validDate*
+           
+             1: *validTime*
+           
+             2: *fullyResolved*
+       
+         :nano:
+           I4
+       
+         :gpsFix:
+           U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *GPSfixOK*
+           
+             1: *DiffSoln*
+           
+             2: *WKNSET*
+           
+             3: *TOWSET*
+           
+             4: *headVehValid*
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :lon:
+           I4
+       
+         :lat:
+           I4
+       
+         :height:
+           I4
+       
+         :hMSL:
+           I4
+       
+         :gSpeed:
+           I4
+       
+         :speed:
+           I4
+       
+         :headMot:
+           I4
+       
+         :headVeh:
+           I4
+       
+         :hAcc:
+           U4
+       
+         :vAcc:
+           U4
+       
+         :sAcc:
+           U4
+       
+         :headAcc:
+           U4
+       
+         :reserved2:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

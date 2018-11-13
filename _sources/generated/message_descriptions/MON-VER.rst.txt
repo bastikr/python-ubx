@@ -1,0 +1,28 @@
+.. _message-description-MON-VER:
+
+MON-VER
+-------
+
+:name: MON-VER
+
+:class: 0x0a
+
+:id: 0x04
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :swVersion:
+           Chars(30)
+       
+         :hwVersion:
+           Chars(10)
+       
+         :extension:
+           MatchedLoop
+           
+             Chars(30)
+

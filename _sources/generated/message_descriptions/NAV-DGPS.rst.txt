@@ -1,0 +1,66 @@
+.. _message-description-NAV-DGPS:
+
+NAV-DGPS
+--------
+
+:name: NAV-DGPS
+
+:class: 0x01
+
+:id: 0x31
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :iTOW:
+           U4
+       
+         :age:
+           I4
+       
+         :baseId:
+           I2
+       
+         :baseHealth:
+           I2
+       
+         :numCh:
+           U1
+       
+         :status:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :chs:
+           KeyLoop(key="numCh"):
+           
+            Fields(length=12)
+             
+               :svid:
+                 U1
+             
+               :flags:
+                 Bitfield(1)
+                 
+                   0:4: *channel*
+                 
+                   4: *dgpsUsed*
+             
+               :ageC:
+                 U2
+             
+               :prc:
+                 R4
+             
+               :prrc:
+                 R4
+

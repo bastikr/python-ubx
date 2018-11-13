@@ -1,0 +1,41 @@
+.. _message-description-NAV-TIMEGPS:
+
+NAV-TIMEGPS
+-----------
+
+:name: NAV-TIMEGPS
+
+:class: 0x01
+
+:id: 0x20
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=16)
+       
+         :iTOW:
+           U4
+       
+         :fTOW:
+           I4
+       
+         :week:
+           I2
+       
+         :leapS:
+           I1
+       
+         :valid:
+           Bitfield(1)
+           
+             0: *towValid*
+           
+             1: *weekValid*
+           
+             2: *leapSValid*
+       
+         :tAcc:
+           U4
+

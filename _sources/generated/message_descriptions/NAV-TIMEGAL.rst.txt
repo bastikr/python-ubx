@@ -1,0 +1,44 @@
+.. _message-description-NAV-TIMEGAL:
+
+NAV-TIMEGAL
+-----------
+
+:name: NAV-TIMEGAL
+
+:class: 0x01
+
+:id: 0x25
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :iTOW:
+           U4
+       
+         :galTow:
+           U4
+       
+         :fGalTow:
+           I4
+       
+         :galWno:
+           I2
+       
+         :leapS:
+           I1
+       
+         :valid:
+           Bitfield(1)
+           
+             0: *galTowValid*
+           
+             1: *galWnoValid*
+           
+             2: *leapSValid*
+       
+         :tAcc:
+           U4
+

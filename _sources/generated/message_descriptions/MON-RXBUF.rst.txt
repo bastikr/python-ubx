@@ -1,0 +1,62 @@
+.. _message-description-MON-RXBUF:
+
+MON-RXBUF
+---------
+
+:name: MON-RXBUF
+
+:class: 0x0a
+
+:id: 0x07
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=24)
+       
+         :pending:
+           List
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+       
+         :usage:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :peakUsage:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

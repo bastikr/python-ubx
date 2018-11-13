@@ -1,0 +1,55 @@
+.. _message-description-CFG-GEOFENCE:
+
+CFG-GEOFENCE
+------------
+
+:name: CFG-GEOFENCE
+
+:class: 0x06
+
+:id: 0x69
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :version:
+           U1
+       
+         :numFences:
+           U1
+       
+         :confLvl:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :pioEnabled:
+           U1
+       
+         :pinPolarity:
+           U1
+       
+         :pin:
+           U1
+       
+         :reserved2:
+           U1
+       
+         :fences:
+           KeyLoop(key="numFences"):
+           
+            Fields(length=12)
+             
+               :lat:
+                 I4
+             
+               :lon:
+                 I4
+             
+               :radius:
+                 U4
+

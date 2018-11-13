@@ -1,0 +1,18 @@
+.. _message-description-INF-DEBUG:
+
+INF-DEBUG
+---------
+
+:name: INF-DEBUG
+
+:class: 0x04
+
+:id: 0x04
+
+:payload:
+
+  #. Fields(length=?)
+       
+         :str:
+           Chars(None)
+

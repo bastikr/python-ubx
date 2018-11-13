@@ -1,0 +1,79 @@
+.. _message-description-CFG-TMODE3:
+
+CFG-TMODE3
+----------
+
+:name: CFG-TMODE3
+
+:class: 0x06
+
+:id: 0x71
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=40)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           U1
+       
+         :flags:
+           Bitfield(2)
+           
+             0:8: *mode*
+           
+             8: *lla*
+       
+         :ecefXOrLat:
+           I4
+       
+         :ecefYOrLon:
+           I4
+       
+         :ecefZOrAlt:
+           I4
+       
+         :ecefXOrLatHP:
+           I1
+       
+         :ecefYOrLonHP:
+           I1
+       
+         :ecefZOrAltHP:
+           I1
+       
+         :reserved2:
+           U1
+       
+         :fixedPosAcc:
+           U4
+       
+         :svinMinDur:
+           U4
+       
+         :svinAccLimit:
+           U4
+       
+         :reserved3:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

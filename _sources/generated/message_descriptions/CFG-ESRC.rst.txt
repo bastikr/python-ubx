@@ -1,0 +1,83 @@
+.. _message-description-CFG-ESRC:
+
+CFG-ESRC
+--------
+
+:name: CFG-ESRC
+
+:class: 0x06
+
+:id: 0x60
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=?)
+       
+         :version:
+           U1
+       
+         :numSources:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :sources:
+           KeyLoop(key="numSources"):
+           
+            Fields(length=36)
+             
+               :extInt:
+                 U1
+             
+               :sourceType:
+                 U1
+             
+               :flags:
+                 Bitfield(2)
+                 
+                   0: *polarity*
+                 
+                   1: *gnssUtc*
+             
+               :freq:
+                 U4
+             
+               :reserved2:
+                 List
+                 
+                   - U1
+                 
+                   - U1
+                 
+                   - U1
+                 
+                   - U1
+             
+               :withTemp:
+                 U4
+             
+               :withAge:
+                 U4
+             
+               :timeToTemp:
+                 U2
+             
+               :maxDevLifeTime:
+                 U2
+             
+               :offset:
+                 I4
+             
+               :offsetUncertainty:
+                 U4
+             
+               :jitter:
+                 U4
+

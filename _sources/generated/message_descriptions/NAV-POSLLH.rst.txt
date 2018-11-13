@@ -1,0 +1,38 @@
+.. _message-description-NAV-POSLLH:
+
+NAV-POSLLH
+----------
+
+:name: NAV-POSLLH
+
+:class: 0x01
+
+:id: 0x02
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=28)
+       
+         :iTOW:
+           U4
+       
+         :lon:
+           I4
+       
+         :lat:
+           I4
+       
+         :height:
+           I4
+       
+         :hMSL:
+           I4
+       
+         :hAcc:
+           U4
+       
+         :vAcc:
+           U4
+

@@ -1,0 +1,41 @@
+.. _message-description-NAV-ODO:
+
+NAV-ODO
+-------
+
+:name: NAV-ODO
+
+:class: 0x01
+
+:id: 0x09
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=20)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :iTOW:
+           U4
+       
+         :distance:
+           U4
+       
+         :totalDistance:
+           U4
+       
+         :distanceStd:
+           U4
+

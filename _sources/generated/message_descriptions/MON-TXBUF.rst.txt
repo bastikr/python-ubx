@@ -1,0 +1,80 @@
+.. _message-description-MON-TXBUF:
+
+MON-TXBUF
+---------
+
+:name: MON-TXBUF
+
+:class: 0x0a
+
+:id: 0x08
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=28)
+       
+         :pending:
+           List
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+           
+             - U2
+       
+         :usage:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :peakUsage:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :tUsage:
+           U1
+       
+         :tPeakusage:
+           U1
+       
+         :errors:
+           Bitfield(1)
+           
+             0:6: *limit*
+           
+             6: *mem*
+           
+             7: *alloc*
+       
+         :reserved1:
+           U1
+

@@ -1,0 +1,33 @@
+.. _message-description-LOG-RETRIEVE:
+
+LOG-RETRIEVE
+------------
+
+:name: LOG-RETRIEVE
+
+:class: 0x21
+
+:id: 0x09
+
+:payload:
+
+  #. Fields(length=12)
+       
+         :startNumber:
+           U4
+       
+         :entryCount:
+           U4
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+

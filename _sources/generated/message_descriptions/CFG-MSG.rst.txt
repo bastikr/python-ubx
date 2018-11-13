@@ -1,0 +1,55 @@
+.. _message-description-CFG-MSG:
+
+CFG-MSG
+-------
+
+:name: CFG-MSG
+
+:class: 0x06
+
+:id: 0x01
+
+:payload:
+
+  #. Fields(length=2)
+       
+         :msgClass:
+           U1
+       
+         :msgID:
+           U1
+  
+  #. Fields(length=8)
+       
+         :msgClass:
+           U1
+       
+         :msgID:
+           U1
+       
+         :rate:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+           
+             - U1
+  
+  #. Fields(length=3)
+       
+         :msgClass:
+           U1
+       
+         :msgID:
+           U1
+       
+         :rate:
+           U1
+

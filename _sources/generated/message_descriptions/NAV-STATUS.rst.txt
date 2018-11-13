@@ -1,0 +1,56 @@
+.. _message-description-NAV-STATUS:
+
+NAV-STATUS
+----------
+
+:name: NAV-STATUS
+
+:class: 0x01
+
+:id: 0x03
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=16)
+       
+         :iTOW:
+           U4
+       
+         :gpsFix:
+           U1
+       
+         :flags:
+           Bitfield(1)
+           
+             0: *gpsFixOk*
+           
+             1: *diffSoln*
+           
+             2: *wknSet*
+           
+             3: *towSet*
+           
+             4:8: *reserved*
+       
+         :fixStat:
+           Bitfield(1)
+           
+             0: *diffCor*
+           
+             6:8: *mapMatching*
+       
+         :flags2:
+           Bitfield(1)
+           
+             0:2: *psmState*
+           
+             3:5: *spoofDetState*
+       
+         :ttff:
+           U4
+       
+         :msss:
+           U4
+

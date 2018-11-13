@@ -1,0 +1,56 @@
+.. _message-description-NAV-HPPOSECEF:
+
+NAV-HPPOSECEF
+-------------
+
+:name: NAV-HPPOSECEF
+
+:class: 0x01
+
+:id: 0x13
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=28)
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+           
+             - U1
+       
+         :iTOW:
+           U4
+       
+         :ecefX:
+           I4
+       
+         :ecefY:
+           I4
+       
+         :ecefZ:
+           I4
+       
+         :ecefXHp:
+           I1
+       
+         :ecefYHp:
+           I1
+       
+         :ecefZHp:
+           I1
+       
+         :reserved2:
+           U1
+       
+         :pAcc:
+           U4
+

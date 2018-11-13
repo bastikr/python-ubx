@@ -1,0 +1,77 @@
+.. _message-description-CFG-TP5:
+
+CFG-TP5
+-------
+
+:name: CFG-TP5
+
+:class: 0x06
+
+:id: 0x31
+
+:payload:
+
+  #. `Empty`
+  
+  #. Fields(length=1)
+       
+         :tpIdx:
+           U1
+  
+  #. Fields(length=32)
+       
+         :tpIdx:
+           U1
+       
+         :version:
+           U1
+       
+         :reserved1:
+           List
+           
+             - U1
+           
+             - U1
+       
+         :antCableDelay:
+           I2
+       
+         :rfGroupDelay:
+           I2
+       
+         :freqPeriod:
+           U4
+       
+         :freqPeriodLock:
+           U4
+       
+         :pulseLenRation:
+           U4
+       
+         :pulseLenRationLock:
+           U4
+       
+         :userConfigDelay:
+           I4
+       
+         :flags:
+           Bitfield(4)
+           
+             0: *active*
+           
+             1: *lockGpsFreq*
+           
+             2: *lockedOtherSet*
+           
+             3: *isFreq*
+           
+             4: *isLength*
+           
+             5: *alignToTow*
+           
+             6: *polarity*
+           
+             7:11: *gridUtcGnss*
+           
+             11:13: *syncMode*
+
