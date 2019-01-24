@@ -1,7 +1,9 @@
 from .exceptions import PayloadError
 
 
-class Buffer:
+class Buffer(object):
+    __slots__ = "data", "index"
+
     def __init__(self, data, index):
         self.data = data
         self.index = index

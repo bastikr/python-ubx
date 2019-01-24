@@ -1,8 +1,11 @@
+from .payload_type import PayloadType
 from .context import Context
 from .exceptions import PayloadError
 
 
-class Options:
+class Options(PayloadType):
+    __slots__ = "descriptions",
+
     def __init__(self, *descriptions):
         self.descriptions = descriptions
 

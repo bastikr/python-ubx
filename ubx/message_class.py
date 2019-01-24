@@ -3,10 +3,12 @@
 from . import utils
 
 
-class MessageClass:
+class MessageClass(object):
     """
     Simple class storing the name and byte of a UBX message class.
     """
+    __slots__ = "name", "byte"
+
     def __init__(self, name, byte):
         if not isinstance(byte, bytes):
             raise TypeError("byte argument has to be of type \"byte\" but is: {}".format(

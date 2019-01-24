@@ -6,7 +6,9 @@ from .message_class import MessageClass
 from .message_id import MessageId
 
 
-class MessageDescription:
+class MessageDescription(object):
+    __slots__ = "message_class", "message_id", "payload_description"
+
     def __init__(self, message_class, message_id, payload_description):
         assert isinstance(message_class, MessageClass)
         assert isinstance(message_id, MessageId)
@@ -48,7 +50,9 @@ class MessageDescription:
         return self.rawmessage(content).serialize()
 
 
-class Message:
+class Message(object):
+    __slots__ = "description", "content"
+
     def __init__(self, description, content):
         self.description = description
         self.content = content

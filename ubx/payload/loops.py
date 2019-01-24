@@ -1,10 +1,13 @@
 from collections import OrderedDict
 
+from .payload_type import PayloadType
 from .context import Context
 from .exceptions import PayloadError
 
 
-class Loop:
+class Loop(PayloadType):
+    __slots__ = "description",
+
     def __init__(self, description):
         self.description = description
         self.bytesize = None
@@ -59,6 +62,8 @@ class MatchedLoop(Loop):
 
 
 class KeyLoop(Loop):
+    __slots__ = "key",
+
     def __init__(self, key, description):
         Loop.__init__(self, description)
         self.key = key

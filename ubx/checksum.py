@@ -19,8 +19,10 @@ class ChecksumError(Exception):
         self.checksum1 = checksum1
 
 
-class Checksum:
+class Checksum(object):
     """Checksum using a 8-Bit Fletcher algorithm with modulo 256."""
+
+    __slots__ = "a", "b"
 
     checksum_struct = struct.Struct("<B")
 

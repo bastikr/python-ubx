@@ -6,7 +6,9 @@ from . import utils
 from . import checksum
 
 
-class RawMessage:
+class RawMessage(object):
+    __slots__ = "message_class", "message_id", "payload"
+
     length_struct = struct.Struct("<H")
 
     def __init__(self, classbyte, idbyte, payload):

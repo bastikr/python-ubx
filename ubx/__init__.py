@@ -1,6 +1,7 @@
 from . import syncchars
 from . import message_class
 from . import message_id
+from . import exceptions
 
 from .message_class import MessageClass
 from .message_id import MessageId

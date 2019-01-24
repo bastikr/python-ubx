@@ -1,5 +1,6 @@
 from collections import OrderedDict
 
+from .payload_type import PayloadType
 from .context import Context
 from .exceptions import PayloadError
 

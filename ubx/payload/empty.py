@@ -1,7 +1,8 @@
+from .payload_type import PayloadType
 from .exceptions import PayloadError
 
 
-class EmptyVariable:
+class EmptyVariable(PayloadType):
     bytesize = 0
 
     def parse(self, buffer, context=None):

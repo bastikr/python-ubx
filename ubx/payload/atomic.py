@@ -1,9 +1,12 @@
 import struct
 
+from .payload_type import PayloadType
 from .lists import List
 
 
-class AtomicVariable:
+class AtomicVariable(PayloadType):
+    __slots__ = "name", "struct_format", "struct"
+
     def __init__(self, name, bytesize, struct_format):
         self.name = name
         self.bytesize = bytesize

@@ -1,12 +1,15 @@
 from collections import OrderedDict
 import bitarray
 
+from .payload_type import PayloadType
 from .lists import List
 from .context import Context
 from .exceptions import PayloadError
 
 
-class BitfieldEntry:
+class BitfieldEntry(object):
+    __slots__ = "name", "bits"
+
     def __init__(self, name, bits):
         self.name = name
         self.bits = bits
@@ -21,7 +24,7 @@ class BitfieldEntry:
         return "BitfieldEntry(name=\"{}\"; bits={})".format(self.name, self.bits)
 
 
-class Bitfield:
+class Bitfield(PayloadType):
     def __init__(self, bytesize, entries=None):
         self.bytesize = bytesize
         self.entries = entries

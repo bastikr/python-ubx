@@ -13,7 +13,9 @@ class ReaderException(Exception):
         self.message = msg
 
 
-class Reader:
+class Reader(object):
+    __slots__ = "read"
+
     def __init__(self, read):
         self.read = read
 

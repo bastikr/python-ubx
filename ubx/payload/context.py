@@ -1,4 +1,6 @@
-class Context:
+class Context(object):
+    __slots__ = "data", "parent"
+
     def __init__(self, data=None, parent=None):
         self.data = data
         self.parent = parent

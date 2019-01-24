@@ -1,7 +1,11 @@
 import codecs
 
+from .payload_type import PayloadType
 
-class Chars:
+
+class Chars(PayloadType):
+    __slots__ = "codec",
+
     def __init__(self, bytesize, encoding="iso-8859-1"):
         self.bytesize = bytesize
         self.codec = codecs.lookup(encoding)

@@ -7,6 +7,9 @@ class MessageId:
     """
     Simple class storing the name and byte of a UBX message id.
     """
+
+    __slots__ = "name", "subname", "byte"
+
     def __init__(self, name, byte, subname=None):
         if not isinstance(byte, bytes):
             raise TypeError("byte argument has to be of type \"byte\" but is: {}".format(
