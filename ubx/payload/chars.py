@@ -4,7 +4,7 @@ import codecs
 class Chars:
     def __init__(self, bytesize, encoding="iso-8859-1"):
         self.bytesize = bytesize
-        self.encoding = codecs.lookup(encoding)
+        self.codec = codecs.lookup(encoding)
 
     def parse(self, buffer, context=None):
         buffer.check_bytesize(self.bytesize, "Chars", context)
@@ -12,10 +12,10 @@ class Chars:
             bytestring = buffer.read(buffer.remaining_bytesize)
         else:
             bytestring = buffer.read(self.bytesize)
-        return bytestring.decode(self.encoding)
+        return self.codec.decode(bytestring)
 
     def serialize(self, content, context=None):
-        return content.encode(self.encoding)
+        return self.codec.encode(content)
 
     def __str__(self):
         return "Chars({})".format(self.bytesize)
