@@ -77,7 +77,7 @@ def run():
         except KeyError:
             stats.add_unknownmessage(rawmessage)
             continue
-        except ubx.PayloadError:
+        except ubx.exceptions.PayloadError:
             stats.add_payloaderror(
                 ubx.Message(parser.descriptions[rawmessage.key], None))
             continue

@@ -1,4 +1,5 @@
-from . import payload
+from .payload.buffer import Buffer
+from .payload.exceptions import PayloadError
 
 
 class Parser:
@@ -15,8 +16,8 @@ class Parser:
         if key not in self.descriptions:
             raise KeyError("No description for " + str(rawmsg))
         else:
-            buffer = payload.Buffer(rawmsg.payload, index=0)
+            buffer = Buffer(rawmsg.payload, index=0)
             msg = self.descriptions[key].parse(buffer)
             if buffer.remaining_bytesize != 0:
-                raise payload.PayloadError("Not all bytes used.", buffer, None)
+                raise PayloadError("Not all bytes used.", buffer, None)
             return msg
