@@ -1,11 +1,11 @@
 from collections import OrderedDict
 
-from .payload_type import PayloadType
+from .datatype import DataType
 from .context import Context
 from .exceptions import PayloadError
 
 
-class Loop(PayloadType):
+class Loop(DataType):
     __slots__ = "description",
 
     def __init__(self, description):

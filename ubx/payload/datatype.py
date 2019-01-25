@@ -1,4 +1,4 @@
-class PayloadType(object):
+class DataType(object):
     __slots__ = "bytesize",
 
     def parse(self, buffer, context=None):

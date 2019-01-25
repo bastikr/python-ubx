@@ -1,9 +1,9 @@
 import codecs
 
-from .payload_type import PayloadType
+from .datatype import DataType
 
 
-class Chars(PayloadType):
+class Chars(DataType):
     __slots__ = "codec",
 
     def __init__(self, bytesize, encoding="iso-8859-1"):

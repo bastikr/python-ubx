@@ -1,9 +1,9 @@
-from .payload_type import PayloadType
+from .datatype import DataType
 from .context import Context
 from .exceptions import PayloadError
 
 
-class List(PayloadType):
+class List(DataType):
     __slots__ = "descriptions",
 
     def __init__(self, descriptions):

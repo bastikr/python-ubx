@@ -1,6 +1,6 @@
 from collections import OrderedDict
 
-from .payload_type import PayloadType
+from .datatype import DataType
 from .context import Context
 from .exceptions import PayloadError
 
@@ -10,6 +10,8 @@ class Fields(OrderedDict):
         OrderedDict.__init__(self, fields)
         bytesize = 0
         for _, description in fields:
+            if not isinstance(description, DataType):
+                raise PayloadError("Given description is not a DataType.", None, None)
             if not hasattr(description, "bytesize") or description.bytesize is None:
                 bytesize = None
                 break

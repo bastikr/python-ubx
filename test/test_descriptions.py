@@ -8,6 +8,16 @@ from ubx.descriptions import mon_hw
 from ubx.descriptions import rxm_rawx
 
 
+class DummyPayloadDataType(ubx.payload.DataType):
+    __slots__ = "label",
+
+    def __init__(self, label):
+        self.label = label
+
+    def __str__(self):
+        return self.label
+
+
 class TestPrinting(unittest.TestCase):
     def test_AtomicVariable(self):
         self.assertEqual(str(ubx.payload.U1), "U1")
@@ -39,30 +49,32 @@ class TestPrinting(unittest.TestCase):
                         "]")
 
     def test_Fields(self):
-        field1 = ("a", "va")
-        field2 = ("b", "vb")
-        field3 = ("c", "vc")
-        fields1 = ubx.payload.Fields(field1, field2)
+        field1 = ("a", DummyPayloadDataType("va"))
+        field2 = ("b", DummyPayloadDataType("vb"))
+        field3 = ("c", DummyPayloadDataType("vc"))
+        fields1 = ubx.payload.Fields(field1)
         self.assertEqual(str(fields1),
+                        "Fields(length=?) {\n"
+                        "  a: va\n"
+                        "}")
+        fields2 = ubx.payload.Fields(field1, field2)
+        self.assertEqual(str(fields2),
                         "Fields(length=?) {\n"
                         "  a: va,\n"
                         "  b: vb\n"
                         "}")
-        fields2 = ubx.payload.Fields(("fields", fields1), field3)
-        self.assertEqual(str(fields2),
+        fields3 = ubx.payload.Fields(field1, field2, field3)
+        self.assertEqual(str(fields3),
                         "Fields(length=?) {\n"
-                        "  fields:\n"
-                        "    Fields(length=?) {\n"
-                        "      a: va,\n"
-                        "      b: vb\n"
-                        "    },\n"
+                        "  a: va,\n"
+                        "  b: vb,\n"
                         "  c: vc\n"
                         "}")
 
     def test_Loop(self):
-        field1 = ("a", "va")
-        field2 = ("b", "vb")
-        field3 = ("c", "vc")
+        field1 = ("a", DummyPayloadDataType("va"))
+        field2 = ("b", DummyPayloadDataType("vb"))
+        field3 = ("c", DummyPayloadDataType("vc"))
         self.assertEqual(str(ubx.payload.KeyLoop("k", "va")),
                         "Loop(key=\"k\"):\n"
                         "| va")

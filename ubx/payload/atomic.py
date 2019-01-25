@@ -1,10 +1,10 @@
 import struct
 
-from .payload_type import PayloadType
+from .datatype import DataType
 from .lists import List
 
 
-class AtomicVariable(PayloadType):
+class AtomicVariable(DataType):
     __slots__ = "name", "struct_format", "struct"
 
     def __init__(self, name, bytesize, struct_format):
